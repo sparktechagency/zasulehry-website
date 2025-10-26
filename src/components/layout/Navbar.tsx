@@ -3,6 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { mainNavigation } from "@/constants/navigation";
+import { gradientClasses } from "@/styles/gradients";
+import Container from "@/components/ui/Container";
+import logo from "@/assets/banner/logo.png";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,18 +16,19 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className={`${gradientClasses.primaryBg}  sticky top-0 z-50`}>
+      <Container>
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <div className="shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">Z</span>
-              </div>
-              <span className="ml-2 text-xl font-bold text-gray-900">
-                Zasulehry
-              </span>
+              <Image
+                src={logo}
+                alt="Zasulehry"
+                width={70}
+                height={60}
+                className="w-auto h-auto"
+              />
             </Link>
           </div>
 
@@ -34,7 +39,7 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                  className="text-white hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
                 >
                   {item.label}
                 </Link>
@@ -43,12 +48,20 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Link
-              href="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-            >
-              Get Started
+          <div className="hidden md:block space-x-4">
+            <Link href="/login">
+              <button
+                className={`${gradientClasses.buttonBg} text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200`}
+              >
+                Login
+              </button>
+            </Link>
+            <Link href="/signUp">
+              <button
+                className={`${gradientClasses.buttonBg} text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200`}
+              >
+                Sign Up
+              </button>
             </Link>
           </div>
 
@@ -96,7 +109,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* Mobile menu */}
       {isMenuOpen && (

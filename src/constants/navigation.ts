@@ -1,47 +1,44 @@
-import { NavItem, SocialLink, FooterSection } from '@/types';
+import { NavItem, SocialLink, FooterSection } from "@/types";
 
 export const mainNavigation: NavItem[] = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
+  { label: "Home", href: "/" },
+  { label: "Jobs", href: "/jobs" },
+  { label: "Employer Services", href: "/employer-services" },
 ];
 
 export const socialLinks: SocialLink[] = [
-  { name: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
-  { name: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
-  { name: 'GitHub', href: 'https://github.com', icon: 'github' },
-  { name: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
+  { name: "Twitter", href: "https://twitter.com", icon: "twitter" },
+  { name: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
+  { name: "GitHub", href: "https://github.com", icon: "github" },
+  { name: "Instagram", href: "https://instagram.com", icon: "instagram" },
 ];
 
 export const footerSections: FooterSection[] = [
   {
-    title: 'Company',
+    title: "Quick Links",
     links: [
-      { label: 'About Us', href: '/about' },
-      { label: 'Our Team', href: '/team' },
-      { label: 'Careers', href: '/careers' },
-      { label: 'Contact', href: '/contact' },
+      { label: "Profile", href: "/profile" },
+      { label: "Home", href: "/" },
+      { label: "Jobs", href: "/jobs" },
+      { label: "Employer Services", href: "/employer-services" },
     ],
   },
   {
-    title: 'Services',
+    title: "Quick Links",
     links: [
-      { label: 'Web Development', href: '/services/web-development' },
-      { label: 'Mobile Apps', href: '/services/mobile-apps' },
-      { label: 'UI/UX Design', href: '/services/design' },
-      { label: 'Consulting', href: '/services/consulting' },
+      { label: "Jobs Posting", href: "/jobs-posting" },
+      { label: "Subscription Plan", href: "/subscription-plan" },
+      { label: "Salary Calculator", href: "/salary-calculator" },
+      { label: "Download Center", href: "/download-center" },
     ],
   },
   {
-    title: 'Resources',
+    title: "Legal Info",
     links: [
-      { label: 'Blog', href: '/blog' },
-      { label: 'Documentation', href: '/docs' },
-      { label: 'Help Center', href: '/help' },
-      { label: 'Privacy Policy', href: '/privacy' },
+      { label: "Terms & Conditions", href: "/terms" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Impressum", href: "/impressum" },
+      { label: "About Us", href: "/about" },
     ],
   },
 ];
