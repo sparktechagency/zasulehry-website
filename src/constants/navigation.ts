@@ -4,6 +4,7 @@ export const mainNavigation: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Jobs", href: "/jobs" },
   { label: "Employer Services", href: "/employer-services" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 export const socialLinks: SocialLink[] = [
@@ -35,10 +36,10 @@ export const footerSections: FooterSection[] = [
   {
     title: "Legal Info",
     links: [
-      { label: "Terms & Conditions", href: "/terms" },
-      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms & Conditions", href: "/terms-and-conditions" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Impressum", href: "/impressum" },
-      { label: "About Us", href: "/about" },
+      { label: "About Us", href: "/about-us" },
     ],
   },
 ];

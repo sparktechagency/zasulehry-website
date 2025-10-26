@@ -1,5 +1,6 @@
 import { gradientClasses } from "@/styles/gradients";
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 export interface JobCardProps {
@@ -10,11 +11,12 @@ export interface JobCardProps {
   salary: string;
   type: string;
   postedDays: number;
-  image?: any;
+  image?: string;
   onClick?: () => void;
 }
 
 const JobCard: FC<JobCardProps> = ({
+  id,
   company,
   location,
   position,
@@ -76,12 +78,14 @@ const JobCard: FC<JobCardProps> = ({
 
       {/* View Details Button */}
       <div className="mt-auto border border-[#FFFFFF1A] m-3 rounded-lg">
-        <button
-          onClick={onClick}
-          className={`${gradientClasses.buttonBg} rounded-lg w-full py-2 text-center text-white  transition-colors font-medium`}
-        >
-          View Details
-        </button>
+        <Link href={`/jobs/${id}`}>
+          <button
+            onClick={onClick}
+            className={`${gradientClasses.buttonBg} rounded-lg cursor-pointer w-full py-2 text-center text-white  transition-colors font-medium`}
+          >
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );

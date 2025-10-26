@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { mainNavigation } from "@/constants/navigation";
 import { gradientClasses } from "@/styles/gradients";
 import Container from "@/components/ui/Container";
@@ -10,6 +11,7 @@ import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -39,7 +41,11 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-white hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    pathname === item.href
+                      ? "text-blue-300 font-bold border-b-2 border-blue-300"
+                      : "text-white hover:text-blue-300"
+                  }`}
                 >
                   {item.label}
                 </Link>
@@ -119,7 +125,11 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  pathname === item.href
+                    ? "text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50"
+                    : "text-gray-700 hover:text-blue-600"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

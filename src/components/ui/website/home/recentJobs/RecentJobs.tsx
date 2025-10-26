@@ -8,12 +8,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
 // import required modules
-import { Pagination, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import JobCard from "@/components/ui/JobCard";
-import image1 from "@/assets/homeSlider/Frame 214237228190.png";
-import image2 from "@/assets/homeSlider/Frame 214722348190.png";
-import image3 from "@/assets/homeSlider/Frame 214722812290.png";
-import image4 from "@/assets/homeSlider/Frame 2147228190.png";
 import { FaChevronLeft, FaChevronRight, FaSearch } from "react-icons/fa";
 import { gradientClasses } from "@/styles/gradients";
 
@@ -26,7 +22,8 @@ const jobs = [
     salary: "$200–$300/Month",
     type: "Full Time",
     postedDays: 2,
-    image: image1,
+    image:
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
   },
   {
     id: 2,
@@ -36,7 +33,8 @@ const jobs = [
     salary: "$200–$300/Month",
     type: "Full Time",
     postedDays: 2,
-    image: image2,
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
   },
   {
     id: 3,
@@ -46,7 +44,8 @@ const jobs = [
     salary: "$200–$300/Month",
     type: "Full Time",
     postedDays: 2,
-    image: image3,
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
   },
   {
     id: 4,
@@ -56,7 +55,8 @@ const jobs = [
     salary: "$200–$300/Month",
     type: "Full Time",
     postedDays: 2,
-    image: image4,
+    image:
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
   },
   {
     id: 5,
@@ -66,7 +66,8 @@ const jobs = [
     salary: "$200–$300/Month",
     type: "Full Time",
     postedDays: 2,
-    image: image3,
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
   },
   {
     id: 6,
@@ -76,7 +77,8 @@ const jobs = [
     salary: "$200–$300/Month",
     type: "Full Time",
     postedDays: 2,
-    image: image4,
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
   },
 ];
 

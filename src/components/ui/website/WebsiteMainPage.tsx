@@ -5,6 +5,7 @@ import ModernWarkforce from "./home/ModernWarkforce";
 import NeedHelp from "./home/NeedHelp";
 import RecentJobs from "./home/recentJobs/RecentJobs";
 import StartFree from "./home/StartFree";
+import WhatCanYouDo from "./home/WhatCanYouDo";
 import WhyChooseUs from "./home/WhyChooseUs";
 import WhyNotOthers from "./home/WhyNotOthers";
 
@@ -18,6 +19,7 @@ const WebsiteMainPage = () => {
       <WhyChooseUs />
       <WhyNotOthers />
       <ConnectingJobs />
+      <WhatCanYouDo />
       <JobSearching />
       <NeedHelp />
     </div>

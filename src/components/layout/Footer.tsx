@@ -61,7 +61,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-gray-200 text-sm">
                 <EmailIcon />
-                <span className="ml-2">JobsinApp@Gmail.Com</span>
+                <span className="ml-2">JobsinApp.Com</span>
               </li>
               <li className="flex items-center text-gray-200 text-sm">
                 <ContactIcon />
@@ -82,7 +82,7 @@ export default function Footer() {
             <div className="space-y-3">
               <Link
                 href="#"
-                className="flex items-center bg-white text-black hover:bg-gray-800 px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center bg-white text-black  px-4 py-2 rounded-lg transition-colors duration-200"
               >
                 <GooglePlayIcon />
                 <div className="ml-3">
@@ -92,7 +92,7 @@ export default function Footer() {
               </Link>
               <Link
                 href="#"
-                className="flex items-center bg-white text-black hover:bg-gray-800 px-4 py-2 rounded-lg transition-colors duration-200"
+                className="flex items-center bg-white text-black px-4 py-2 rounded-lg transition-colors duration-200"
               >
                 <AppleStoreIcon />
                 <div className="ml-3">
