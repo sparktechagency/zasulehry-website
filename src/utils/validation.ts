@@ -92,7 +92,7 @@ export function isValidUrl(url: string): boolean {
     new URL(url);
     return true;
   } catch (error) {
-    console.log(error, "Invalid URL");
+    // console.log(error, "Invalid URL");
     return false;
   }
 }

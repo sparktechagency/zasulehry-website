@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Container from "@/components/ui/Container";
 import { gradientClasses } from "@/styles/gradients";
 
@@ -31,7 +30,7 @@ const ContactUsPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log({ ...formData, file });
+    // console.log({ ...formData, file });
     // Reset form after submission
     setFormData({
       name: "",

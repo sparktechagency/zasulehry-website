@@ -212,11 +212,11 @@ const JobsMainPage = () => {
         <div className="my-10">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1034.8187995501783!2d90.43006822442457!3d23.724543698613555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbd!4v1761459003902!5m2!1sen!2sbd"
-            width="1300"
+            width="1200"
             height="500"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-lg"
+            className="rounded-lg w-full"
           ></iframe>
         </div>
 
@@ -243,8 +243,8 @@ const JobsMainPage = () => {
 
         <div>
           {/* Job Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {currentJobs.map((job) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+            {currentJobs?.map((job) => (
               <JobCard
                 key={job.id}
                 id={job.id}

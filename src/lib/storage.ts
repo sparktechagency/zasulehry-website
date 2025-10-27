@@ -41,7 +41,7 @@ export function setItem(
     storage.setItem(key, serialized);
     return true;
   } catch (error) {
-    console.error(`Error setting ${type} storage item:`, error);
+    // console.error(`Error setting ${type} storage item:`, error);
     return false;
   }
 }
@@ -68,7 +68,7 @@ export function getItem<T>(
 
     return JSON.parse(value) as T;
   } catch (error) {
-    console.error(`Error getting ${type} storage item:`, error);
+    // console.error(`Error getting ${type} storage item:`, error);
     return defaultValue;
   }
 }
@@ -85,7 +85,7 @@ export function removeItem(key: string, type: StorageType = "local"): boolean {
     storage.removeItem(key);
     return true;
   } catch (error) {
-    console.error(`Error removing ${type} storage item:`, error);
+    // console.error(`Error removing ${type} storage item:`, error);
     return false;
   }
 }
@@ -101,7 +101,7 @@ export function clearStorage(type: StorageType = "local"): boolean {
     storage.clear();
     return true;
   } catch (error) {
-    console.error(`Error clearing ${type} storage:`, error);
+    // console.error(`Error clearing ${type} storage:`, error);
     return false;
   }
 }
@@ -125,7 +125,7 @@ export function isStorageAvailable(type: StorageType = "local"): boolean {
 
     return true;
   } catch (error) {
-    console.error(`Error checking ${type} storage availability:`, error);
+    // console.error(`Error checking ${type} storage availability:`, error);
     return false;
   }
 }

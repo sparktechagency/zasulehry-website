@@ -70,7 +70,7 @@ export async function apiRequest<T = any>(
       try {
         errorData = await response.json();
       } catch (e) {
-        console.error("Error parsing error response:", e);
+        // console.error("Error parsing error response:", e);
         errorData = { message: response.statusText };
       }
 

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 type SetValue<T> = T | ((val: T) => T);
 
@@ -17,20 +17,22 @@ export function useLocalStorage<T>(
   // Get from local storage then parse stored json or return initialValue
   const readValue = (): T => {
     // Prevent build error "window is undefined" but keep working
-    if (typeof window === 'undefined') {
-      return typeof initialValue === 'function'
+    if (typeof window === "undefined") {
+      return typeof initialValue === "function"
         ? (initialValue as () => T)()
         : initialValue;
     }
 
     try {
       const item = window.localStorage.getItem(key);
-      return item ? (JSON.parse(item) as T) : typeof initialValue === 'function'
+      return item
+        ? (JSON.parse(item) as T)
+        : typeof initialValue === "function"
         ? (initialValue as () => T)()
         : initialValue;
     } catch (error) {
-      console.warn(`Error reading localStorage key "${key}":`, error);
-      return typeof initialValue === 'function'
+      // console.warn(`Error reading localStorage key "${key}":`, error);
+      return typeof initialValue === "function"
         ? (initialValue as () => T)()
         : initialValue;
     }
@@ -45,16 +47,16 @@ export function useLocalStorage<T>(
       // Allow value to be a function so we have the same API as useState
       const valueToStore =
         value instanceof Function ? value(storedValue) : value;
-      
+
       // Save state
       setStoredValue(valueToStore);
-      
+
       // Save to local storage
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         window.localStorage.setItem(key, JSON.stringify(valueToStore));
       }
     } catch (error) {
-      console.warn(`Error setting localStorage key "${key}":`, error);
+      // console.warn(`Error setting localStorage key "${key}":`, error);
     }
   };
 
@@ -70,8 +72,8 @@ export function useLocalStorage<T>(
       }
     };
 
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
   }, [key]);
 
   return [storedValue, setValue];

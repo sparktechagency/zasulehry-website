@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 /**
  * Analytics service for tracking user interactions
@@ -19,14 +19,14 @@ export interface EventData {
 
 // Initialize analytics (call this in your app layout)
 export function initAnalytics(): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
 
   // Check if analytics is already initialized
   if ((window as any).__ANALYTICS_INITIALIZED__) return;
   (window as any).__ANALYTICS_INITIALIZED__ = true;
 
   // Add initialization code for your analytics service here
-  console.log('Analytics initialized');
+  console.log("Analytics initialized");
 
   // Track initial page view
   trackPageView({
@@ -40,10 +40,10 @@ export function initAnalytics(): void {
  * @param data - Page view data
  */
 export function trackPageView(data: PageViewEvent): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
 
   // Implementation for your analytics service
-  console.log('Page view:', data);
+  console.log("Page view:", data);
 
   // Example Google Analytics implementation:
   // if (window.gtag) {
@@ -60,10 +60,10 @@ export function trackPageView(data: PageViewEvent): void {
  * @param data - Event data
  */
 export function trackEvent(eventName: string, data: EventData = {}): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
 
   // Implementation for your analytics service
-  console.log('Event:', eventName, data);
+  console.log("Event:", eventName, data);
 
   // Example Google Analytics implementation:
   // if (window.gtag) {
@@ -76,11 +76,14 @@ export function trackEvent(eventName: string, data: EventData = {}): void {
  * @param userId - User ID
  * @param properties - User properties
  */
-export function setUserProperties(userId: string, properties: EventData = {}): void {
-  if (typeof window === 'undefined') return;
+export function setUserProperties(
+  userId: string,
+  properties: EventData = {}
+): void {
+  if (typeof window === "undefined") return;
 
   // Implementation for your analytics service
-  console.log('User properties:', userId, properties);
+  console.log("User properties:", userId, properties);
 
   // Example Google Analytics implementation:
   // if (window.gtag) {
