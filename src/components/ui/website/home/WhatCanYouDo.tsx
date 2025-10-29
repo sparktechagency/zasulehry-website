@@ -14,6 +14,7 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import Link from "next/link";
+import Button from "../../Button";
 
 const WhatCanYouDo = () => {
   const features = [
@@ -92,12 +93,13 @@ const WhatCanYouDo = () => {
         </div>
 
         <div className="mt-10 text-center">
-          <Link
+          <Button
             href="/jobs/post"
-            className={`${gradientClasses.buttonBg} text-white font-medium px-8 py-3 rounded-md hover:opacity-90 transition-all inline-block`}
+            variant="glass"
+            className="px-8 py-3 rounded-md hover:opacity-90 transition-all inline-block"
           >
             Start Posting Now
-          </Link>
+          </Button>
         </div>
       </Container>
     </section>

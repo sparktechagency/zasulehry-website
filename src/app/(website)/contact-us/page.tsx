@@ -250,7 +250,7 @@ const ContactUsPage = () => {
               <div className="text-right">
                 <button
                   type="submit"
-                  className={`${gradientClasses.buttonBg} text-white font-medium cursor-pointer py-3 px-8 rounded transition duration-300`}
+                  className="bg-white/20 px-6 rounded-lg py-2 backdrop-blur-sm text-white hover:bg-white/30 border border-white/20"
                 >
                   Confirm
                 </button>

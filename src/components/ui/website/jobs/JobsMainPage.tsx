@@ -222,7 +222,7 @@ const JobsMainPage = () => {
           <input
             type="text"
             placeholder="Search Location/Job"
-            className="w-full py-3 px-4 pr-12 rounded-full bg-[#1E2A37] text-white border border-gray-700 focus:outline-none focus:border-teal-500 transition-colors"
+            className="w-full py-3 px-4 pr-12 rounded-full bg-linear-to-b from-white/10 to-white/5 backdrop-blur-sm text-white border border-white/20 focus:outline-none focus:border-teal-500 transition-colors"
           />
           <button
             className="absolute right-3 top-1/2 -translate-y-1/2 text-teal-500 hover:text-teal-400 transition-colors"

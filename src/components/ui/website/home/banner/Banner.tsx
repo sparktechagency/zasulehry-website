@@ -2,6 +2,7 @@ import { gradientClasses } from "@/styles/gradients";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
 import bannerBg from "@/assets/banner/bannerBg.png";
 import googlePlay from "@/assets/banner/googlePlayLogo.png";
 import applePlay from "@/assets/banner/appleLogo.png";
@@ -31,18 +32,12 @@ const Banner = () => {
             Roles.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link
-              href="/hiring"
-              className={`${gradientClasses.buttonBg} text-white font-medium px-6 py-3 rounded-md hover:bg-opacity-90 transition-all`}
-            >
+            <Button href="/hiring" variant="glass">
               Start Hiring Now
-            </Link>
-            <Link
-              href="/jobs"
-              className={`${gradientClasses.buttonBg} text-white font-medium px-6 py-3 rounded-md hover:bg-[#2A7D7D]/30 transition-all`}
-            >
+            </Button>
+            <Button href="/jobs" variant="glass">
               Find Job
-            </Link>
+            </Button>
           </div>
         </div>
 

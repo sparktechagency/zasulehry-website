@@ -8,6 +8,7 @@ import { gradientClasses } from "@/styles/gradients";
 import Container from "@/components/ui/Container";
 import logo from "@/assets/banner/logo.png";
 import Image from "next/image";
+import Button from "../ui/Button";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +44,7 @@ export default function Navbar() {
                   href={item.href}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     pathname === item.href
-                      ? "text-blue-300 font-bold border-b-2 border-blue-300"
+                      ? "bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold"
                       : "text-white hover:text-blue-300"
                   }`}
                 >
@@ -55,20 +56,12 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block space-x-4">
-            <Link href="/login">
-              <button
-                className={`${gradientClasses.buttonBg} text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200`}
-              >
-                Login
-              </button>
-            </Link>
-            <Link href="/signUp">
-              <button
-                className={`${gradientClasses.buttonBg} text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200`}
-              >
-                Sign Up
-              </button>
-            </Link>
+            <Button href="/login" variant="glass">
+              Login
+            </Button>
+            <Button href="/signUp" variant="glass">
+              Sign Up
+            </Button>
           </div>
 
           {/* Mobile menu button */}

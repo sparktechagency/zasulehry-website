@@ -1,9 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Container from "../../Container";
-import Link from "next/link";
-import { gradientClasses } from "@/styles/gradients";
 import AboutUsSections from "./AboutUsSections";
 import AboutUsBanner from "./AboutUsBanner";
 

@@ -4,6 +4,7 @@ import { FaDownload, FaArrowRight } from "react-icons/fa";
 import jobSearchingImg from "@/assets/jobSearchingHome/jobSearchingImg.png";
 import qrCode from "@/assets/jobSearchingHome/jobSearchingQR.png";
 import { gradientClasses } from "@/styles/gradients";
+import Button from "../../Button";
 
 const JobSearching = () => {
   return (
@@ -78,19 +79,21 @@ const JobSearching = () => {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center sm:flex-row gap-4">
-          <Link
-            href="#"
-            className={`${gradientClasses.buttonBg} text-white py-3 px-6 rounded-md flex items-center justify-center gap-2 transition-colors`}
+          <Button
+            href="/jobs/post"
+            variant="glass"
+            className="px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all"
           >
             <FaDownload /> Download Mobile App
-          </Link>
+          </Button>
 
-          <Link
-            href="#"
-            className={`${gradientClasses.buttonBg} text-white py-3 px-6 rounded-md flex items-center justify-center gap-2 transition-colors`}
+          <Button
+            href="/jobs/post"
+            variant="glass"
+            className="px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all"
           >
             Start Hiring Now <FaArrowRight />
-          </Link>
+          </Button>
         </div>
       </div>
     </section>
