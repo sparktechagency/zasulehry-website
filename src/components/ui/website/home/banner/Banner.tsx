@@ -15,12 +15,12 @@ const Banner = () => {
       <Container className="md:flex flex-col lg:flex-row items-center justify-between">
         {/* Left content */}
         <div className="lg:w-1/2 mb-10 lg:mb-0">
-          <h1 className="text-3xl md:text-5xl lg:text-5xl text-white mb-4 leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl text-white mb-4 leading-tight">
             Next-Level
             <br />
             Recruitment With
             <br />
-            <span className="text-[#FF69B4] md:text-6xl font-bold">
+            <span className="text-[#FF69B4] md:text-7xl font-bold">
               AI Technology
             </span>
           </h1>
@@ -49,10 +49,10 @@ const Banner = () => {
               alt="Mobile App Mockup"
               width={765546300}
               height={6754646600}
-              className="h-full w-full pt-20"
+              className="h-full w-full pt-20 md:scale-125 transform"
             />
           </div>
-          <div className="md:flex gap-5 md:absolute md:-top-3 md:right-10">
+          <div className="md:flex gap-5 md:absolute md:-top-8 md:right-10">
             <h1 className="md:text-2xl text-xl font-bold text-white mb-6 text-center lg:text-left">
               Download Our Mobile App
             </h1>

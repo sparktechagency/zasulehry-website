@@ -35,7 +35,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="bg-[#2A3B4F] py-16 px-4">
+    <section className="bg-[#2C3E50] py-16 px-4">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-10">
           Why Choose Us?

@@ -1,4 +1,3 @@
-import { gradientClasses } from "@/styles/gradients";
 import Container from "@/components/ui/Container";
 import {
   FaUser,
@@ -13,7 +12,6 @@ import {
   FaComments,
   FaUsers,
 } from "react-icons/fa";
-import Link from "next/link";
 import Button from "../../Button";
 
 const WhatCanYouDo = () => {
@@ -69,7 +67,7 @@ const WhatCanYouDo = () => {
   ];
 
   return (
-    <section className="bg-[#1E2A37] py-16">
+    <section className="bg-[#2C3E50] py-16">
       <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
@@ -82,7 +80,7 @@ const WhatCanYouDo = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 bg-[#2C3E50] p-4 rounded-md hover:shadow-md transition-shadow duration-300"
+              className="flex items-center gap-3 bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-4 rounded-md hover:shadow-md transition-shadow duration-300"
             >
               <div className="shrink-0 w-8 h-8 flex items-center justify-center">
                 {feature.icon}

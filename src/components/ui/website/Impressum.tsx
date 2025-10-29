@@ -1,18 +1,11 @@
-import { gradientClasses } from "@/styles/gradients";
 import Container from "../Container";
 
 const Impressum = () => {
   return (
-    <div className={`${gradientClasses.primaryBg} py-16`}>
+    <div className={`bg-[#2C3E50] py-16`}>
       {/* Header */}
       <Container>
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            Impressum
-          </h1>
-        </div>
-
-        <div className="bg-slate-800/50 rounded-lg p-8 md:p-10 text-gray-200 space-y-8">
+        <div className="bg-[#FFFFFF0D] border border-[#FFFFFF1A] rounded-lg p-8 md:p-10 text-gray-200 space-y-8">
           {/* Company Information Section */}
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">

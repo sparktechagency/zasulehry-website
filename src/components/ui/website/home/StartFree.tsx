@@ -17,7 +17,7 @@ const StartFree = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Card 1 */}
-          <div className="bg-[#1E2A37] p-4 sm:p-6 rounded-lg">
+          <div className="bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-4 sm:p-6 rounded-lg">
             <div className="flex justify-center mb-3 sm:mb-4">
               <div
                 className={`${gradientClasses.buttonBg} w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center`}
@@ -54,7 +54,7 @@ const StartFree = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-[#1E2A37] p-6 rounded-lg">
+          <div className="bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-6 rounded-lg">
             <div className="flex justify-center mb-4">
               <div
                 className={`${gradientClasses.buttonBg} w-12 h-12 rounded-full flex items-center justify-center`}
@@ -91,7 +91,7 @@ const StartFree = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-[#1E2A37] p-6 rounded-lg">
+          <div className="bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-6 rounded-lg">
             <div className="flex justify-center mb-4">
               <div
                 className={`${gradientClasses.buttonBg} w-12 h-12 rounded-full flex items-center justify-center`}
