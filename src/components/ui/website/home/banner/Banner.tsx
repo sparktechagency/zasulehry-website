@@ -11,7 +11,7 @@ const Banner = () => {
     <section
       className={`${gradientClasses.primaryBg} w-full py-24 flex items-center justify-center`}
     >
-      <Container className="flex flex-col lg:flex-row items-center justify-between">
+      <Container className="md:flex flex-col lg:flex-row items-center justify-between">
         {/* Left content */}
         <div className="lg:w-1/2 mb-10 lg:mb-0">
           <h1 className="text-3xl md:text-5xl lg:text-5xl text-white mb-4 leading-tight">
@@ -19,7 +19,7 @@ const Banner = () => {
             <br />
             Recruitment With
             <br />
-            <span className="text-[#FF69B4] text-6xl font-bold">
+            <span className="text-[#FF69B4] md:text-6xl font-bold">
               AI Technology
             </span>
           </h1>
@@ -57,8 +57,8 @@ const Banner = () => {
               className="h-full w-full pt-20"
             />
           </div>
-          <div className="flex gap-5 absolute -top-3 right-10">
-            <h1 className="text-2xl font-bold text-white mb-6 text-center lg:text-left">
+          <div className="md:flex gap-5 md:absolute md:-top-3 md:right-10">
+            <h1 className="md:text-2xl text-xl font-bold text-white mb-6 text-center lg:text-left">
               Download Our Mobile App
             </h1>
             <div className="flex flex-col gap-2">

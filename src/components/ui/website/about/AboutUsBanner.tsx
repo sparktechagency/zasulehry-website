@@ -10,12 +10,12 @@ const AboutUsBanner = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           {/* Text Content */}
           <div className="w-full md:w-1/2 text-white">
-            <h1 className="text-4xl md:text-4xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
               Empowering Connections.
-              <br />
+              <br className="hidden sm:block" />
               Simplifying Employment.
             </h1>
-            <p className="text-lg mb-8 opacity-90">
+            <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90">
               JobsinApp is A Dynamic Service Platform Designed To Bridge The Gap
               Between Employers And Job Seekers. Whether You&apos;re Looking To
               Hire Skilled Professionals Or Searching For Your Next Opportunity,
@@ -23,7 +23,7 @@ const AboutUsBanner = () => {
             </p>
             <Link
               href="/contact"
-              className={`${gradientClasses.buttonBg} text-white font-semibold py-3 px-8 rounded-md transition duration-300`}
+              className={`${gradientClasses.buttonBg} text-white font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-md transition duration-300 inline-block`}
             >
               Contact Now
             </Link>

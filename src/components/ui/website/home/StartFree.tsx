@@ -5,26 +5,26 @@ import { gradientClasses } from "@/styles/gradients";
 
 const StartFree = () => {
   return (
-    <section className="bg-[#2C3E50] py-16">
+    <section className="bg-[#2C3E50] py-10 sm:py-12 md:py-16">
       <Container>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
             Start Free, Grow As You Hire. Find
-            <br />
+            <br className="hidden sm:block" />
             Plans That Grow With You.
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Card 1 */}
-          <div className="bg-[#1E2A37] p-6 rounded-lg">
-            <div className="flex justify-center mb-4">
+          <div className="bg-[#1E2A37] p-4 sm:p-6 rounded-lg">
+            <div className="flex justify-center mb-3 sm:mb-4">
               <div
-                className={`${gradientClasses.buttonBg} w-12 h-12 rounded-full flex items-center justify-center`}
+                className={`${gradientClasses.buttonBg} w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-white"
+                  className="h-5 w-5 sm:h-6 sm:w-6 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -38,15 +38,15 @@ const StartFree = () => {
                 </svg>
               </div>
             </div>
-            <h3 className="text-lg font-medium text-white text-center mb-2">
+            <h3 className="text-base sm:text-lg font-medium text-white text-center mb-1 sm:mb-2">
               Post your Jobs.
             </h3>
-            <p className="text-gray-300 text-center text-sm mb-6">
+            <p className="text-gray-300 text-center text-xs sm:text-sm mb-4 sm:mb-6">
               Find the subscription that works best for your goals.
             </p>
             <div className="flex justify-center">
               <button
-                className={`${gradientClasses.buttonBg} text-white py-2 px-6 rounded-full text-sm transition-colors`}
+                className={`${gradientClasses.buttonBg} text-white py-1.5 sm:py-2 px-4 sm:px-6 rounded-full text-xs sm:text-sm transition-colors`}
               >
                 Get Started
               </button>

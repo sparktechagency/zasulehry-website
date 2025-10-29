@@ -8,22 +8,22 @@ const AboutUsSections = () => {
     <div className="bg-[#1E2A37] text-white py-20">
       <Container>
         {/* Who We Are Section */}
-        <div className="flex flex-col md:flex-row items-center gap-10 my-20">
+        <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-10 my-12 sm:my-16 md:my-20">
           {/* Image */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 mb-8 md:mb-0">
             <Image
               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
               alt="Team meeting in office"
               width={600}
               height={400}
-              className="w-full h-auto rounded-tl-4xl rounded-br-4xl"
+              className="w-full h-auto rounded-tl-3xl sm:rounded-tl-4xl rounded-br-3xl sm:rounded-br-4xl"
             />
           </div>
 
           {/* Content */}
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Who We Are</h2>
-            <p className="text-lg mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Who We Are</h2>
+            <p className="text-base sm:text-lg mb-4 sm:mb-6">
               JobsinApp Is A People-First Platform Built To Simplify The Way
               Employers And Job Seekers Connect. We Believe Employment Should Be
               Accessible, Efficient, And Empowering—For Everyone.
