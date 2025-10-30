@@ -13,6 +13,7 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import Button from "../../Button";
+import { gradientClasses } from "@/styles/gradients";
 
 const WhatCanYouDo = () => {
   const features = [
@@ -90,16 +91,14 @@ const WhatCanYouDo = () => {
         </div>
 
         <div className="mt-10 text-center">
-          <Button
-            href="/jobs/post"
-            variant="glass"
+          <button
             style={{
               boxShadow: "0 0 10px 0 #7d8fa0 inset",
             }}
-            className="px-8 py-3 rounded-md hover:opacity-90 transition-all inline-block"
+            className={`${gradientClasses.primaryBg} px-8 py-3 rounded-md hover:opacity-90 transition-all inline-block`}
           >
             Start Posting Now
-          </Button>
+          </button>
         </div>
       </Container>
     </section>

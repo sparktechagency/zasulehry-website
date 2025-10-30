@@ -3,7 +3,7 @@ import { NavItem, SocialLink, FooterSection } from "@/types";
 export const mainNavigation: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Jobs", href: "/jobs" },
-  { label: "Employer Services", href: "/employer-services" },
+  { label: "For Employer", href: "/for-employer" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 

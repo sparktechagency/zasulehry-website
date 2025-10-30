@@ -1,10 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FaDownload, FaArrowRight } from "react-icons/fa";
 import jobSearchingImg from "@/assets/jobSearchingHome/jobSearchingImg.png";
 import qrCode from "@/assets/jobSearchingHome/jobSearchingQR.png";
 import { gradientClasses } from "@/styles/gradients";
-import Button from "../../Button";
 
 const JobSearching = () => {
   return (
@@ -32,7 +30,7 @@ const JobSearching = () => {
             <Image
               src={jobSearchingImg}
               alt="Mobile App Mockup"
-              className="w-full h-auto"
+              className="w-full scale-125 h-auto"
               priority
             />
           </div>
@@ -79,11 +77,17 @@ const JobSearching = () => {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center sm:flex-row gap-4">
-          <button className="bg-[#14923566] border border-[#14923566] px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all cursor-pointer">
+          <button
+            style={{ boxShadow: "0 0 10px 0 #B1F1FF inset" }}
+            className={`${gradientClasses.primaryBg} px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all cursor-pointer`}
+          >
             <FaDownload /> Download Mobile App
           </button>
 
-          <button className="bg-[#e2c73054] border border-[#e2c73054] px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all cursor-pointer">
+          <button
+            style={{ boxShadow: "0 0 10px 0 #B1F1FF inset" }}
+            className={`${gradientClasses.primaryBg} px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all cursor-pointer`}
+          >
             Start Hiring Now <FaArrowRight />
           </button>
         </div>

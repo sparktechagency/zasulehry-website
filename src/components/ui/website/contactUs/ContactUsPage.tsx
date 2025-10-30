@@ -130,7 +130,7 @@ const ContactUsPage = () => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter Your Name"
-                      className="w-full border border-[#FFFFFF1A] rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full border border-white rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
                       required
                     />
                   </div>
@@ -145,7 +145,7 @@ const ContactUsPage = () => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Enter Your Email"
-                      className="w-full border border-[#FFFFFF1A] rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full border border-white rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
                       required
                     />
                   </div>
@@ -163,7 +163,7 @@ const ContactUsPage = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Enter Your Name"
-                      className="w-full border border-[#FFFFFF1A] rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full border border-white rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                   <div>
@@ -177,7 +177,7 @@ const ContactUsPage = () => {
                       value={formData.location}
                       onChange={handleChange}
                       placeholder="Enter Your Name"
-                      className="w-full border border-[#FFFFFF1A] rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full border border-white rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                 </div>
@@ -193,7 +193,7 @@ const ContactUsPage = () => {
                     onChange={handleChange}
                     placeholder="Enter Your Message"
                     rows={6}
-                    className="w-full border border-[#FFFFFF1A] rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    className="w-full border border-white rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     required
                   ></textarea>
                 </div>
@@ -202,7 +202,7 @@ const ContactUsPage = () => {
                   <label htmlFor="attachment" className="block text-white mb-2">
                     Upload Attachment
                   </label>
-                  <div className="border border-dashed border-[#FFFFFF1A] rounded p-6 flex flex-col items-center justify-center">
+                  <div className="border border-dashed border-white rounded p-6 flex flex-col items-center justify-center">
                     <div className="w-10 h-10 bg-[#FFFFFF1A] rounded flex items-center justify-center mb-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -243,7 +243,8 @@ const ContactUsPage = () => {
                 <div className="text-right">
                   <button
                     type="submit"
-                    className="bg-white/20 px-6 rounded-lg py-2 backdrop-blur-sm text-white hover:bg-white/30 border border-white/20"
+                    style={{ boxShadow: "0 0 10px 0 #B1F1FF inset" }}
+                    className={`${gradientClasses.primaryBg} px-6 rounded-lg py-2 backdrop-blur-sm text-white`}
                   >
                     Confirm
                   </button>

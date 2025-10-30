@@ -105,11 +105,11 @@ export default function Footer() {
         </div>
 
         {/* Copyright and Social Media Icons */}
-        <div className="mt-8 pt-8 border-t border-white border-opacity-30 flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-7 border-t border-white border-opacity-30 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-200 text-sm">
             Copyright © {currentYear} JobsinApp
           </p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
+          <div className="flex space-x-4 mt-10">
             {socialLinks?.map((social) => (
               <Link
                 key={social.name}

@@ -111,7 +111,7 @@ const SearchFilter = ({
 
   return (
     <div className={`relative w-full ${className}`}>
-      <div className="w-[95%]">
+      <div className="md:w-[95%] w-[85%]">
         <input
           type="text"
           placeholder={placeholder}
@@ -121,7 +121,7 @@ const SearchFilter = ({
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         />
         <button
-          className="absolute right-20 top-1/2 -translate-y-1/2 text-teal-500 hover:text-teal-400 transition-colors"
+          className="absolute md:right-20 right-17 top-1/2 -translate-y-1/2 text-teal-500 hover:text-teal-400 transition-colors"
           aria-label="Search"
           onClick={handleSearch}
         >
