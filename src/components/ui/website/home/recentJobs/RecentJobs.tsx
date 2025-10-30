@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Container from "@/components/ui/Container";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
@@ -10,7 +10,8 @@ import "./styles.css";
 // import required modules
 import { Navigation } from "swiper/modules";
 import JobCard from "@/components/ui/JobCard";
-import { FaChevronLeft, FaChevronRight, FaSearch } from "react-icons/fa";
+import SearchFilter, { FilterData } from "@/components/ui/SearchFilter";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { gradientClasses } from "@/styles/gradients";
 
 const jobs = [
@@ -84,6 +85,28 @@ const jobs = [
 
 const RecentJobs = () => {
   const swiperRef = useRef<SwiperType | null>(null);
+  const [filteredJobs, setFilteredJobs] = useState(jobs);
+
+  const handleSearch = (query: string) => {
+    console.log("Search query:", query);
+
+    if (!query.trim()) {
+      setFilteredJobs(jobs);
+    } else {
+      const lowercaseQuery = query.toLowerCase();
+      const results = jobs.filter(
+        (job) =>
+          job.position.toLowerCase().includes(lowercaseQuery) ||
+          job.company.toLowerCase().includes(lowercaseQuery) ||
+          job.location.toLowerCase().includes(lowercaseQuery)
+      );
+      setFilteredJobs(results);
+    }
+  };
+
+  const handleFilter = (filterData: FilterData) => {
+    console.log("Filter data:", filterData);
+  };
 
   return (
     <div className="bg-[#2C3E50] py-10">
@@ -99,19 +122,17 @@ const RecentJobs = () => {
           ></iframe>
         </div>
 
-        <div className="relative w-full mb-8">
-          <input
-            type="text"
+        {/* Search and Filter */}
+        <div className="mb-8">
+          <SearchFilter
+            onSearch={handleSearch}
+            onFilter={handleFilter}
             placeholder="Search Location/Job"
-            className="w-full py-3 px-4 pr-12 rounded-lg bg-linear-to-b from-white/10 to-white/5 backdrop-blur-sm text-white border border-white/20 focus:outline-none focus:border-teal-500 transition-colors"
+            className="max-w-full mx-auto"
           />
-          <button
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-teal-500 hover:text-teal-400 transition-colors"
-            aria-label="Search"
-          >
-            <FaSearch size={18} />
-          </button>
         </div>
+
+        {/* Filter Modal is now handled by the SearchFilter component */}
 
         <div className="flex justify-between items-center mb-7">
           <h1 className="text-2xl font-semibold text-white">
@@ -166,7 +187,10 @@ const RecentJobs = () => {
           {/* Navigation Arrows */}
           <button
             onClick={() => swiperRef.current?.slidePrev()}
-            className={`${gradientClasses.buttonBg} absolute left-0 top-1/2 -translate-y-1/2 -ml-5 w-10 h-10 rounded-full text-white flex items-center justify-center shadow-lg z-10 transition-colors`}
+            style={{
+              boxShadow: "0 0 10px 0 #B1F1FF inset",
+            }}
+            className={`${gradientClasses.buttonBg} absolute left-0 cursor-pointer top-1/2 -translate-y-1/2 -ml-5 w-10 h-10 rounded-full text-white flex items-center justify-center shadow-lg z-10 transition-colors`}
             aria-label="Previous slide"
           >
             <FaChevronLeft />
@@ -174,7 +198,10 @@ const RecentJobs = () => {
 
           <button
             onClick={() => swiperRef.current?.slideNext()}
-            className={`${gradientClasses.buttonBg} absolute right-0 top-1/2 -translate-y-1/2 -mr-5 w-10 h-10 rounded-full text-white flex items-center justify-center shadow-lg z-10 transition-colors`}
+            style={{
+              boxShadow: "0 0 10px 0 #B1F1FF inset",
+            }}
+            className={`${gradientClasses.buttonBg} absolute cursor-pointer right-0 top-1/2 -translate-y-1/2 -mr-5 w-10 h-10 rounded-full text-white flex items-center justify-center shadow-lg z-10 transition-colors`}
             aria-label="Next slide"
           >
             <FaChevronRight />

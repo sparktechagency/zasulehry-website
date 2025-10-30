@@ -28,8 +28,8 @@ export default function Navbar() {
               <Image
                 src={logo}
                 alt="Zasulehry"
-                width={70}
-                height={60}
+                width={65}
+                height={50}
                 className="w-auto h-auto"
               />
             </Link>
@@ -44,7 +44,7 @@ export default function Navbar() {
                   href={item.href}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     pathname === item.href
-                      ? "bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold"
+                      ? "bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold shadow-[inset_0_0_10px_0_#B1F1FF]"
                       : "text-white hover:text-blue-300"
                   }`}
                 >

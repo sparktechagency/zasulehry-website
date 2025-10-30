@@ -69,7 +69,7 @@ const JobCard: FC<JobCardProps> = ({
         <p className="text-white text-lg mb-4 text-start">{salary}</p>
 
         <div className="flex justify-between items-center mb-4">
-          <span className="bg-[#2C3E50] text-white text-sm px-3 py-1 rounded">
+          <span className="bg-[#FFFFFF0D] border text-white border-[#FFFFFF1A] text-sm px-3 py-1 rounded">
             {type}
           </span>
           <span className="text-gray-400 text-sm">{postedDays} Days Ago</span>
@@ -81,6 +81,9 @@ const JobCard: FC<JobCardProps> = ({
         <Link href={`/jobs/${id}`}>
           <button
             onClick={onClick}
+            style={{
+              boxShadow: "0 0 10px 0 #B1F1FF inset",
+            }}
             className={`${gradientClasses.buttonBg} rounded-lg cursor-pointer w-full py-2 text-center text-white  transition-colors font-medium`}
           >
             View Details

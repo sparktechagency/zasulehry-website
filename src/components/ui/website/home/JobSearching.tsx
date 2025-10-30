@@ -79,21 +79,13 @@ const JobSearching = () => {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center sm:flex-row gap-4">
-          <Button
-            href="/jobs/post"
-            variant="glass"
-            className="px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all"
-          >
+          <button className="bg-[#14923566] border border-[#14923566] px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all cursor-pointer">
             <FaDownload /> Download Mobile App
-          </Button>
+          </button>
 
-          <Button
-            href="/jobs/post"
-            variant="glass"
-            className="px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all"
-          >
+          <button className="bg-[#e2c73054] border border-[#e2c73054] px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all cursor-pointer">
             Start Hiring Now <FaArrowRight />
-          </Button>
+          </button>
         </div>
       </div>
     </section>

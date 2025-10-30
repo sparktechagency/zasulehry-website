@@ -1,9 +1,9 @@
 "use client";
 
-import { FaSearch } from "react-icons/fa";
 import Container from "../../Container";
 import { useState } from "react";
 import JobCard from "../../JobCard";
+import SearchFilter, { FilterData } from "../../SearchFilter";
 
 // Job data structure
 const jobsData = [
@@ -199,11 +199,33 @@ const JobsMainPage = () => {
   const indexOfLastJob = currentPage * jobsPerPage;
   const indexOfFirstJob = indexOfLastJob - jobsPerPage;
   const currentJobs = jobsData.slice(indexOfFirstJob, indexOfLastJob);
+  const [filteredJobs, setFilteredJobs] = useState(jobsData);
 
   // Change page
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 500, behavior: "smooth" });
+  };
+
+  const handleSearch = (query: string) => {
+    console.log("Search query:", query);
+
+    if (!query.trim()) {
+      setFilteredJobs(jobsData);
+    } else {
+      const lowercaseQuery = query.toLowerCase();
+      const results = jobsData.filter(
+        (job) =>
+          job.title.toLowerCase().includes(lowercaseQuery) ||
+          job.company.toLowerCase().includes(lowercaseQuery) ||
+          job.location.toLowerCase().includes(lowercaseQuery)
+      );
+      setFilteredJobs(results);
+    }
+  };
+
+  const handleFilter = (filterData: FilterData) => {
+    console.log("Filter data:", filterData);
   };
 
   return (
@@ -219,17 +241,12 @@ const JobsMainPage = () => {
         </div>
 
         <div className="relative w-full mb-8">
-          <input
-            type="text"
+          <SearchFilter
+            onSearch={handleSearch}
+            onFilter={handleFilter}
             placeholder="Search Location/Job"
-            className="w-full py-3 px-4 pr-12 rounded-lg bg-linear-to-b from-white/10 to-white/5 backdrop-blur-sm text-white border border-white/20 focus:outline-none focus:border-teal-500 transition-colors"
+            className="max-w-full mx-auto"
           />
-          <button
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-teal-500 hover:text-teal-400 transition-colors"
-            aria-label="Search"
-          >
-            <FaSearch size={18} />
-          </button>
         </div>
 
         <div className="flex justify-between items-center mb-7">

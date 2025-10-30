@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import React from "react";
 import { ReactNode } from "react";
 
 interface ButtonProps {
@@ -8,6 +9,7 @@ interface ButtonProps {
   children: ReactNode;
   className?: string;
   variant?: "glass" | "primary" | "secondary" | "outline" | "gradient";
+  style?: React.CSSProperties;
   size?: "sm" | "md" | "lg";
   onClick?: () => void;
 }
@@ -16,6 +18,7 @@ const Button = ({
   href,
   children,
   className = "",
+  style = {},
   variant = "glass",
   size = "md",
   onClick,
@@ -46,7 +49,7 @@ const Button = ({
   const buttonStyles = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;
 
   return (
-    <Link href={href} className={buttonStyles} onClick={onClick}>
+    <Link href={href} className={buttonStyles} style={style} onClick={onClick}>
       {children}
     </Link>
   );

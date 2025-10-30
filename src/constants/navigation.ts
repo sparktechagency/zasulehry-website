@@ -8,10 +8,9 @@ export const mainNavigation: NavItem[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { name: "Twitter", href: "https://twitter.com", icon: "twitter" },
-  { name: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-  { name: "GitHub", href: "https://github.com", icon: "github" },
+  { name: "Facebook", href: "https://facebook.com", icon: "facebook" },
   { name: "Instagram", href: "https://instagram.com", icon: "instagram" },
+  { name: "WhatsApp", href: "https://whatsapp.com", icon: "whatsapp" },
 ];
 
 export const footerSections: FooterSection[] = [
@@ -21,7 +20,7 @@ export const footerSections: FooterSection[] = [
       { label: "Profile", href: "/profile" },
       { label: "Home", href: "/" },
       { label: "Jobs", href: "/jobs" },
-      { label: "Employer Services", href: "/employer-services" },
+      { label: "For Employer", href: "/employer-services" },
     ],
   },
   {

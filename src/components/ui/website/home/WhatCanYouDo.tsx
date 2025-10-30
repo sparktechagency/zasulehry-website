@@ -71,8 +71,7 @@ const WhatCanYouDo = () => {
       <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-            What You Can Do On JobsinAppp{" "}
-            <span className="text-teal-400">.</span>
+            What You Can Do On JobsinApp .{" "}
           </h2>
         </div>
 
@@ -94,6 +93,9 @@ const WhatCanYouDo = () => {
           <Button
             href="/jobs/post"
             variant="glass"
+            style={{
+              boxShadow: "0 0 10px 0 #7d8fa0 inset",
+            }}
             className="px-8 py-3 rounded-md hover:opacity-90 transition-all inline-block"
           >
             Start Posting Now
