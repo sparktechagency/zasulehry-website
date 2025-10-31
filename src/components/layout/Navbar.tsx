@@ -9,6 +9,7 @@ import Container from "@/components/ui/Container";
 import logo from "@/assets/banner/logo.png";
 import Image from "next/image";
 import Button from "../ui/Button";
+import { FaEarthAsia } from "react-icons/fa6";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,9 +29,9 @@ export default function Navbar() {
               <Image
                 src={logo}
                 alt="Zasulehry"
-                width={65}
-                height={50}
-                className="w-auto h-auto"
+                width={7657665}
+                height={7575750}
+                className="md:w-[95px] w-[75px] h-[60px] md:h-[75px]"
               />
             </Link>
           </div>
@@ -55,13 +56,24 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block space-x-4">
-            <Button href="/login" variant="glass">
-              Login
-            </Button>
-            <Button href="/signUp" variant="glass">
-              Sign Up
-            </Button>
+          <div className="hidden md:block">
+            <div className="flex items-center space-x-4 ">
+              <button className="rounded-full p-2 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold">
+                <FaEarthAsia size={25} />
+              </button>
+              <Button
+                href="https://zisan-website.vercel.app/login"
+                variant="glass"
+              >
+                Login
+              </Button>
+              <Button
+                href="https://zisan-website.vercel.app/signup"
+                variant="glass"
+              >
+                Sign Up
+              </Button>
+            </div>
           </div>
 
           {/* Mobile menu button */}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FaDownload, FaArrowRight } from "react-icons/fa";
-import jobSearchingImg from "@/assets/jobSearchingHome/jobSearchingImg.png";
+import jobSearchingImg from "@/assets/banner/bannerBg.png";
 import qrCode from "@/assets/jobSearchingHome/jobSearchingQR.png";
 import { gradientClasses } from "@/styles/gradients";
 
@@ -24,7 +24,7 @@ const JobSearching = () => {
         </div>
 
         {/* Mobile App and Download Section */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 mt-20">
           {/* Mobile App Mockup */}
           <div className="w-full lg:w-3/5">
             <Image
@@ -57,7 +57,7 @@ const JobSearching = () => {
                     height={120}
                   />
                 </div>
-                <span>Android</span>
+                <span>Play Store</span>
               </div>
 
               <div className="text-center">
@@ -69,7 +69,7 @@ const JobSearching = () => {
                     height={120}
                   />
                 </div>
-                <span>Apple</span>
+                <span>Apple Store</span>
               </div>
             </div>
 

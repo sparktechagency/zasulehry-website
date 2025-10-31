@@ -1,6 +1,10 @@
 "use client";
 
+import starImg from "@/assets/modern-workforce/star.png";
+import circleImg from "@/assets/modern-workforce/circle.png";
+import lightningImg from "@/assets/modern-workforce/lightning.png";
 import Container from "@/components/ui/Container";
+import Image from "next/image";
 
 const ModernWarkforce = () => {
   return (
@@ -28,20 +32,12 @@ const ModernWarkforce = () => {
           {/* Feature 1 */}
           <div className="bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-8 rounded-lg">
             <div className="bg-indigo-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
+              <Image
+                src={starImg}
+                alt="Smarter Matching"
+                width={24}
+                height={24}
+              />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">
               Smarter Matching
@@ -54,21 +50,13 @@ const ModernWarkforce = () => {
 
           {/* Feature 2 */}
           <div className="bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-8 rounded-lg">
-            <div className="bg-green-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+            <div className="bg-[#16A249] w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <Image
+                src={circleImg}
+                alt="Intelligent Analysis"
+                width={24}
+                height={24}
+              />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">
               Intelligent Analysis
@@ -81,21 +69,13 @@ const ModernWarkforce = () => {
 
           {/* Feature 3 */}
           <div className="bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-8 rounded-lg">
-            <div className="bg-purple-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
+            <div className="bg-[#895AF6] w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <Image
+                src={lightningImg}
+                alt="Streamlined Process"
+                width={24}
+                height={24}
+              />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">
               Streamlined Process

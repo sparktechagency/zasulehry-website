@@ -42,7 +42,10 @@ const Banner = () => {
         </div>
 
         {/* Right content - Mobile app mockup */}
-        <div className="lg:w-1/2 relative flex flex-col">
+        <div className="lg:w-1/2 flex flex-col">
+          <h1 className="text-2xl md:text-4xl text-center text-white leading-tight">
+            Download Our Mobile App
+          </h1>
           <div className="">
             <Image
               src={bannerBg}
@@ -52,40 +55,35 @@ const Banner = () => {
               className="h-full w-full pt-20 md:scale-125 transform"
             />
           </div>
-          <div className="md:flex gap-5 md:absolute md:-top-8 md:right-10">
-            <h1 className="md:text-2xl text-xl font-bold text-white mb-6 text-center lg:text-left">
-              Download Our Mobile App
-            </h1>
-            <div className="flex flex-col gap-2">
-              <Link href="">
-                <div className="flex bg-white rounded-sm py-1 px-3 items-center justify-center gap-2">
-                  <Image
-                    src={googlePlay}
-                    alt="Google Play"
-                    width={24}
-                    height={24}
-                  />
-                  <div>
-                    <p className="text-black text-sm">get the app on</p>
-                    <p className="text-[#2A7D7D] text-md">Google Play</p>
-                  </div>
+          <div className="flex items-center justify-center gap-2">
+            <Link href="">
+              <div className="flex bg-white rounded-sm py-2 px-4 md:px-10 items-center justify-center gap-2">
+                <Image
+                  src={googlePlay}
+                  alt="Google Play"
+                  width={24}
+                  height={24}
+                />
+                <div>
+                  <p className="text-black text-sm">get the app on</p>
+                  <p className="text-[#2A7D7D] text-md">Google Play</p>
                 </div>
-              </Link>
-              <Link href="">
-                <div className="flex bg-white rounded-sm py-1 px-2 items-center justify-center gap-2">
-                  <Image
-                    src={applePlay}
-                    alt="Apple Store"
-                    width={24}
-                    height={24}
-                  />
-                  <div>
-                    <p className="text-black text-sm">Download on</p>
-                    <p className="text-[#2A7D7D] text-md">Apple Store</p>
-                  </div>
+              </div>
+            </Link>
+            <Link href="">
+              <div className="flex bg-white rounded-sm py-2 px-4 md:px-10 items-center justify-center gap-2">
+                <Image
+                  src={applePlay}
+                  alt="Apple Store"
+                  width={24}
+                  height={24}
+                />
+                <div>
+                  <p className="text-black text-sm">Download on</p>
+                  <p className="text-[#2A7D7D] text-md">Apple Store</p>
                 </div>
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
         </div>
       </Container>

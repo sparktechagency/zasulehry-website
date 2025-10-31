@@ -3,7 +3,7 @@ import { NavItem, SocialLink, FooterSection } from "@/types";
 export const mainNavigation: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Jobs", href: "/jobs" },
-  { label: "For Employer", href: "/for-employer" },
+  { label: "For Employer", href: "https://zisan-website.vercel.app/login" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 
@@ -17,19 +17,31 @@ export const footerSections: FooterSection[] = [
   {
     title: "Quick Links",
     links: [
-      { label: "Profile", href: "/profile" },
+      { label: "Profile", href: "https://zisan-website.vercel.app/login" },
       { label: "Home", href: "/" },
       { label: "Jobs", href: "/jobs" },
-      { label: "For Employer", href: "/employer-services" },
+      {
+        label: "For Employer",
+        href: "https://zisan-website.vercel.app/signup",
+      },
     ],
   },
   {
     title: "Quick Links",
     links: [
-      { label: "Jobs Posting", href: "/jobs-posting" },
-      { label: "Subscription Plan", href: "/subscription-plan" },
-      { label: "Salary Calculator", href: "/salary-calculator" },
-      { label: "Download Center", href: "/download-center" },
+      { label: "Jobs Posting", href: "https://zisan-website.vercel.app/login" },
+      {
+        label: "Subscription Plan",
+        href: "https://zisan-website.vercel.app/login",
+      },
+      {
+        label: "Salary Calculator",
+        href: "https://zisan-website.vercel.app/login",
+      },
+      {
+        label: "Download Center",
+        href: "https://zisan-website.vercel.app/login",
+      },
     ],
   },
   {

@@ -2,6 +2,10 @@
 
 import Container from "@/components/ui/Container";
 import { gradientClasses } from "@/styles/gradients";
+import startFree1 from "@/assets/startFree/startFree1.png";
+import startFree2 from "@/assets/startFree/startFree2.png";
+import startFree3 from "@/assets/startFree/startFree3.png";
+import Image from "next/image";
 
 const StartFree = () => {
   return (
@@ -25,20 +29,12 @@ const StartFree = () => {
                 }}
                 className={`${gradientClasses.buttonBg} w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center`}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
+                <Image
+                  src={startFree1}
+                  alt="Post your Jobs."
+                  width={24}
+                  height={24}
+                />
               </div>
             </div>
             <div className="grow">
@@ -70,20 +66,12 @@ const StartFree = () => {
                 }}
                 className={`${gradientClasses.buttonBg} w-12 h-12 rounded-full flex items-center justify-center`}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
+                <Image
+                  src={startFree2}
+                  alt="You need our support"
+                  width={24}
+                  height={24}
+                />
               </div>
             </div>
             <div className="grow">
@@ -115,20 +103,12 @@ const StartFree = () => {
                 }}
                 className={`${gradientClasses.buttonBg} w-12 h-12 rounded-full flex items-center justify-center`}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
+                <Image
+                  src={startFree3}
+                  alt="Contact & Support"
+                  width={24}
+                  height={24}
+                />
               </div>
             </div>
             <div className="grow">
