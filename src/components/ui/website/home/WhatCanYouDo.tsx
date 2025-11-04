@@ -12,7 +12,6 @@ import {
   FaComments,
   FaUsers,
 } from "react-icons/fa";
-import Button from "../../Button";
 import { gradientClasses } from "@/styles/gradients";
 
 const WhatCanYouDo = () => {
@@ -31,39 +30,39 @@ const WhatCanYouDo = () => {
     },
     {
       icon: <FaPaperPlane className="text-teal-400" />,
-      text: "You Can Post Jobs",
+      text: "Post Jobs",
     },
     {
       icon: <FaRobot className="text-pink-400" />,
-      text: "You can use many AI Tools",
+      text: "Use Many AI Tools",
     },
     {
       icon: <FaCalendarAlt className="text-teal-400" />,
-      text: "You Can Manage Your Appointments",
+      text: "Manage Your Appointments",
     },
     {
       icon: <FaWhatsapp className="text-pink-400" />,
-      text: "You Can Use Whatsapp Support To Communicate With JobsinApp Team",
+      text: "Use Whatsapp Support To Communicate With JobsinApp Team",
     },
     {
       icon: <FaWhatsapp className="text-teal-400" />,
-      text: "You Can Add A Whatsapp Link To Communicate With Candidates",
+      text: "Add A Whatsapp Link To Communicate With Candidates",
     },
     {
       icon: <FaUserTie className="text-pink-400" />,
-      text: "You Can Order A Worker From JobsinApp Platform",
+      text: "Hire An Employee On JobsinApp Platform",
     },
     {
       icon: <FaUsers className="text-teal-400" />,
-      text: "You Can Manage Shiftplans For Your Workers",
+      text: "Create and Manage Shift Plans for your Employees",
     },
     {
       icon: <FaCalculator className="text-pink-400" />,
-      text: "You Can Calculate The Salary",
+      text: "Calculate The Salary",
     },
     {
       icon: <FaComments className="text-teal-400" />,
-      text: "You Can Subscribe For JobsinApp To Use A Lot Of Services Including Candidate Matching",
+      text: "Subscribe For JobsinApp To Use A Lot Of Services Including Candidate Matching",
     },
   ];
 
