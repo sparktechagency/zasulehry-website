@@ -10,7 +10,8 @@ export const mainNavigation: NavItem[] = [
 export const socialLinks: SocialLink[] = [
   { name: "Facebook", href: "https://facebook.com", icon: "facebook" },
   { name: "Instagram", href: "https://instagram.com", icon: "instagram" },
-  { name: "WhatsApp", href: "https://whatsapp.com", icon: "whatsapp" },
+  // { name: "WhatsApp", href: "https://whatsapp.com", icon: "whatsapp" },
+  { name: "YouTube", href: "https://youtube.com", icon: "youtube" },
 ];
 
 export const footerSections: FooterSection[] = [
@@ -19,7 +20,7 @@ export const footerSections: FooterSection[] = [
     links: [
       { label: "Profile", href: "https://zisan-website.vercel.app/login" },
       { label: "Home", href: "/" },
-      { label: "Jobs", href: "/jobs" },
+      { label: "Job", href: "/jobs" },
       {
         label: "For Employer",
         href: "https://zisan-website.vercel.app/signup",
@@ -29,7 +30,7 @@ export const footerSections: FooterSection[] = [
   {
     title: "Quick Links",
     links: [
-      { label: "Jobs Posting", href: "https://zisan-website.vercel.app/login" },
+      { label: "Job Posting", href: "https://zisan-website.vercel.app/login" },
       {
         label: "Subscription Plan",
         href: "https://zisan-website.vercel.app/login",

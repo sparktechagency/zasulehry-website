@@ -1,3 +1,4 @@
+"use client";
 import Container from "@/components/ui/Container";
 import {
   FaUser,
@@ -13,6 +14,7 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { gradientClasses } from "@/styles/gradients";
+import { useEffect, useRef, useState } from "react";
 
 const WhatCanYouDo = () => {
   const features = [
@@ -66,10 +68,53 @@ const WhatCanYouDo = () => {
     },
   ];
 
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [headerInView, setHeaderInView] = useState(false);
+  const [itemsInView, setItemsInView] = useState<boolean[]>(
+    Array(features.length).fill(false)
+  );
+
+  useEffect(() => {
+    const opts = { threshold: 0.2 };
+    const headerObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) setHeaderInView(true);
+    }, opts);
+    if (headerRef.current) headerObs.observe(headerRef.current);
+
+    const itemObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const idx = itemRefs.current.findIndex((el) => el === entry.target);
+        if (idx !== -1) {
+          setItemsInView((prev) => {
+            const next = [...prev];
+            next[idx] = true;
+            return next;
+          });
+        }
+      });
+    }, opts);
+    itemRefs.current.forEach((el) => el && itemObs.observe(el));
+
+    return () => {
+      headerObs.disconnect();
+      itemObs.disconnect();
+    };
+  }, []);
+
   return (
     <section className="bg-[#2C3E50] py-16">
       <Container>
-        <div className="text-center mb-12">
+        <div
+          ref={headerRef}
+          className={`text-center mb-12 transition-all duration-700 ease-out will-change-transform will-change-opacity ${
+            headerInView
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-6"
+          }`}
+          style={{ transitionDelay: "100ms" }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
             What You Can Do On JobsinApp .{" "}
           </h2>
@@ -79,7 +124,15 @@ const WhatCanYouDo = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-4 rounded-md hover:shadow-md transition-shadow duration-300"
+              ref={(el) => {
+                itemRefs.current[index] = el;
+              }}
+              className={`flex items-center gap-3 bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-4 rounded-md hover:shadow-md transition-all duration-700 ease-out will-change-transform will-change-opacity ${
+                itemsInView[index]
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+              }`}
+              style={{ transitionDelay: `${150 + index * 75}ms` }}
             >
               <div className="shrink-0 w-8 h-8 flex items-center justify-center">
                 {feature.icon}

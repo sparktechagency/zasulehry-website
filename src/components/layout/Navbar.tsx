@@ -124,29 +124,41 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+        <div
+          className={`md:hidden ${gradientClasses.primaryBg} shadow-xl py-5`}
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-white border-t border-white/20">
             {mainNavigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                   pathname === item.href
-                    ? "text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50"
-                    : "text-gray-700 hover:text-blue-600"
+                    ? "text-white font-bold border-l-4 border-white bg-white/10"
+                    : "text-white/80 hover:text-white"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 mt-4"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Get Started
-            </Link>
+            <div className="flex items-center space-x-4 text-white">
+              <button className="rounded-full p-2 bg-white/10 backdrop-blur-sm border text-white border-white/20 font-bold">
+                <FaEarthAsia size={25} />
+              </button>
+              <Button
+                href="https://zisan-website.vercel.app/login"
+                variant="glass"
+              >
+                Login
+              </Button>
+              <Button
+                href="https://zisan-website.vercel.app/signup"
+                variant="glass"
+              >
+                Sign Up
+              </Button>
+            </div>
           </div>
         </div>
       )}

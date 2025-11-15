@@ -15,7 +15,7 @@ const AboutUsBanner = () => {
               <br className="hidden sm:block" />
               Simplifying Employment.
             </h1>
-            <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90">
+            <p className="text-sm mb-6 sm:mb-8 opacity-90">
               JobsinApp is A Dynamic Service Platform Designed To Bridge The Gap
               Between Employers And Job Seekers. Whether You&apos;re Looking To
               Hire Skilled Professionals Or Searching For Your Next Opportunity,

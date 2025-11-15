@@ -3,9 +3,9 @@ import Container from "../../Container";
 
 const ContactBanner = () => {
   return (
-    <div className={`${gradientClasses.primaryBg} py-16`}>
+    <div className={`${gradientClasses.primaryBg} py-2`}>
       <Container>
-        <div className="text-center mb-12">
+        <div className="text-center mb-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Let&apos;s Connect And Collaborate
           </h1>

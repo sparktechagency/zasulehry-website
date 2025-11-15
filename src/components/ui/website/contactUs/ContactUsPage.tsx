@@ -154,7 +154,7 @@ const ContactUsPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label htmlFor="phone" className="block text-white mb-2">
-                      Phone Number
+                      Contact Number
                     </label>
                     <input
                       type="tel"
@@ -162,7 +162,7 @@ const ContactUsPage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="Enter Your Name"
+                      placeholder="Enter Your Contact Number"
                       className="w-full border border-white rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
@@ -176,7 +176,7 @@ const ContactUsPage = () => {
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
-                      placeholder="Enter Your Name"
+                      placeholder="Enter Your Location"
                       className="w-full border border-white rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
@@ -246,7 +246,7 @@ const ContactUsPage = () => {
                     style={{ boxShadow: "0 0 10px 0 #B1F1FF inset" }}
                     className={`${gradientClasses.primaryBg} px-6 rounded-lg py-2 backdrop-blur-sm text-white`}
                   >
-                    Confirm
+                    Send
                   </button>
                 </div>
               </form>
