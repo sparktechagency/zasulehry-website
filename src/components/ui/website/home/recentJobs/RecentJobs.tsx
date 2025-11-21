@@ -190,7 +190,7 @@ const RecentJobs = () => {
             style={{
               boxShadow: "0 0 10px 0 #B1F1FF inset",
             }}
-            className={`${gradientClasses.buttonBg} absolute left-5 cursor-pointer top-1/2 -translate-y-1/2 -ml-5 w-10 h-10 rounded-full text-white flex items-center justify-center shadow-lg z-10 transition-colors`}
+            className={`${gradientClasses.buttonBg} absolute left-5 md:-left-2 cursor-pointer top-1/2 -translate-y-1/2 -ml-5 w-10 h-10 rounded-full text-white flex items-center justify-center shadow-lg z-10 transition-colors`}
             aria-label="Previous slide"
           >
             <FaChevronLeft />
@@ -201,7 +201,7 @@ const RecentJobs = () => {
             style={{
               boxShadow: "0 0 10px 0 #B1F1FF inset",
             }}
-            className={`${gradientClasses.buttonBg} absolute cursor-pointer right-5 top-1/2 -translate-y-1/2 -mr-5 w-10 h-10 rounded-full text-white flex items-center justify-center shadow-lg z-10 transition-colors`}
+            className={`${gradientClasses.buttonBg} absolute cursor-pointer md:-right-2 right-5 top-1/2 -translate-y-1/2 -mr-5 w-10 h-10 rounded-full text-white flex items-center justify-center shadow-lg z-10 transition-colors`}
             aria-label="Next slide"
           >
             <FaChevronRight />
