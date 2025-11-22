@@ -66,8 +66,8 @@ const Banner = () => {
             <br />
             Recruitment With
             <br />
-            <span className="text-[#FF69B4] md:text-7xl font-bold">
-              AI Technology
+            <span className="text-[#FF69B4] md:text-6xl font-bold">
+              Advance Technology
             </span>
           </h1>
           <p className="text-white/90 mb-8 max-w-lg text-base md:text-lg">
@@ -92,7 +92,9 @@ const Banner = () => {
           <h1
             ref={rightTitleRef}
             className={`text-2xl md:text-4xl text-center text-white leading-tight transition-all duration-700 ease-out ${
-              showRightTitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              showRightTitle
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6"
             }`}
           >
             Download Our Mobile App
@@ -101,7 +103,9 @@ const Banner = () => {
             ref={imageRef}
             style={{ transitionDelay: "120ms" }}
             className={`transition-all duration-700 ease-out ${
-              showImage ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+              showImage
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-8"
             }`}
           >
             <Image
@@ -116,7 +120,9 @@ const Banner = () => {
             ref={storesRef}
             style={{ transitionDelay: "240ms" }}
             className={`flex items-center justify-center gap-2 transition-all duration-700 ease-out ${
-              showStores ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              showStores
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6"
             }`}
           >
             <Link href="">

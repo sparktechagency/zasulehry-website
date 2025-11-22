@@ -52,20 +52,22 @@ const ModernWarkforce = () => {
         <div
           ref={headerRef}
           className={`text-center mb-12 transition-all duration-700 ease-out will-change-transform will-change-opacity ${
-            headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            headerInView
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-6"
           }`}
           style={{ transitionDelay: "100ms" }}
         >
           <h2 className="text-3xl md:text-4xl lg:text-4xl font-semibold text-white mb-4">
-            AI-DRIVEN NEXT GENERATION RECRUITMENT FOR
+            NEXT GENERATION RECRUITMENT FOR
             <br />
             THE MODERN WORKFORCE
           </h2>
           <p className="text-xl text-white mb-4">
-            AI-Powered Hiring That Understands Talent.
+            Advance Hiring That Understands Talent.
           </p>
           <p className="text-gray-300 max-w-4xl mx-auto">
-            Our Platform Isn&apos;t Just Another ATS — It Uses Advanced AI
+            Our Platform Isn&apos;t Just Another ATS — It Uses Advanced
             Technology To Match You With The Right Candidates,
             <br />
             Analyze Applications Intelligently, And Streamline Your Hiring
@@ -78,7 +80,9 @@ const ModernWarkforce = () => {
           <div
             ref={card1Ref}
             className={`bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-8 rounded-lg transition-all duration-700 ease-out will-change-transform will-change-opacity ${
-              card1InView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"
+              card1InView
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-6"
             }`}
             style={{ transitionDelay: "150ms" }}
           >
@@ -103,7 +107,9 @@ const ModernWarkforce = () => {
           <div
             ref={card2Ref}
             className={`bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-8 rounded-lg transition-all duration-700 ease-out will-change-transform will-change-opacity ${
-              card2InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              card2InView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6"
             }`}
             style={{ transitionDelay: "300ms" }}
           >
@@ -128,7 +134,9 @@ const ModernWarkforce = () => {
           <div
             ref={card3Ref}
             className={`bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-8 rounded-lg transition-all duration-700 ease-out will-change-transform will-change-opacity ${
-              card3InView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"
+              card3InView
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-6"
             }`}
             style={{ transitionDelay: "450ms" }}
           >

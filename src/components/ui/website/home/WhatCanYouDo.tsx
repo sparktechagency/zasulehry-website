@@ -32,11 +32,11 @@ const WhatCanYouDo = () => {
     },
     {
       icon: <FaPaperPlane className="text-teal-400" />,
-      text: "Post Jobs",
+      text: "You Can Post Jobs",
     },
     {
       icon: <FaRobot className="text-pink-400" />,
-      text: "Use Many AI Tools",
+      text: "Advance Technology",
     },
     {
       icon: <FaCalendarAlt className="text-teal-400" />,
