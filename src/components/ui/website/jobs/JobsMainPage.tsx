@@ -1,145 +1,26 @@
 "use client";
 
+import { useRouter, useSearchParams } from "next/navigation";
 import Container from "../../Container";
-import { useState } from "react";
 import JobCard from "../../JobCard";
 import SearchFilter, { FilterData } from "../../SearchFilter";
 
-// Job data structure
-const jobsData = [
-  {
-    id: 1,
-    title: "Senior Business Analyst",
-    company: "Sparktech Agency",
-    location: "California/USA",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 2,
-    title: "Flutter App Development",
-    company: "Batopia Groups",
-    location: "Dhaka/Bangladesh",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 3,
-    title: "Mobile App Development",
-    company: "Vivo Soft Company",
-    location: "London/Gaming",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 4,
-    title: "Senior UX/UI Designer",
-    company: "Slot Tech Agency",
-    location: "California/USA",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 5,
-    title: "Senior Business Analyst",
-    company: "Sparktech Agency",
-    location: "California/USA",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 3,
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 6,
-    title: "Flutter App Development",
-    company: "Batopia Groups",
-    location: "Dhaka/Bangladesh",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 3,
-    image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 7,
-    title: "Mobile App Development",
-    company: "Vivo Soft Company",
-    location: "London/Gaming",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 3,
-    image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 8,
-    title: "Senior UX/UI Designer",
-    company: "Slot Tech Agency",
-    location: "California/USA",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 3,
-    image:
-      "https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 9,
-    title: "Senior Business Analyst",
-    company: "Sparktech Agency",
-    location: "California/USA",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 10,
-    title: "Flutter App Development",
-    company: "Batopia Groups",
-    location: "Dhaka/Bangladesh",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 11,
-    title: "Mobile App Development",
-    company: "Vivo Soft Company",
-    location: "London/Gaming",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1528747045269-390fe33c19f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 12,
-    title: "Senior UX/UI Designer",
-    company: "Slot Tech Agency",
-    location: "California/USA",
-    salary: "$200-$300/Month",
-    jobType: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-];
+// Job data structure interface
+export interface Job {
+  id: number | string;
+  title: string;
+  company: string;
+  location: string;
+  salary: string;
+  jobType: string;
+  postedDays: number;
+  image: string;
+}
+
+interface PaginationData {
+  totalPage: number;
+  currentPage: number;
+}
 
 // Pagination Component
 const Pagination = ({
@@ -188,44 +69,80 @@ const Pagination = ({
   );
 };
 
-const JobsMainPage = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const jobsPerPage = 8;
+interface JobsMainPageProps {
+  initialJobs: Job[];
+  pagination: PaginationData;
+  categories: any[];
+}
 
-  // Calculate total pages
-  const totalPages = Math.ceil(jobsData.length / jobsPerPage);
+const JobsMainPage = ({
+  initialJobs = [],
+  pagination,
+  categories = [],
+}: JobsMainPageProps) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  // Get current jobs
-  const indexOfLastJob = currentPage * jobsPerPage;
-  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
-  const currentJobs = jobsData.slice(indexOfFirstJob, indexOfLastJob);
-  const [filteredJobs, setFilteredJobs] = useState(jobsData);
+  const updateQueryParams = (newParams: Record<string, string | null>) => {
+    const params = new URLSearchParams(searchParams.toString());
 
-  // Change page
-  const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-    window.scrollTo({ top: 500, behavior: "smooth" });
+    Object.entries(newParams).forEach(([key, value]) => {
+      if (
+        value === null ||
+        value === "" ||
+        value === "Category" ||
+        value === "Sub Category" ||
+        value === "Full Time" ||
+        value === "With Experience"
+      ) {
+        params.delete(key);
+      } else {
+        params.set(key, value);
+      }
+    });
+
+    // Reset to page 1 on search/filter if not explicitly setting page
+    if (!newParams.page) {
+      params.set("page", "1");
+    }
+
+    router.push(`/jobs?${params.toString()}`, { scroll: false });
   };
 
   const handleSearch = (query: string) => {
-    console.log("Search query:", query);
-
-    if (!query.trim()) {
-      setFilteredJobs(jobsData);
-    } else {
-      const lowercaseQuery = query.toLowerCase();
-      const results = jobsData.filter(
-        (job) =>
-          job.title.toLowerCase().includes(lowercaseQuery) ||
-          job.company.toLowerCase().includes(lowercaseQuery) ||
-          job.location.toLowerCase().includes(lowercaseQuery)
-      );
-      setFilteredJobs(results);
-    }
+    updateQueryParams({ searchTerm: query });
   };
 
   const handleFilter = (filterData: FilterData) => {
-    console.log("Filter data:", filterData);
+    const params: Record<string, string | null> = {};
+    if (filterData.category) params.category = filterData.category;
+    if (filterData.subCategory) params.subCategory = filterData.subCategory;
+    if (filterData.employmentType) params.jobType = filterData.employmentType;
+    if (filterData.experience) params.experience = filterData.experience;
+    if (filterData.salaryType) params.salaryType = filterData.salaryType;
+    if (filterData.salaryValue)
+      params.salaryAmount = filterData.salaryValue.toString();
+    if (filterData.distanceValue)
+      params.distance = filterData.distanceValue.toString();
+
+    updateQueryParams(params);
+  };
+
+  const handlePageChange = (pageNo: number) => {
+    updateQueryParams({ page: pageNo.toString() });
+    window.scrollTo({ top: 500, behavior: "smooth" });
+  };
+
+  const handleResetFilters = () => {
+    updateQueryParams({
+      category: null,
+      subCategory: null,
+      jobType: null,
+      experience: null,
+      salaryType: null,
+      salaryAmount: null,
+      distance: null,
+    });
   };
 
   return (
@@ -244,6 +161,8 @@ const JobsMainPage = () => {
           <SearchFilter
             onSearch={handleSearch}
             onFilter={handleFilter}
+            onReset={handleResetFilters}
+            initialCategories={categories}
             placeholder="Search Location/Job"
             className="max-w-full mx-auto"
           />
@@ -259,27 +178,35 @@ const JobsMainPage = () => {
         <div>
           {/* Job Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 mx-auto max-w-xs sm:max-w-none">
-            {currentJobs?.map((job) => (
-              <JobCard
-                key={job.id}
-                id={job.id}
-                company={job.company}
-                location={job.location}
-                position={job.title}
-                salary={job.salary}
-                type={job.jobType}
-                postedDays={job.postedDays}
-                image={job.image}
-              />
-            ))}
+            {initialJobs.length > 0 ? (
+              initialJobs.map((job) => (
+                <JobCard
+                  key={job.id}
+                  id={job.id}
+                  company={job.company}
+                  location={job.location}
+                  position={job.title}
+                  salary={job.salary}
+                  type={job.jobType}
+                  postedDays={job.postedDays}
+                  image={job.image}
+                />
+              ))
+            ) : (
+              <div className="col-span-full py-10 text-center text-gray-400">
+                No jobs found.
+              </div>
+            )}
           </div>
 
           {/* Pagination */}
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
+          {pagination.totalPage > 1 && (
+            <Pagination
+              currentPage={pagination.currentPage}
+              totalPages={pagination.totalPage}
+              onPageChange={handlePageChange}
+            />
+          )}
         </div>
       </Container>
     </div>

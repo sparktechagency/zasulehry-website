@@ -1,111 +1,47 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Container from "@/components/ui/Container";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
-// import required modules
 import { Navigation } from "swiper/modules";
 import JobCard from "@/components/ui/JobCard";
 import SearchFilter, { FilterData } from "@/components/ui/SearchFilter";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { gradientClasses } from "@/styles/gradients";
+import { useRouter } from "next/navigation";
 
-const jobs = [
-  {
-    id: 1,
-    company: "Sparktech Agency",
-    location: "California, USA",
-    position: "Senior Business Analyst",
-    salary: "$200–$300/Month",
-    type: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 2,
-    company: "Batopia Groups",
-    location: "Dhaka, Bangladesh",
-    position: "Flutter App Development",
-    salary: "$200–$300/Month",
-    type: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 3,
-    company: "Vivo Soft Company",
-    location: "London, Gaming",
-    position: "Mobile App Development",
-    salary: "$200–$300/Month",
-    type: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 4,
-    company: "Slat Tech Agency",
-    location: "California, USA",
-    position: "Senior UX/UI Designer",
-    salary: "$200–$300/Month",
-    type: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 5,
-    company: "Vivo Soft Company",
-    location: "London, Gaming",
-    position: "Mobile App Development",
-    salary: "$200–$300/Month",
-    type: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-  {
-    id: 6,
-    company: "Slat Tech Agency",
-    location: "California, USA",
-    position: "Senior UX/UI Designer",
-    salary: "$200–$300/Month",
-    type: "Full Time",
-    postedDays: 2,
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80",
-  },
-];
+interface RecentJobsProps {
+  initialJobs?: any[];
+  categories?: any[];
+}
 
-const RecentJobs = () => {
+const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
+  const router = useRouter();
   const swiperRef = useRef<SwiperType | null>(null);
-  const [filteredJobs, setFilteredJobs] = useState(jobs);
 
   const handleSearch = (query: string) => {
-    console.log("Search query:", query);
-
-    if (!query.trim()) {
-      setFilteredJobs(jobs);
-    } else {
-      const lowercaseQuery = query.toLowerCase();
-      const results = jobs.filter(
-        (job) =>
-          job.position.toLowerCase().includes(lowercaseQuery) ||
-          job.company.toLowerCase().includes(lowercaseQuery) ||
-          job.location.toLowerCase().includes(lowercaseQuery)
-      );
-      setFilteredJobs(results);
+    if (query.trim()) {
+      router.push(`/jobs?searchTerm=${encodeURIComponent(query)}`);
     }
   };
 
   const handleFilter = (filterData: FilterData) => {
-    console.log("Filter data:", filterData);
+    const params = new URLSearchParams();
+    if (filterData.category) params.set("category", filterData.category);
+    if (filterData.subCategory)
+      params.set("subCategory", filterData.subCategory);
+    if (filterData.employmentType)
+      params.set("jobType", filterData.employmentType);
+    if (filterData.experience) params.set("experience", filterData.experience);
+    if (filterData.salaryType) params.set("salaryType", filterData.salaryType);
+    if (filterData.salaryValue)
+      params.set("salaryAmount", filterData.salaryValue.toString());
+
+    router.push(`/jobs?${params.toString()}`);
   };
 
   return (
@@ -127,6 +63,7 @@ const RecentJobs = () => {
           <SearchFilter
             onSearch={handleSearch}
             onFilter={handleFilter}
+            initialCategories={categories}
             placeholder="Search Location/Job"
             className="max-w-full mx-auto"
           />
@@ -168,7 +105,7 @@ const RecentJobs = () => {
               },
             }}
           >
-            {jobs.map((job) => (
+            {initialJobs.map((job) => (
               <SwiperSlide key={job.id}>
                 <JobCard
                   id={job.id}

@@ -5,6 +5,9 @@ import Container from "@/components/ui/Container";
 import { gradientClasses } from "@/styles/gradients";
 import ContactBanner from "./ContactBanner";
 
+import { createSupportAction } from "@/actions/support";
+import toast from "react-hot-toast";
+
 const ContactUsPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,6 +17,7 @@ const ContactUsPage = () => {
     message: "",
   });
   const [file, setFile] = useState<File | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,19 +32,42 @@ const ContactUsPage = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    // console.log({ ...formData, file });
-    // Reset form after submission
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      location: "",
-      message: "",
-    });
-    setFile(null);
+    setIsSubmitting(true);
+
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("email", formData.email);
+    data.append("phone", formData.phone);
+    data.append("location", formData.location);
+    data.append("message", formData.message);
+    if (file) {
+      data.append("image", file);
+    }
+
+    try {
+      const result = await createSupportAction(data);
+      console.log("result response ==>>", result);
+      if (result.success) {
+        toast.success(result.message);
+        // Reset form after submission
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          location: "",
+          message: "",
+        });
+        setFile(null);
+      } else {
+        toast.error(result.message);
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -243,10 +270,11 @@ const ContactUsPage = () => {
                 <div className="text-right">
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     style={{ boxShadow: "0 0 10px 0 #B1F1FF inset" }}
-                    className={`${gradientClasses.primaryBg} px-6 rounded-lg py-2 backdrop-blur-sm text-white`}
+                    className={`${gradientClasses.primaryBg} px-6 rounded-lg py-2 backdrop-blur-sm text-white disabled:opacity-50 disabled:cursor-not-allowed`}
                   >
-                    Send
+                    {isSubmitting ? "Sending..." : "Send"}
                   </button>
                 </div>
               </form>

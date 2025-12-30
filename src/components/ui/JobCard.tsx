@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FC } from "react";
 
 export interface JobCardProps {
-  id: number;
+  id: number | string;
   company: string;
   location: string;
   position: string;

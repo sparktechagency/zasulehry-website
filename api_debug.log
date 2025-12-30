@@ -1,0 +1,112 @@
+
+--- 2025-12-30T11:45:55.306Z ---
+URL: http://10.10.7.7:5000/api/v1/supports/create
+Result: {
+  "success": false,
+  "message": "Validation Error",
+  "errorMessages": [
+    {
+      "path": "name",
+      "message": "Required"
+    },
+    {
+      "path": "email",
+      "message": "Required"
+    },
+    {
+      "path": "phone",
+      "message": "Required"
+    },
+    {
+      "path": "message",
+      "message": "Message is required"
+    }
+  ],
+  "stack": "ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"body\",\n      \"name\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"body\",\n      \"email\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"body\",\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"too_small\",\n    \"minimum\": 1,\n    \"type\": \"string\",\n    \"inclusive\": true,\n    \"exact\": false,\n    \"message\": \"Message is required\",\n    \"path\": [\n      \"body\",\n      \"message\"\n    ]\n  }\n]\n    at get error (C:\\Users\\Rahad-Ullah\\Projects\\jobsin-backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n    at ZodObject.parseAsync (C:\\Users\\Rahad-Ullah\\Projects\\jobsin-backend\\node_modules\\zod\\v3\\types.cjs:183:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+}
+
+Received FormData Keys: ["name","email","phone","location","message"]
+
+Received FormData Keys: ["name","email","phone","location","message","image"]
+
+--- 2025-12-30T11:52:24.683Z ---
+URL: http://10.10.7.7:5000/api/v1/supports/create
+Result: {
+  "message": "Only .jpeg, .png, .jpg file supported"
+}
+
+Received FormData Keys: ["name","email","phone","location","message","image"]
+
+--- 2025-12-30T11:56:34.047Z ---
+URL: http://10.10.7.7:5000/api/v1/supports/create
+Result: {
+  "success": false,
+  "message": "Validation Error",
+  "errorMessages": [
+    {
+      "path": "name",
+      "message": "Required"
+    },
+    {
+      "path": "email",
+      "message": "Required"
+    },
+    {
+      "path": "phone",
+      "message": "Required"
+    },
+    {
+      "path": "message",
+      "message": "Message is required"
+    }
+  ],
+  "stack": "ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"body\",\n      \"name\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"body\",\n      \"email\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"body\",\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"too_small\",\n    \"minimum\": 1,\n    \"type\": \"string\",\n    \"inclusive\": true,\n    \"exact\": false,\n    \"message\": \"Message is required\",\n    \"path\": [\n      \"body\",\n      \"message\"\n    ]\n  }\n]\n    at get error (C:\\Users\\Rahad-Ullah\\Projects\\jobsin-backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n    at ZodObject.parseAsync (C:\\Users\\Rahad-Ullah\\Projects\\jobsin-backend\\node_modules\\zod\\v3\\types.cjs:183:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+}
+
+Received FormData Keys: ["name","email","phone","location","message","image"]
+
+--- 2025-12-30T11:56:58.509Z ---
+URL: http://10.10.7.7:5000/api/v1/supports/create
+Result: {
+  "success": false,
+  "message": "Validation Error",
+  "errorMessages": [
+    {
+      "path": "name",
+      "message": "Required"
+    },
+    {
+      "path": "email",
+      "message": "Required"
+    },
+    {
+      "path": "phone",
+      "message": "Required"
+    },
+    {
+      "path": "message",
+      "message": "Message is required"
+    }
+  ],
+  "stack": "ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"body\",\n      \"name\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"body\",\n      \"email\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"body\",\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"too_small\",\n    \"minimum\": 1,\n    \"type\": \"string\",\n    \"inclusive\": true,\n    \"exact\": false,\n    \"message\": \"Message is required\",\n    \"path\": [\n      \"body\",\n      \"message\"\n    ]\n  }\n]\n    at get error (C:\\Users\\Rahad-Ullah\\Projects\\jobsin-backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n    at ZodObject.parseAsync (C:\\Users\\Rahad-Ullah\\Projects\\jobsin-backend\\node_modules\\zod\\v3\\types.cjs:183:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+}
+
+Received FormData Keys: ["name","email","phone","location","message"]
+
+--- 2025-12-30T11:58:43.112Z ---
+URL: http://10.10.7.7:5000/api/v1/supports/create
+Result: {
+  "success": false,
+  "message": "Validation Error",
+  "errorMessages": [
+    {
+      "path": "phone",
+      "message": "Phone must be at most 15 characters"
+    }
+  ],
+  "stack": "ZodError: [\n  {\n    \"code\": \"too_big\",\n    \"maximum\": 15,\n    \"type\": \"string\",\n    \"inclusive\": true,\n    \"exact\": false,\n    \"message\": \"Phone must be at most 15 characters\",\n    \"path\": [\n      \"body\",\n      \"phone\"\n    ]\n  }\n]\n    at get error (C:\\Users\\Rahad-Ullah\\Projects\\jobsin-backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n    at ZodObject.parseAsync (C:\\Users\\Rahad-Ullah\\Projects\\jobsin-backend\\node_modules\\zod\\v3\\types.cjs:183:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+}
+
+Received FormData Keys: ["name","email","phone","location","message"]
+
+Received FormData Keys: ["name","email","phone","location","message","image"]

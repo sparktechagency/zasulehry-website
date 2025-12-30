@@ -6,41 +6,31 @@ import React, { useMemo } from "react";
 import Image from "next/image";
 import { gradientClasses } from "@/styles/gradients";
 
-// Job details data structure
-const jobDetailsData = [
-  {
-    id: "1",
-    title: "Senior Business Analyst",
-    company: "Sparktech Agency",
-    location: "Dhaka Bangladesh",
-    jobType: "Full Time",
-    salary: "$200-$300/Month",
-    postedDate: "20 Jan 2025",
-    image:
-      "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=600&q=80",
-    description:
-      "We Are Seeking A Compassionate Nurse To Join Our Emergency Department, Providing Quality Care To Patients In A Fast-Paced Environment.",
-    responsibilities: [
-      "Patient Care: Provide Direct Care To Patients, Monitor Vital Signs, Administer Medications, Etc.",
-      "Documentation: Maintain Patient Records And Ensure They Are Up To Date.",
-      "Collaboration: Work Closely With Doctors, Nurses, And Healthcare Teams.",
-      "Emergency Response: Respond Quickly To Patient Needs And Emergencies.",
-    ],
-    qualifications: [
-      "Education: Bachelor's Degree In Nursing (BSN)* Or *Medical Degree (MD) Required.*",
-      "Certifications: Certified Nursing Assistant (CNA)* Or *Board-Certified In Pediatrics.",
-      "Experience: 2+ Years Of Experience In A Hospital Setting Preferred.*",
-      "Skills: Strong Communication Skills, Attention To Detail, Critical Thinking.*",
-    ],
-  },
-];
+// Job details data structure interface
+export interface JobDetail {
+  id: string;
+  title: string;
+  company: string;
+  location: string;
+  jobType: string;
+  salary: string;
+  postedDate: string;
+  image: string;
+  description: string;
+  responsibilities: string[];
+  qualifications: string[];
+}
 
-const JobDetailsPage = ({ id }: { id: string }) => {
-  // Use useMemo to derive job details from ID
-  const jobDetails = useMemo(() => {
-    const job = jobDetailsData.find(job => job.id === id);
-    return job || jobDetailsData[0]; // Fallback to first job if not found
-  }, [id]);
+interface JobDetailsPageProps {
+  id: string;
+  initialData: JobDetail;
+}
+
+const JobDetailsPage = ({ id, initialData }: JobDetailsPageProps) => {
+  // Use the jobData from props
+  const jobDetails = initialData;
+
+  if (!jobDetails) return null;
 
   return (
     <Container>
@@ -113,24 +103,29 @@ const JobDetailsPage = ({ id }: { id: string }) => {
         </div>
 
         {/* Responsibilities */}
-        <div className="mb-8">
-          <h3 className="text-xl font-semibold mb-4">Responsibilities</h3>
-          <ul className="list-disc pl-5 space-y-2 text-gray-300">
-            {jobDetails.responsibilities.map((responsibility, index) => (
-              <li key={index}>{responsibility}</li>
-            ))}
-          </ul>
-        </div>
+        {jobDetails.responsibilities &&
+          jobDetails.responsibilities.length > 0 && (
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold mb-4">Responsibilities</h3>
+              <ul className="list-disc pl-5 space-y-2 text-gray-300">
+                {jobDetails.responsibilities.map((responsibility, index) => (
+                  <li key={index}>{responsibility}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
         {/* Qualifications */}
-        <div className="mb-8">
-          <h3 className="text-xl font-semibold mb-4">Qualifications</h3>
-          <ul className="list-disc pl-5 space-y-2 text-gray-300">
-            {jobDetails.qualifications.map((qualification, index) => (
-              <li key={index}>{qualification}</li>
-            ))}
-          </ul>
-        </div>
+        {jobDetails.qualifications && jobDetails.qualifications.length > 0 && (
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold mb-4">Qualifications</h3>
+            <ul className="list-disc pl-5 space-y-2 text-gray-300">
+              {jobDetails.qualifications.map((qualification, index) => (
+                <li key={index}>{qualification}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </Container>
   );

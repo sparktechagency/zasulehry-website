@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { FaSearch, FaTimes, FaChevronDown } from "react-icons/fa";
 import { LuSlidersHorizontal } from "react-icons/lu";
 import { gradientClasses } from "@/styles/gradients";
@@ -8,30 +8,34 @@ import { gradientClasses } from "@/styles/gradients";
 type SearchFilterProps = {
   onSearch?: (query: string) => void;
   onFilter?: (filterData: FilterData) => void;
+  onReset?: () => void;
+  initialCategories?: any[];
   placeholder?: string;
   className?: string;
 };
 
 export type FilterData = {
-  category: string;
-  subCategory: string;
-  employmentType: string;
-  experience: string;
-  salaryType: "Hourly" | "Monthly" | "Yearly";
-  salaryValue: number;
-  distanceValue: number;
+  category?: string;
+  subCategory?: string;
+  employmentType?: string;
+  experience?: string;
+  salaryType?: "Day" | "Month" | "Year";
+  salaryValue?: number;
+  distanceValue?: number;
 };
 
 const SearchFilter = ({
   onSearch,
   onFilter,
+  onReset,
+  initialCategories = [],
   placeholder = "Search Location/Job",
   className = "",
 }: SearchFilterProps) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilterModal, setShowFilterModal] = useState(false);
-  const [salaryType, setSalaryType] = useState<"Hourly" | "Monthly" | "Yearly">(
-    "Monthly"
+  const [salaryType, setSalaryType] = useState<"Day" | "Month" | "Year">(
+    "Month"
   );
   const [salaryValue, setSalaryValue] = useState(30);
   const [distanceValue, setDistanceValue] = useState(5);
@@ -50,18 +54,22 @@ const SearchFilter = ({
   const [selectedExperience, setSelectedExperience] =
     useState("With Experience");
 
-  // Dropdown options
-  const categoryOptions = [
-    "Senior Business Analytics",
-    "IT & Development",
-    "Photo Editing",
-    "Cleaning",
-    "Plumber",
-    "Electrician",
-    "Driver",
-  ];
+  const [touchedFields, setTouchedFields] = useState<Set<keyof FilterData>>(
+    new Set()
+  );
 
-  const subCategoryOptions = ["Business Analytics", "Driver"];
+  const markFieldAsTouched = (field: keyof FilterData) => {
+    setTouchedFields((prev) => new Set(prev).add(field));
+  };
+
+  // Dynamic Options derived from initialCategories
+  const categoryOptions = initialCategories.map((cat) => cat.name);
+  const subCategoryOptions = useMemo(() => {
+    const category = initialCategories.find(
+      (cat) => cat.name === selectedCategory
+    );
+    return category ? category.subCategories : [];
+  }, [selectedCategory, initialCategories]);
 
   const fullTimeOptions = [
     "Full Time",
@@ -83,6 +91,7 @@ const SearchFilter = ({
       setShowFilterModal(false);
       // Close all dropdowns when modal is closed
       setShowCategoryDropdown(false);
+      setShowSubCategoryDropdown(false);
       setShowFullTimeDropdown(false);
       setShowExperienceDropdown(false);
     }
@@ -96,15 +105,34 @@ const SearchFilter = ({
 
   const handleConfirmFilter = () => {
     if (onFilter) {
-      onFilter({
-        category: selectedCategory,
-        subCategory: selectedSubCategory,
-        employmentType: selectedFullTime,
-        experience: selectedExperience,
-        salaryType,
-        salaryValue,
-        distanceValue,
-      });
+      const data: FilterData = {};
+      if (touchedFields.has("category")) data.category = selectedCategory;
+      if (touchedFields.has("subCategory"))
+        data.subCategory = selectedSubCategory;
+      if (touchedFields.has("employmentType"))
+        data.employmentType = selectedFullTime;
+      if (touchedFields.has("experience")) data.experience = selectedExperience;
+      if (touchedFields.has("salaryType")) data.salaryType = salaryType;
+      if (touchedFields.has("salaryValue")) data.salaryValue = salaryValue;
+      if (touchedFields.has("distanceValue"))
+        data.distanceValue = distanceValue;
+
+      onFilter(data);
+    }
+    setShowFilterModal(false);
+  };
+
+  const handleReset = () => {
+    setSelectedCategory("Category");
+    setSelectedSubCategory("Sub Category");
+    setSelectedFullTime("Full Time");
+    setSelectedExperience("With Experience");
+    setSalaryType("Month");
+    setSalaryValue(30);
+    setDistanceValue(5);
+    setTouchedFields(new Set());
+    if (onReset) {
+      onReset();
     }
     setShowFilterModal(false);
   };
@@ -187,6 +215,13 @@ const SearchFilter = ({
                         }`}
                         onClick={() => {
                           setSelectedCategory(option);
+                          setSelectedSubCategory("Sub Category"); // Reset subcategory
+                          markFieldAsTouched("category");
+                          setTouchedFields((prev) => {
+                            const next = new Set(prev);
+                            next.delete("subCategory");
+                            return next;
+                          });
                           setShowCategoryDropdown(false);
                         }}
                       >
@@ -216,7 +251,7 @@ const SearchFilter = ({
 
                 {showSubCategoryDropdown && (
                   <div className="absolute z-10 mt-1 w-full bg-[#2C3E50] border border-white/20 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-                    {subCategoryOptions.map((option, index) => (
+                    {subCategoryOptions.map((option: string, index: number) => (
                       <div
                         key={index}
                         className={`p-3 text-white hover:bg-white/10 cursor-pointer border-b border-white/10 last:border-b-0 ${
@@ -224,6 +259,7 @@ const SearchFilter = ({
                         }`}
                         onClick={() => {
                           setSelectedSubCategory(option);
+                          markFieldAsTouched("subCategory");
                           setShowSubCategoryDropdown(false);
                         }}
                       >
@@ -261,6 +297,7 @@ const SearchFilter = ({
                         }`}
                         onClick={() => {
                           setSelectedFullTime(option);
+                          markFieldAsTouched("employmentType");
                           setShowFullTimeDropdown(false);
                         }}
                       >
@@ -298,6 +335,7 @@ const SearchFilter = ({
                         }`}
                         onClick={() => {
                           setSelectedExperience(option);
+                          markFieldAsTouched("experience");
                           setShowExperienceDropdown(false);
                         }}
                       >
@@ -316,31 +354,40 @@ const SearchFilter = ({
                 <div className="flex ml-auto bg-[#2C3E50]/50 rounded-md p-0.5">
                   <button
                     className={`px-4 py-1 rounded-md cursor-pointer text-sm ${
-                      salaryType === "Hourly"
+                      salaryType === "Day"
                         ? `${gradientClasses.primaryBg} text-white`
                         : "text-white/80"
                     }`}
-                    onClick={() => setSalaryType("Hourly")}
+                    onClick={() => {
+                      setSalaryType("Day");
+                      markFieldAsTouched("salaryType");
+                    }}
                   >
-                    Hourly
+                    Day
                   </button>
                   <button
                     className={`px-4 py-1 rounded-md cursor-pointer text-sm ${
-                      salaryType === "Monthly"
+                      salaryType === "Month"
                         ? `${gradientClasses.primaryBg} text-white`
                         : "text-white/80"
                     }`}
-                    onClick={() => setSalaryType("Monthly")}
+                    onClick={() => {
+                      setSalaryType("Month");
+                      markFieldAsTouched("salaryType");
+                    }}
                   >
                     Monthly
                   </button>
                   <button
                     className={`px-4 py-1 rounded-md cursor-pointer text-sm ${
-                      salaryType === "Yearly"
+                      salaryType === "Year"
                         ? `${gradientClasses.primaryBg} text-white`
                         : "text-white/80"
                     }`}
-                    onClick={() => setSalaryType("Yearly")}
+                    onClick={() => {
+                      setSalaryType("Year");
+                      markFieldAsTouched("salaryType");
+                    }}
                   >
                     Yearly
                   </button>
@@ -351,26 +398,29 @@ const SearchFilter = ({
               <div className="mt-4">
                 <div className="relative pt-6">
                   <div className="absolute top-0 left-0 text-teal-500 font-semibold">
-                    ${salaryValue}
+                    ${salaryValue.toLocaleString()}
                   </div>
                   <input
                     type="range"
                     min="10"
-                    max="100"
+                    max="100000"
                     value={salaryValue}
-                    onChange={(e) => setSalaryValue(parseInt(e.target.value))}
+                    onChange={(e) => {
+                      setSalaryValue(parseInt(e.target.value));
+                      markFieldAsTouched("salaryValue");
+                    }}
                     className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-teal-500"
                     style={{
                       background: `linear-gradient(to right, #0D9488 0%, #0D9488 ${
-                        ((salaryValue - 10) * 100) / 90
+                        ((salaryValue - 10) * 100) / 99990
                       }%, #374151 ${
-                        ((salaryValue - 10) * 100) / 90
+                        ((salaryValue - 10) * 100) / 99990
                       }%, #374151 100%)`,
                     }}
                   />
                   <div className="flex justify-between text-xs text-gray-400 mt-2">
                     <span>$10</span>
-                    <span>$100</span>
+                    <span>$100,000</span>
                   </div>
                 </div>
               </div>
@@ -393,7 +443,10 @@ const SearchFilter = ({
                     min="1"
                     max="100"
                     value={distanceValue}
-                    onChange={(e) => setDistanceValue(parseInt(e.target.value))}
+                    onChange={(e) => {
+                      setDistanceValue(parseInt(e.target.value));
+                      markFieldAsTouched("distanceValue");
+                    }}
                     className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-teal-500"
                     style={{
                       background: `linear-gradient(to right, #0D9488 0%, #0D9488 ${
@@ -411,16 +464,24 @@ const SearchFilter = ({
               </div>
             </div>
 
-            {/* Confirm Button */}
-            <button
-              onClick={handleConfirmFilter}
-              style={{
-                boxShadow: "0 0 10px 0 #B1F1FF inset",
-              }}
-              className={`${gradientClasses.primaryBg} w-full py-3 rounded-lg text-white font-medium hover:opacity-90 transition-opacity`}
-            >
-              Confirm
-            </button>
+            {/* Action Buttons */}
+            <div className="flex gap-4">
+              <button
+                onClick={handleReset}
+                className="flex-1 py-3 rounded-lg text-white font-medium border border-white/20 hover:bg-white/5 transition-colors"
+              >
+                Reset
+              </button>
+              <button
+                onClick={handleConfirmFilter}
+                style={{
+                  boxShadow: "0 0 10px 0 #B1F1FF inset",
+                }}
+                className={`${gradientClasses.primaryBg} flex-1 py-3 rounded-lg text-white font-medium hover:opacity-90 transition-opacity`}
+              >
+                Confirm
+              </button>
+            </div>
           </div>
         </div>
       )}
