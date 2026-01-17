@@ -25,7 +25,6 @@ const page = async ({
 
     // 2. Fetch Jobs based on query parameters
     const query = new URLSearchParams();
-    if (params.searchTerm) query.set("searchTerm", params.searchTerm as string);
     if (params.category && params.category !== "Category")
       query.set("category", params.category as string);
     if (params.subCategory && params.subCategory !== "Sub Category")
@@ -38,6 +37,11 @@ const page = async ({
       query.set("salaryAmount", params.salaryAmount as string);
     if (params.page) query.set("page", params.page as string);
     if (params.limit) query.set("limit", params.limit as string);
+    if (params.lat && params.lng) {
+      query.set("lat", params.lat as string);
+      query.set("lng", params.lng as string);
+      query.set("radius", "50"); // Default radius of 50km when location is provided
+    }
 
     const queryString = query.toString();
     const endpoint = `/jobs${queryString ? `?${queryString}` : ""}`;
@@ -55,7 +59,7 @@ const page = async ({
         const currentDate = new Date();
         const diffTime = Math.max(
           0,
-          currentDate.getTime() - createdDate.getTime()
+          currentDate.getTime() - createdDate.getTime(),
         );
         const postedDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
@@ -69,6 +73,7 @@ const page = async ({
             : "Negotiable",
           jobType: item.jobType || "Full Time",
           postedDays: postedDays,
+          coordinates: item?.location?.coordinates || null,
           image: item.author?.image
             ? item.author.image.startsWith("http")
               ? item.author.image
@@ -76,7 +81,9 @@ const page = async ({
             : "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=320&h=160&q=80",
         };
       });
-      console.log("jobs ==>>", jobs);
+
+      // console.log("OG RESPONSE ==>>", response);
+      // console.log("jobs ==>>", jobs);
     }
   } catch (error) {
     console.error("Error fetching jobs or categories:", error);

@@ -34,7 +34,7 @@ const WebsiteMainPage = async () => {
         const currentDate = new Date();
         const diffTime = Math.max(
           0,
-          currentDate.getTime() - createdDate.getTime()
+          currentDate.getTime() - createdDate.getTime(),
         );
         const postedDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
@@ -48,6 +48,7 @@ const WebsiteMainPage = async () => {
             : "Negotiable",
           type: item.jobType || "Full Time",
           postedDays: postedDays,
+          coordinates: item?.location?.coordinates || null,
           image: item.author?.image
             ? item.author.image.startsWith("http")
               ? item.author.image

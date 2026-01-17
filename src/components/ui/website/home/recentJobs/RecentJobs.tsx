@@ -10,12 +10,21 @@ import "./styles.css";
 import { Navigation } from "swiper/modules";
 import JobCard from "@/components/ui/JobCard";
 import SearchFilter, { FilterData } from "@/components/ui/SearchFilter";
+import GoogleMapWithAutocomplete from "@/components/ui/GoogleMapWithAutocomplete";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { gradientClasses } from "@/styles/gradients";
 import { useRouter } from "next/navigation";
 
+interface JobWithCoordinates {
+  id: string | number;
+  title?: string;
+  position?: string;
+  coordinates?: [number, number] | null;
+  [key: string]: any;
+}
+
 interface RecentJobsProps {
-  initialJobs?: any[];
+  initialJobs?: JobWithCoordinates[];
   categories?: any[];
 }
 
@@ -44,27 +53,46 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
     router.push(`/jobs?${params.toString()}`);
   };
 
+  const handleLocationSelect = (location: {
+    lat: number;
+    lng: number;
+    placeName: string;
+  }) => {
+    // Set flag to indicate this is a navigation, not a reload
+    sessionStorage.setItem("navigatedToJobs", "true");
+    router.push(
+      `/jobs?lat=${location.lat}&lng=${location.lng}&placeName=${encodeURIComponent(location.placeName)}`,
+    );
+  };
+
+  // Prepare job markers for the map
+  const jobMarkers = initialJobs
+    .filter(
+      (job) =>
+        job.coordinates &&
+        Array.isArray(job.coordinates) &&
+        job.coordinates.length === 2,
+    )
+    .map((job) => ({
+      id: job.id,
+      title: job.title || job.position || "Job",
+      coordinates: job.coordinates as [number, number],
+    }));
+
   return (
     <div className="bg-[#2C3E50] py-10">
       <Container>
         <div className="my-10">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.4171553169313!2d-0.24466420000000003!3d51.615567199999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487616dc63b10f11%3A0xcac3328ce14a0654!2sq%2C%20Athene%20House%2C%2086%20The%20Broadway%2C%20London%20NW7%203TD%2C%20UK!5e0!3m2!1sen!2sbd!4v1761889818073!5m2!1sen!2sbd"
-            width="1200"
-            height="500"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-lg w-full"
-          ></iframe>
+          <GoogleMapWithAutocomplete jobMarkers={jobMarkers} />
         </div>
 
         {/* Search and Filter */}
         <div className="mb-8">
           <SearchFilter
-            onSearch={handleSearch}
             onFilter={handleFilter}
+            onLocationSelect={handleLocationSelect}
             initialCategories={categories}
-            placeholder="Search Location/Job"
+            placeholder="Search Location"
             className="max-w-full mx-auto"
           />
         </div>
@@ -111,7 +139,7 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
                   id={job.id}
                   company={job.company}
                   location={job.location}
-                  position={job.position}
+                  position={job.position || job.title || ""}
                   salary={job.salary}
                   type={job.type}
                   postedDays={job.postedDays}

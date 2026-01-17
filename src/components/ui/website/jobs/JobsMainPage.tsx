@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Container from "../../Container";
 import JobCard from "../../JobCard";
 import SearchFilter, { FilterData } from "../../SearchFilter";
+import GoogleMapWithAutocomplete from "../../GoogleMapWithAutocomplete";
 
 // Job data structure interface
 export interface Job {
@@ -14,6 +16,7 @@ export interface Job {
   salary: string;
   jobType: string;
   postedDays: number;
+  coordinates: [number, number] | null; // [lng, lat] from API
   image: string;
 }
 
@@ -83,6 +86,20 @@ const JobsMainPage = ({
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  // Clear query params on page reload (but not on navigation from home)
+  useEffect(() => {
+    const navigatedFromHome = sessionStorage.getItem("navigatedToJobs");
+
+    if (navigatedFromHome) {
+      // This is a navigation from home, remove the flag and keep params
+      sessionStorage.removeItem("navigatedToJobs");
+    } else if (searchParams.toString()) {
+      // This is a reload, clear all params
+      router.replace("/jobs", { scroll: false });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const updateQueryParams = (newParams: Record<string, string | null>) => {
     const params = new URLSearchParams(searchParams.toString());
 
@@ -107,10 +124,6 @@ const JobsMainPage = ({
     }
 
     router.push(`/jobs?${params.toString()}`, { scroll: false });
-  };
-
-  const handleSearch = (query: string) => {
-    updateQueryParams({ searchTerm: query });
   };
 
   const handleFilter = (filterData: FilterData) => {
@@ -142,6 +155,19 @@ const JobsMainPage = ({
       salaryType: null,
       salaryAmount: null,
       distance: null,
+      lat: null,
+      lng: null,
+    });
+  };
+
+  const handleLocationSelect = (location: {
+    lat: number;
+    lng: number;
+    placeName: string;
+  }) => {
+    updateQueryParams({
+      lat: location.lat.toString(),
+      lng: location.lng.toString(),
     });
   };
 
@@ -149,21 +175,40 @@ const JobsMainPage = ({
     <div>
       <Container>
         <div className="my-10">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.4171553169313!2d-0.24466420000000003!3d51.615567199999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487616dc63b10f11%3A0xcac3328ce14a0654!2sq%2C%20Athene%20House%2C%2086%20The%20Broadway%2C%20London%20NW7%203TD%2C%20UK!5e0!3m2!1sen!2sbd!4v1761889818073!5m2!1sen!2sbd"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-lg w-full h-[300px] sm:h-[400px] md:h-[500px]"
-          ></iframe>
+          <GoogleMapWithAutocomplete
+            lat={
+              searchParams.get("lat")
+                ? parseFloat(searchParams.get("lat")!)
+                : undefined
+            }
+            lng={
+              searchParams.get("lng")
+                ? parseFloat(searchParams.get("lng")!)
+                : undefined
+            }
+            jobMarkers={initialJobs
+              .filter(
+                (job) =>
+                  job.coordinates &&
+                  Array.isArray(job.coordinates) &&
+                  job.coordinates.length === 2,
+              )
+              .map((job) => ({
+                id: job.id,
+                title: job.title,
+                coordinates: job.coordinates as [number, number],
+              }))}
+          />
         </div>
 
         <div className="relative w-full mb-8">
           <SearchFilter
-            onSearch={handleSearch}
             onFilter={handleFilter}
             onReset={handleResetFilters}
+            onLocationSelect={handleLocationSelect}
             initialCategories={categories}
-            placeholder="Search Location/Job"
+            initialSearchValue={searchParams.get("placeName") || ""}
+            placeholder="Search Location"
             className="max-w-full mx-auto"
           />
         </div>
