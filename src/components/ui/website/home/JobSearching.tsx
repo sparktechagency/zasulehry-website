@@ -5,6 +5,7 @@ import { FaDownload, FaArrowRight } from "react-icons/fa";
 import jobSearchingImg from "@/assets/banner/bannerBg.png";
 import qrCode from "@/assets/jobSearchingHome/jobSearchingQR.png";
 import { gradientClasses } from "@/styles/gradients";
+import Link from "next/link";
 
 const JobSearching = () => {
   const [showHeader, setShowHeader] = useState(false);
@@ -39,7 +40,7 @@ const JobSearching = () => {
       {
         threshold: 0.2,
         rootMargin: "0px 0px -10% 0px",
-      }
+      },
     );
 
     if (headerRef.current) observer.observe(headerRef.current);
@@ -80,7 +81,9 @@ const JobSearching = () => {
             ref={mockupRef}
             style={{ transitionDelay: "120ms" }}
             className={`w-full lg:w-3/5 transition-all duration-700 ease-out ${
-              showMockup ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+              showMockup
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-8"
             }`}
           >
             <Image
@@ -96,7 +99,9 @@ const JobSearching = () => {
             ref={downloadRef}
             style={{ transitionDelay: "220ms" }}
             className={`w-full lg:w-2/5 text-white transition-all duration-700 ease-out ${
-              showDownload ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+              showDownload
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-8"
             }`}
           >
             <h3 className="text-2xl font-bold text-[#D259D3] mb-4">
@@ -158,12 +163,14 @@ const JobSearching = () => {
             <FaDownload /> Download Mobile App
           </button>
 
-          <button
-            style={{ boxShadow: "0 0 10px 0 #B1F1FF inset" }}
-            className={`${gradientClasses.primaryBg} px-8 py-3 flex items-center justify-center gap-2 rounded-md hover:opacity-90 transition-all cursor-pointer`}
-          >
-            Start Hiring Now <FaArrowRight />
-          </button>
+          <Link href="https://portal.jobsinapp.de">
+            <button
+              style={{ boxShadow: "0 0 10px 0 #B1F1FF inset" }}
+              className={`${gradientClasses.primaryBg} px-8 cursor-pointer py-3 rounded-md hover:opacity-90 transition-all inline-block`}
+            >
+              Start Hiring Now
+            </button>
+          </Link>
         </div>
       </div>
     </section>

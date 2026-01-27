@@ -7,6 +7,7 @@ import startFree2 from "@/assets/startFree/startFree2.png";
 import startFree3 from "@/assets/startFree/startFree3.png";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const StartFree = () => {
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -53,7 +54,9 @@ const StartFree = () => {
         <div
           ref={headerRef}
           className={`text-center mb-8 sm:mb-10 md:mb-12 transition-all duration-700 ease-out will-change-transform will-change-opacity ${
-            headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            headerInView
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-6"
           }`}
           style={{ transitionDelay: "100ms" }}
         >
@@ -69,7 +72,9 @@ const StartFree = () => {
           <div
             ref={card1Ref}
             className={`bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-4 sm:p-6 rounded-lg flex flex-col h-full transition-all duration-700 ease-out will-change-transform will-change-opacity ${
-              card1InView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"
+              card1InView
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-6"
             }`}
             style={{ transitionDelay: "150ms" }}
           >
@@ -97,14 +102,16 @@ const StartFree = () => {
               </p>
             </div>
             <div className="flex justify-center mt-4 sm:mt-6">
-              <button
-                style={{
-                  boxShadow: "0 0 10px 0 #B1F1FF inset",
-                }}
-                className={`${gradientClasses.buttonBg} text-white  cursor-pointer py-1.5 sm:py-2 px-4 w-full sm:px-6 rounded-lg text-xs sm:text-sm transition-colors`}
-              >
-                Get Started
-              </button>
+              <Link href="https://portal.jobsinapp.de">
+                <button
+                  style={{
+                    boxShadow: "0 0 10px 0 #B1F1FF inset",
+                  }}
+                  className={`${gradientClasses.buttonBg} text-white  cursor-pointer py-1.5 sm:py-2 px-4 w-full sm:px-6 rounded-lg text-xs sm:text-sm transition-colors`}
+                >
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -112,7 +119,9 @@ const StartFree = () => {
           <div
             ref={card2Ref}
             className={`bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-6 rounded-lg flex flex-col h-full transition-all duration-700 ease-out will-change-transform will-change-opacity ${
-              card2InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              card2InView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6"
             }`}
             style={{ transitionDelay: "300ms" }}
           >
@@ -140,14 +149,16 @@ const StartFree = () => {
               </p>
             </div>
             <div className="flex justify-center mt-6">
-              <button
-                style={{
-                  boxShadow: "0 0 10px 0 #B1F1FF inset",
-                }}
-                className={`${gradientClasses.buttonBg} text-white py-2 px-6 cursor-pointer rounded-lg text-sm w-full transition-colors`}
-              >
-                Hire Employees
-              </button>
+              <Link href="https://portal.jobsinapp.de">
+                <button
+                  style={{
+                    boxShadow: "0 0 10px 0 #B1F1FF inset",
+                  }}
+                  className={`${gradientClasses.buttonBg} text-white py-2 px-6 cursor-pointer rounded-lg text-sm w-full transition-colors`}
+                >
+                  Hire Employees
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -155,7 +166,9 @@ const StartFree = () => {
           <div
             ref={card3Ref}
             className={`bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-6 rounded-lg flex flex-col h-full transition-all duration-700 ease-out will-change-transform will-change-opacity ${
-              card3InView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"
+              card3InView
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-6"
             }`}
             style={{ transitionDelay: "450ms" }}
           >
@@ -184,14 +197,16 @@ const StartFree = () => {
               </p>
             </div>
             <div className="flex justify-center mt-6">
-              <button
-                style={{
-                  boxShadow: "0 0 10px 0 #B1F1FF inset",
-                }}
-                className={`${gradientClasses.buttonBg} text-white cursor-pointer py-2 px-6 rounded-lg text-sm w-full transition-colors`}
-              >
-                Contact Us
-              </button>
+              <Link href="/contact-us">
+                <button
+                  style={{
+                    boxShadow: "0 0 10px 0 #B1F1FF inset",
+                  }}
+                  className={`${gradientClasses.buttonBg} text-white cursor-pointer py-2 px-6 rounded-lg text-sm w-full transition-colors`}
+                >
+                  Contact Us
+                </button>
+              </Link>
             </div>
           </div>
         </div>

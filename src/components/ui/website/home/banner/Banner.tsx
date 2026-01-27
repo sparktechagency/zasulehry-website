@@ -38,7 +38,7 @@ const Banner = () => {
           observer.unobserve(target);
         });
       },
-      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" },
     );
 
     if (leftRef.current) observer.observe(leftRef.current);
@@ -78,10 +78,10 @@ const Banner = () => {
             Roles.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button href="/hiring" variant="glass">
+            <Button href="https://portal.jobsinapp.de" variant="glass">
               Start Hiring Now
             </Button>
-            <Button href="/jobs" variant="glass">
+            <Button href="https://portal.jobsinapp.de" variant="glass">
               Find Job
             </Button>
           </div>

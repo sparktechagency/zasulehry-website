@@ -58,9 +58,9 @@ export default function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <div className="flex items-center space-x-4 ">
-              <button className="rounded-full p-2 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold">
+              {/* <button className="rounded-full p-2 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold">
                 <FaEarthAsia size={25} />
-              </button>
+              </button> */}
               <Button href="https://portal.jobsinapp.de/login" variant="glass">
                 Login
               </Button>
@@ -137,9 +137,9 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="flex items-center space-x-4 text-white">
-              <button className="rounded-full p-2 bg-white/10 backdrop-blur-sm border text-white border-white/20 font-bold">
+              {/* <button className="rounded-full p-2 bg-white/10 backdrop-blur-sm border text-white border-white/20 font-bold">
                 <FaEarthAsia size={25} />
-              </button>
+              </button> */}
               <Button href="https://portal.jobsinapp.de/login" variant="glass">
                 Login
               </Button>

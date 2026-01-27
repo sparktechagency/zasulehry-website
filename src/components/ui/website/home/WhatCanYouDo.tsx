@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa";
 import { gradientClasses } from "@/styles/gradients";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const WhatCanYouDo = () => {
   const features = [
@@ -72,7 +73,7 @@ const WhatCanYouDo = () => {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [headerInView, setHeaderInView] = useState(false);
   const [itemsInView, setItemsInView] = useState<boolean[]>(
-    Array(features.length).fill(false)
+    Array(features.length).fill(false),
   );
 
   useEffect(() => {
@@ -143,14 +144,16 @@ const WhatCanYouDo = () => {
         </div>
 
         <div className="mt-10 text-center">
-          <button
-            style={{
-              boxShadow: "0 0 10px 0 #7d8fa0 inset",
-            }}
-            className={`${gradientClasses.primaryBg} px-8 py-3 rounded-md hover:opacity-90 transition-all inline-block`}
-          >
-            Start Posting Now
-          </button>
+          <Link href="https://portal.jobsinapp.de">
+            <button
+              style={{
+                boxShadow: "0 0 10px 0 #7d8fa0 inset",
+              }}
+              className={`${gradientClasses.primaryBg} px-8 cursor-pointer py-3 rounded-md hover:opacity-90 transition-all inline-block`}
+            >
+              Start Posting Now
+            </button>
+          </Link>
         </div>
       </Container>
     </section>

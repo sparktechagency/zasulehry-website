@@ -3,7 +3,7 @@ import { NavItem, SocialLink, FooterSection } from "@/types";
 export const mainNavigation: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Jobs", href: "/jobs" },
-  { label: "For Employer", href: "https://zisan-website.vercel.app/login" },
+  { label: "For Employer", href: "https://portal.jobsinapp.de/login" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 
@@ -18,30 +18,30 @@ export const footerSections: FooterSection[] = [
   {
     title: "Quick Links",
     links: [
-      { label: "Profile", href: "https://zisan-website.vercel.app/login" },
+      { label: "Profile", href: "https://portal.jobsinapp.de/login" },
       { label: "Home", href: "/" },
       { label: "Job", href: "/jobs" },
       {
         label: "For Employer",
-        href: "https://zisan-website.vercel.app/signup",
+        href: "https://portal.jobsinapp.de/login",
       },
     ],
   },
   {
     title: "Quick Links",
     links: [
-      { label: "Job Posting", href: "https://zisan-website.vercel.app/login" },
+      { label: "Job Posting", href: "https://portal.jobsinapp.de/login" },
       {
         label: "Subscription Plan",
-        href: "https://zisan-website.vercel.app/login",
+        href: "https://portal.jobsinapp.de/login",
       },
       {
         label: "Salary Calculator",
-        href: "https://zisan-website.vercel.app/login",
+        href: "https://portal.jobsinapp.de/login",
       },
       {
         label: "Download Center",
-        href: "https://zisan-website.vercel.app/login",
+        href: "https://portal.jobsinapp.de/login",
       },
     ],
   },
