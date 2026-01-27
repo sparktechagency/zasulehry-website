@@ -53,7 +53,7 @@ const WebsiteMainPage = async ({ contactInfo }: { contactInfo?: any }) => {
             ? item.author.image.startsWith("http")
               ? item.author.image
               : `${hostUrl}${item.author.image}`
-            : "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=320&h=160&q=80",
+            : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
         };
       });
     }

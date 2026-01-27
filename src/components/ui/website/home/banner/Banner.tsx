@@ -61,12 +61,12 @@ const Banner = () => {
             showLeft ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
           }`}
         >
-          <h1 className="text-3xl md:text-5xl lg:text-6xl text-white mb-4 leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-5xl text-white mb-4 leading-tight">
             Next-Level
             <br />
             Recruitment With
             <br />
-            <span className="text-[#FF69B4] md:text-6xl font-bold">
+            <span className="text-[#FF69B4] md:text-5xl font-bold">
               Advance Technology
             </span>
           </h1>

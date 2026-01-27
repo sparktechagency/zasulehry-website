@@ -64,6 +64,24 @@
   box-sizing: border-box;
 }
 
+*,
+::before,
+::after,
+input,
+textarea,
+button,
+select {
+  font-family:
+    var(--font-poppins),
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
