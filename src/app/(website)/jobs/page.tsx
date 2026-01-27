@@ -1,6 +1,8 @@
 import JobsMainPage from "@/components/ui/website/jobs/JobsMainPage";
 import { myFetch } from "@/utils/myFetch";
 
+export const dynamic = "force-dynamic";
+
 const page = async ({
   searchParams,
 }: {

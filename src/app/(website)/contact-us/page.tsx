@@ -1,6 +1,8 @@
 import ContactUsPage from "@/components/ui/website/contactUs/ContactUsPage";
 import { myFetch } from "@/utils/myFetch";
 
+export const dynamic = "force-dynamic";
+
 const page = async () => {
   let contactInfo = null;
 
