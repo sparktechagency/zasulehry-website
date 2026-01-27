@@ -108,9 +108,16 @@ const ContactUsPage = ({
                       />
                     </svg>
                   </div>
-                  <span className="text-white">
-                    {contactInfo?.phone || "-"}
-                  </span>
+                  {contactInfo?.phone ? (
+                    <a
+                      href={`tel:${contactInfo.phone}`}
+                      className="text-white hover:text-teal-400 transition-colors"
+                    >
+                      {contactInfo.phone}
+                    </a>
+                  ) : (
+                    <span className="text-white">-</span>
+                  )}
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -130,9 +137,16 @@ const ContactUsPage = ({
                       />
                     </svg>
                   </div>
-                  <span className="text-white">
-                    {contactInfo?.email || "-"}
-                  </span>
+                  {contactInfo?.email ? (
+                    <a
+                      href={`mailto:${contactInfo.email}`}
+                      className="text-white hover:text-teal-400 transition-colors"
+                    >
+                      {contactInfo.email}
+                    </a>
+                  ) : (
+                    <span className="text-white">-</span>
+                  )}
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -152,9 +166,21 @@ const ContactUsPage = ({
                       />
                     </svg>
                   </div>
-                  <span className="text-white">
-                    {contactInfo?.whatsApp || "-"}
-                  </span>
+                  {contactInfo?.whatsApp ? (
+                    <a
+                      href={`https://wa.me/${contactInfo.whatsApp.replace(
+                        /\+/g,
+                        "",
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-teal-400 transition-colors"
+                    >
+                      {contactInfo.whatsApp}
+                    </a>
+                  ) : (
+                    <span className="text-white">-</span>
+                  )}
                 </div>
               </div>
             </div>
