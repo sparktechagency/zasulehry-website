@@ -8,7 +8,18 @@ import ContactBanner from "./ContactBanner";
 import { createSupportAction } from "@/actions/support";
 import toast from "react-hot-toast";
 
-const ContactUsPage = () => {
+interface ContactInfo {
+  email: string;
+  phone: string;
+  whatsApp: string;
+  [key: string]: any;
+}
+
+const ContactUsPage = ({
+  contactInfo,
+}: {
+  contactInfo?: ContactInfo | null;
+}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,7 +31,7 @@ const ContactUsPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -97,7 +108,9 @@ const ContactUsPage = () => {
                       />
                     </svg>
                   </div>
-                  <span className="text-white">+88025636552</span>
+                  <span className="text-white">
+                    {contactInfo?.phone || "-"}
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -117,7 +130,9 @@ const ContactUsPage = () => {
                       />
                     </svg>
                   </div>
-                  <span className="text-white">JobsinAPP@Gmail.Com</span>
+                  <span className="text-white">
+                    {contactInfo?.email || "-"}
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -137,7 +152,9 @@ const ContactUsPage = () => {
                       />
                     </svg>
                   </div>
-                  <span className="text-white">JobsinAPP</span>
+                  <span className="text-white">
+                    {contactInfo?.whatsApp || "-"}
+                  </span>
                 </div>
               </div>
             </div>

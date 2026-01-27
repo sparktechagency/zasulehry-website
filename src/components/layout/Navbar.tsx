@@ -61,16 +61,10 @@ export default function Navbar() {
               <button className="rounded-full p-2 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold">
                 <FaEarthAsia size={25} />
               </button>
-              <Button
-                href="https://zisan-website.vercel.app/login"
-                variant="glass"
-              >
+              <Button href="https://portal.jobsinapp.de/login" variant="glass">
                 Login
               </Button>
-              <Button
-                href="https://zisan-website.vercel.app/signup"
-                variant="glass"
-              >
+              <Button href="https://portal.jobsinapp.de/signup" variant="glass">
                 Sign Up
               </Button>
             </div>
@@ -146,16 +140,10 @@ export default function Navbar() {
               <button className="rounded-full p-2 bg-white/10 backdrop-blur-sm border text-white border-white/20 font-bold">
                 <FaEarthAsia size={25} />
               </button>
-              <Button
-                href="https://zisan-website.vercel.app/login"
-                variant="glass"
-              >
+              <Button href="https://portal.jobsinapp.de/login" variant="glass">
                 Login
               </Button>
-              <Button
-                href="https://zisan-website.vercel.app/signup"
-                variant="glass"
-              >
+              <Button href="https://portal.jobsinapp.de/signup" variant="glass">
                 Sign Up
               </Button>
             </div>

@@ -3,10 +3,17 @@ import React, { useEffect, useRef, useState } from "react";
 import { FaPhone, FaEnvelope, FaCommentDots } from "react-icons/fa";
 import Link from "next/link";
 
-const NeedHelp = () => {
+interface ContactInfo {
+  phone?: string;
+  email?: string;
+  whatsApp?: string;
+  [key: string]: any;
+}
+
+const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
   const [showHeader, setShowHeader] = useState(false);
   const [itemsVisible, setItemsVisible] = useState<[boolean, boolean, boolean]>(
-    [false, false, false]
+    [false, false, false],
   );
 
   const headerRef = useRef<HTMLHeadingElement | null>(null);
@@ -32,14 +39,14 @@ const NeedHelp = () => {
                 prev.map((v, i) => (i === idx ? true : v)) as [
                   boolean,
                   boolean,
-                  boolean
-                ]
+                  boolean,
+                ],
             );
             observer.unobserve(target);
           }
         });
       },
-      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" },
     );
 
     if (headerRef.current) observer.observe(headerRef.current);
@@ -77,7 +84,9 @@ const NeedHelp = () => {
               <FaPhone className="text-white text-xl" />
             </div>
             <h3 className="text-white font-medium mb-1">Phone</h3>
-            <p className="text-gray-300 text-sm">+1 234 567 890</p>
+            <p className="text-gray-300 text-sm">
+              {contactInfo?.phone || "+1 234 567 890"}
+            </p>
           </div>
 
           {/* Email Contact */}
@@ -96,7 +105,9 @@ const NeedHelp = () => {
               <FaEnvelope className="text-white text-xl" />
             </div>
             <h3 className="text-white font-medium mb-1">Email</h3>
-            <p className="text-gray-300 text-sm">Support@JobsInapp.Com</p>
+            <p className="text-gray-300 text-sm">
+              {contactInfo?.email || "Support@JobsInapp.Com"}
+            </p>
           </div>
 
           {/* Contact Form */}
@@ -116,7 +127,7 @@ const NeedHelp = () => {
             </div>
             <h3 className="text-white font-medium mb-1">Contact Form</h3>
             <Link
-              href="#"
+              href="/contact-us"
               className="bg-gray-700 hover:bg-gray-600 text-white text-sm py-1 px-4 rounded-md transition-colors mt-1"
             >
               Send Message

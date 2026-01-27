@@ -44,7 +44,7 @@ const page = async ({
     }
 
     const queryString = query.toString();
-    const endpoint = `/jobs${queryString ? `?${queryString}` : ""}`;
+    const endpoint = `/jobs/public${queryString ? `?${queryString}` : ""}`;
 
     const response = await myFetch(endpoint);
 

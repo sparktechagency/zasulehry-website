@@ -4,9 +4,20 @@ import { gradientClasses } from "@/styles/gradients";
 import Container from "@/components/ui/Container";
 import Image from "next/image";
 import logo from "@/assets/banner/logo.png";
+import { myFetch } from "@/utils/myFetch";
 
-export default function Footer() {
+export default async function Footer() {
   const currentYear = new Date().getFullYear();
+  let contactInfo = null;
+
+  try {
+    const response = await myFetch("/contact");
+    if (response && response.success && response.data) {
+      contactInfo = response.data;
+    }
+  } catch (error) {
+    console.error("Error fetching footer contact info:", error);
+  }
 
   return (
     <footer className={`${gradientClasses.primaryBg} text-white`}>
@@ -14,18 +25,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {/* JobsinApp Logo */}
           <div className="md:col-span-3 lg:col-span-1">
-          <Link href="/" className="flex items-center">
-            <Image
-              src={logo}
-              alt="Zasulehry"
-              width={160}
-              height={120}
-              sizes="160px"
-              quality={100}
-              className="w-[160px] h-[120px]"
-            />
-          </Link>
-        </div>
+            <Link href="/" className="flex items-center">
+              <Image
+                src={logo}
+                alt="Zasulehry"
+                width={160}
+                height={120}
+                sizes="160px"
+                quality={100}
+                className="w-[160px] h-[120px]"
+              />
+            </Link>
+          </div>
 
           {/* Quick Links and Legal Info Sections */}
           {footerSections.map((section, index) => (
@@ -37,8 +48,8 @@ export default function Footer() {
                 {section.title}
               </h3>
               <ul className="space-y-3">
-                {section.links.map((link) => (
-                  <li key={link.href}>
+                {section.links.map((link, index) => (
+                  <li key={link.href + index}>
                     <Link
                       href={link.href}
                       className="text-gray-200 hover:text-white transition-colors duration-200 text-sm"
@@ -59,11 +70,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center text-gray-200 text-sm">
                 <PhoneIcon />
-                <span className="ml-2">+8802563565652</span>
+                <span className="ml-2">
+                  {contactInfo?.phone || "+8802563565652"}
+                </span>
               </li>
               <li className="flex items-center text-gray-200 text-sm">
                 <EmailIcon />
-                <span className="ml-2">JobsinApp.Com</span>
+                <span className="ml-2">
+                  {contactInfo?.email || "JobsinApp.Com"}
+                </span>
               </li>
               <li className="flex items-center text-gray-200 text-sm">
                 <ContactIcon />
@@ -71,7 +86,18 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-gray-200 text-sm">
                 <WhatsAppIcon />
-                <span className="ml-2">JobsinApp</span>
+                {contactInfo?.whatsApp ? (
+                  <Link
+                    href={`https://wa.me/${contactInfo.whatsApp.replace(/\+/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-2 hover:text-white transition-colors"
+                  >
+                    {contactInfo.whatsApp}
+                  </Link>
+                ) : (
+                  <span className="ml-2">JobsinApp</span>
+                )}
               </li>
             </ul>
           </div>

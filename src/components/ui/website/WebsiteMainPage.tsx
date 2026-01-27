@@ -10,7 +10,7 @@ import WhatCanYouDo from "./home/WhatCanYouDo";
 import WhyChooseUs from "./home/WhyChooseUs";
 import WhyNotOthers from "./home/WhyNotOthers";
 
-const WebsiteMainPage = async () => {
+const WebsiteMainPage = async ({ contactInfo }: { contactInfo?: any }) => {
   let jobs = [];
   let categories = [];
 
@@ -26,7 +26,7 @@ const WebsiteMainPage = async () => {
     }
 
     // 2. Fetch Recent Jobs
-    const response = await myFetch("/jobs?limit=10");
+    const response = await myFetch("/jobs/public?limit=10");
 
     if (response && response.success && Array.isArray(response.data)) {
       jobs = response.data.map((item: any) => {
@@ -72,7 +72,7 @@ const WebsiteMainPage = async () => {
       <ConnectingJobs />
       <WhatCanYouDo />
       <JobSearching />
-      <NeedHelp />
+      <NeedHelp contactInfo={contactInfo} />
     </div>
   );
 };

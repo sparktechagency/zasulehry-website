@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    qualities: [50, 60, 70, 80, 90, 100],
     remotePatterns: [
       {
         protocol: "https",
@@ -15,7 +16,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60,
   },
-  allowedDevOrigins: ["*"],
+  allowedDevOrigins: ["*", "10.10.7.47"],
   experimental: {
     serverActions: {
       bodySizeLimit: "10mb",
