@@ -3,7 +3,7 @@ export type FilterData = {
   subCategory?: string;
   employmentType?: string;
   experience?: string;
-  salaryType?: "Day" | "Month" | "Year";
+  salaryType?: "Hour" | "Month" | "Year";
   salaryValue?: number;
   distanceValue?: number;
 };

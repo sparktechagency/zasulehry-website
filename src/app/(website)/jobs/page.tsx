@@ -80,8 +80,8 @@ const page = async ({
         };
       });
 
-      console.log("OG RESPONSE ==>>", response);
-      console.log("jobs ==>>", jobs);
+      // console.log("OG RESPONSE ==>>", response);
+      // console.log("jobs ==>>", jobs);
     }
   } catch (error) {
     console.error("Error fetching jobs or categories:", error);

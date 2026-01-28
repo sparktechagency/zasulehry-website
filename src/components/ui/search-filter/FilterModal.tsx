@@ -20,7 +20,7 @@ const FilterModal = ({
   onReset,
   initialCategories,
 }: FilterModalProps) => {
-  const [salaryType, setSalaryType] = useState<"Day" | "Month" | "Year">(
+  const [salaryType, setSalaryType] = useState<"Hour" | "Month" | "Year">(
     "Month",
   );
   const [salaryValue, setSalaryValue] = useState(30);
@@ -197,7 +197,7 @@ const FilterModal = ({
           <div className="flex items-center">
             <span className="text-white text-base">Salary</span>
             <div className="flex ml-auto bg-[#2C3E50]/50 rounded-md p-0.5">
-              {(["Day", "Month", "Year"] as const).map((type) => (
+              {(["Hour", "Month", "Year"] as const).map((type) => (
                 <button
                   key={type}
                   className={`px-4 py-1 rounded-md cursor-pointer text-sm ${
@@ -214,7 +214,7 @@ const FilterModal = ({
                     ? "Monthly"
                     : type === "Year"
                       ? "Yearly"
-                      : type}
+                      : "Hourly"}
                 </button>
               ))}
             </div>
