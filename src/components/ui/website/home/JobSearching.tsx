@@ -163,7 +163,7 @@ const JobSearching = () => {
             <FaDownload /> Download Mobile App
           </button>
 
-          <Link href="https://portal.jobsinapp.de">
+          <Link href="https://portal.jobsinapp.de/hire-employees">
             <button
               style={{ boxShadow: "0 0 10px 0 #B1F1FF inset" }}
               className={`${gradientClasses.primaryBg} px-8 cursor-pointer py-3 rounded-md hover:opacity-90 transition-all inline-block`}

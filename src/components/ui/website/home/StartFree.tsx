@@ -102,7 +102,7 @@ const StartFree = () => {
               </p>
             </div>
             <div className="flex justify-center mt-4 sm:mt-6">
-              <Link href="https://portal.jobsinapp.de">
+              <Link href="https://portal.jobsinapp.de/post-job">
                 <button
                   style={{
                     boxShadow: "0 0 10px 0 #B1F1FF inset",
@@ -149,7 +149,7 @@ const StartFree = () => {
               </p>
             </div>
             <div className="flex justify-center mt-6">
-              <Link href="https://portal.jobsinapp.de">
+              <Link href="https://portal.jobsinapp.de/hire-employees">
                 <button
                   style={{
                     boxShadow: "0 0 10px 0 #B1F1FF inset",
@@ -197,7 +197,7 @@ const StartFree = () => {
               </p>
             </div>
             <div className="flex justify-center mt-6">
-              <Link href="/contact-us">
+              <Link href="https://portal.jobsinapp.de/contact-support">
                 <button
                   style={{
                     boxShadow: "0 0 10px 0 #B1F1FF inset",

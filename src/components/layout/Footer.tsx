@@ -80,7 +80,7 @@ export default async function Footer() {
                   {contactInfo?.email || "JobsinApp.Com"}
                 </span>
               </li>
-              <li className="flex items-center text-gray-200 text-sm">
+              {/* <li className="flex items-center text-gray-200 text-sm">
                 <ContactIcon />
                 <span className="ml-2">Contact Us</span>
               </li>
@@ -98,7 +98,7 @@ export default async function Footer() {
                 ) : (
                   <span className="ml-2">JobsinApp</span>
                 )}
-              </li>
+              </li> */}
             </ul>
           </div>
 

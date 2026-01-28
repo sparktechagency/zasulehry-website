@@ -134,7 +134,7 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
             }}
           >
             {initialJobs.map((job) => (
-              <SwiperSlide key={job.id}>
+              <SwiperSlide key={job.id} className="h-auto">
                 <JobCard
                   id={job.id}
                   company={job.company}

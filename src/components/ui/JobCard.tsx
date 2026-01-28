@@ -27,11 +27,17 @@ const JobCard: FC<JobCardProps> = ({
   onClick,
 }) => {
   return (
-    <div className="bg-[#FFFFFF0D] border w-[300px] border-[#FFFFFF1A] shadow-[0_4px_12px_rgba(0,0,0,0.1)] rounded-lg overflow-hidden">
+    <div className="bg-[#FFFFFF0D] border w-full h-full border-[#FFFFFF1A] shadow-[0_4px_12px_rgba(0,0,0,0.1)] rounded-lg overflow-hidden flex flex-col">
       {/* Job Image */}
-      <div className="relative h-48">
+      <div className="relative h-48 shrink-0">
         <Image
-          src={image || "/placeholder-job.jpg"}
+          src={
+            image
+              ? image?.startsWith("http")
+                ? image
+                : `${process.env.NEXT_PUBLIC_IMAGE_URL}${image}`
+              : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+          }
           alt={`${company} - ${position}`}
           fill
           className="object-cover p-2 rounded-t-lg"
@@ -39,12 +45,16 @@ const JobCard: FC<JobCardProps> = ({
       </div>
 
       {/* Company Info */}
-      <div className="p-4">
+      <div className="p-4 grow">
         <div className="flex text-start gap-3 mb-3">
-          <div className="w-12 h-12 bg-gray-600 rounded-full overflow-hidden flex items-center justify-center">
+          <div className="w-12 h-12 bg-gray-600 rounded-full overflow-hidden flex items-center justify-center shrink-0">
             {image ? (
               <Image
-                src={image}
+                src={
+                  image?.startsWith("http")
+                    ? image
+                    : `${process.env.NEXT_PUBLIC_IMAGE_URL}${image}`
+                }
                 alt={company}
                 width={48}
                 height={48}
@@ -57,13 +67,15 @@ const JobCard: FC<JobCardProps> = ({
             )}
           </div>
           <div>
-            <h3 className="text-white font-medium text-lg">{company}</h3>
-            <p className="text-gray-400 text-sm">{location}</p>
+            <h3 className="line-clamp-1 text-white font-medium text-lg">
+              {company}
+            </h3>
+            <p className="line-clamp-1 text-gray-400 text-sm">{location}</p>
           </div>
         </div>
 
         {/* Job Details */}
-        <h2 className="text-white text-lg font-semibold mb-3 text-start">
+        <h2 className="line-clamp-2 text-white text-lg font-semibold mb-3 text-start">
           {position}
         </h2>
         <p className="text-white text-lg mb-4 text-start">{salary}</p>

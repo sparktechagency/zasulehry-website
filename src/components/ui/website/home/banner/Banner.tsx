@@ -78,7 +78,10 @@ const Banner = () => {
             Roles.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button href="https://portal.jobsinapp.de" variant="glass">
+            <Button
+              href="https://portal.jobsinapp.de/hire-employees"
+              variant="glass"
+            >
               Start Hiring Now
             </Button>
             <Button href="https://portal.jobsinapp.de" variant="glass">

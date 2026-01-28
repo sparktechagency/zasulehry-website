@@ -144,7 +144,7 @@ const WhatCanYouDo = () => {
         </div>
 
         <div className="mt-10 text-center">
-          <Link href="https://portal.jobsinapp.de">
+          <Link href="https://portal.jobsinapp.de/post-job">
             <button
               style={{
                 boxShadow: "0 0 10px 0 #7d8fa0 inset",

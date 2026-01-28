@@ -84,9 +84,12 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
               <FaPhone className="text-white text-xl" />
             </div>
             <h3 className="text-white font-medium mb-1">Phone</h3>
-            <p className="text-gray-300 text-sm">
+            <a
+              href={`tel:${(contactInfo?.phone || "+1 234 567 890").replace(/\s/g, "")}`}
+              className="text-gray-300 text-sm hover:text-white transition-colors"
+            >
               {contactInfo?.phone || "+1 234 567 890"}
-            </p>
+            </a>
           </div>
 
           {/* Email Contact */}
@@ -105,9 +108,12 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
               <FaEnvelope className="text-white text-xl" />
             </div>
             <h3 className="text-white font-medium mb-1">Email</h3>
-            <p className="text-gray-300 text-sm">
+            <a
+              href={`mailto:${contactInfo?.email || "Support@JobsInapp.Com"}`}
+              className="text-gray-300 text-sm hover:text-white transition-colors"
+            >
               {contactInfo?.email || "Support@JobsInapp.Com"}
-            </p>
+            </a>
           </div>
 
           {/* Contact Form */}

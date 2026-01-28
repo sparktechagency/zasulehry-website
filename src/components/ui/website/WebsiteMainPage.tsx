@@ -49,11 +49,7 @@ const WebsiteMainPage = async ({ contactInfo }: { contactInfo?: any }) => {
           type: item.jobType || "Full Time",
           postedDays: postedDays,
           coordinates: item?.location?.coordinates || null,
-          image: item.author?.image
-            ? item.author.image.startsWith("http")
-              ? item.author.image
-              : `${hostUrl}${item.author.image}`
-            : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+          image: item.author?.image,
         };
       });
     }
