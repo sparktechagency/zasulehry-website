@@ -5,6 +5,7 @@ import Container from "../../Container";
 import React, { useMemo } from "react";
 import Image from "next/image";
 import { gradientClasses } from "@/styles/gradients";
+import Link from "next/link";
 
 // Job details data structure interface
 export interface JobDetail {
@@ -86,11 +87,15 @@ const JobDetailsPage = ({ id, initialData }: JobDetailsPageProps) => {
               </div>
             </div>
 
-            <button
-              className={`${gradientClasses.buttonBg} cursor-pointer text-white px-6 py-2 rounded-md transition-colors`}
+            <Link
+              href={`https://portal.jobsinapp.de/view-details-jobs/${jobDetails.id}`}
             >
-              Apply Now
-            </button>
+              <button
+                className={`${gradientClasses.buttonBg} cursor-pointer text-white px-6 py-2 rounded-md transition-colors`}
+              >
+                Apply Now
+              </button>
+            </Link>
           </div>
         </div>
 

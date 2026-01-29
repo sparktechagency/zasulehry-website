@@ -110,7 +110,9 @@ const ContactUsPage = ({
                   </div>
                   {contactInfo?.phone ? (
                     <a
-                      href={`tel:${contactInfo.phone}`}
+                      href={`https://wa.me/${contactInfo.phone.replace(/\D/g, "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-white hover:text-teal-400 transition-colors"
                     >
                       {contactInfo.phone}
@@ -139,7 +141,9 @@ const ContactUsPage = ({
                   </div>
                   {contactInfo?.email ? (
                     <a
-                      href={`mailto:${contactInfo.email}`}
+                      href={`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${contactInfo.email}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-white hover:text-teal-400 transition-colors"
                     >
                       {contactInfo.email}
@@ -168,15 +172,12 @@ const ContactUsPage = ({
                   </div>
                   {contactInfo?.whatsApp ? (
                     <a
-                      href={`https://wa.me/${contactInfo.whatsApp.replace(
-                        /\+/g,
-                        "",
-                      )}`}
+                      href={"https://portal.jobsinapp.de/contact-support"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white hover:text-teal-400 transition-colors"
                     >
-                      {contactInfo.whatsApp}
+                      Live Chat
                     </a>
                   ) : (
                     <span className="text-white">-</span>

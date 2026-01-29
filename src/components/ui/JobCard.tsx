@@ -90,16 +90,15 @@ const JobCard: FC<JobCardProps> = ({
 
       {/* View Details Button */}
       <div className="mt-auto border border-[#FFFFFF1A] m-3 rounded-lg">
-        <Link href={`/jobs/${id}`}>
-          <button
-            onClick={onClick}
-            style={{
-              boxShadow: "0 0 10px 0 #B1F1FF inset",
-            }}
-            className={`${gradientClasses.buttonBg} rounded-lg cursor-pointer w-full py-2 text-center text-white  transition-colors font-medium`}
-          >
-            View Details
-          </button>
+        <Link
+          href={`/jobs/${id}`}
+          onClick={onClick}
+          style={{
+            boxShadow: "0 0 10px 0 #B1F1FF inset",
+          }}
+          className={`${gradientClasses.buttonBg} rounded-lg cursor-pointer w-full py-2 text-center text-white transition-colors font-medium block`}
+        >
+          View Details
         </Link>
       </div>
     </div>

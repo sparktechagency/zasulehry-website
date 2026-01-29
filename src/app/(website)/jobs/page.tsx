@@ -38,7 +38,7 @@ const page = async ({
     if (params.salaryAmount)
       query.set("salaryAmount", params.salaryAmount as string);
     if (params.page) query.set("page", params.page as string);
-    if (params.limit) query.set("limit", params.limit as string);
+    query.set("limit", (params.limit as string) || "12");
     if (params.lat && params.lng) {
       query.set("lat", params.lat as string);
       query.set("lng", params.lng as string);

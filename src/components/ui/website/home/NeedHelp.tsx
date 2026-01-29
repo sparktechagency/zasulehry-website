@@ -85,7 +85,9 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
             </div>
             <h3 className="text-white font-medium mb-1">Phone</h3>
             <a
-              href={`tel:${(contactInfo?.phone || "+1 234 567 890").replace(/\s/g, "")}`}
+              href={`https://wa.me/${(contactInfo?.phone || "+1 234 567 890").replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-300 text-sm hover:text-white transition-colors"
             >
               {contactInfo?.phone || "+1 234 567 890"}
@@ -109,10 +111,10 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
             </div>
             <h3 className="text-white font-medium mb-1">Email</h3>
             <a
-              href={`mailto:${contactInfo?.email || "Support@JobsInapp.Com"}`}
+              href={`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=info@jobsinapp.de`}
               className="text-gray-300 text-sm hover:text-white transition-colors"
             >
-              {contactInfo?.email || "Support@JobsInapp.Com"}
+              {contactInfo?.email || "info@jobsinapp.de"}
             </a>
           </div>
 
