@@ -74,23 +74,27 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
               itemRefs.current[0] = el;
             }}
             style={{ transitionDelay: "0ms" }}
-            className={`flex flex-col items-center transition-all duration-700 ease-out ${
+            className={`transition-all duration-700 ease-out ${
               itemsVisible[0]
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="bg-[#4361EE] p-4 rounded-full mb-3">
-              <FaPhone className="text-white text-xl" />
-            </div>
-            <h3 className="text-white font-medium mb-1">Phone</h3>
             <a
               href={`https://wa.me/${(contactInfo?.phone || "+1 234 567 890").replace(/\D/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 text-sm hover:text-white transition-colors"
+              className="flex flex-col items-center group cursor-pointer"
             >
-              {contactInfo?.phone || "+1 234 567 890"}
+              <div className="bg-[#4361EE] p-4 rounded-full mb-3 group-hover:bg-[#3249c5] group-hover:scale-110 transition-all duration-300">
+                <FaPhone className="text-white text-xl" />
+              </div>
+              <h3 className="text-white font-medium mb-1 group-hover:text-[#4361EE] transition-colors">
+                Phone
+              </h3>
+              <span className="text-gray-300 text-sm group-hover:text-white transition-colors">
+                {contactInfo?.phone || "+1 234 567 890"}
+              </span>
             </a>
           </div>
 
@@ -100,21 +104,27 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
               itemRefs.current[1] = el;
             }}
             style={{ transitionDelay: "150ms" }}
-            className={`flex flex-col items-center transition-all duration-700 ease-out ${
+            className={`transition-all duration-700 ease-out ${
               itemsVisible[1]
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="bg-[#16A249] p-4 rounded-full mb-3">
-              <FaEnvelope className="text-white text-xl" />
-            </div>
-            <h3 className="text-white font-medium mb-1">Email</h3>
             <a
               href={`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=info@jobsinapp.de`}
-              className="text-gray-300 text-sm hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center group cursor-pointer"
             >
-              {contactInfo?.email || "info@jobsinapp.de"}
+              <div className="bg-[#16A249] p-4 rounded-full mb-3 group-hover:bg-[#12813a] group-hover:scale-110 transition-all duration-300">
+                <FaEnvelope className="text-white text-xl" />
+              </div>
+              <h3 className="text-white font-medium mb-1 group-hover:text-[#16A249] transition-colors">
+                Email
+              </h3>
+              <span className="text-gray-300 text-sm group-hover:text-white transition-colors">
+                {contactInfo?.email || "info@jobsinapp.de"}
+              </span>
             </a>
           </div>
 
@@ -124,21 +134,25 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
               itemRefs.current[2] = el;
             }}
             style={{ transitionDelay: "300ms" }}
-            className={`flex flex-col items-center transition-all duration-700 ease-out ${
+            className={`transition-all duration-700 ease-out ${
               itemsVisible[2]
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="bg-[#9D4EDD] p-4 rounded-full mb-3">
-              <FaCommentDots className="text-white text-xl" />
-            </div>
-            <h3 className="text-white font-medium mb-1">Contact Form</h3>
             <Link
               href="/contact-us"
-              className="bg-gray-700 hover:bg-gray-600 text-white text-sm py-1 px-4 rounded-md transition-colors mt-1"
+              className="flex flex-col items-center group cursor-pointer"
             >
-              Send Message
+              <div className="bg-[#9D4EDD] p-4 rounded-full mb-3 group-hover:bg-[#7b3caf] group-hover:scale-110 transition-all duration-300">
+                <FaCommentDots className="text-white text-xl" />
+              </div>
+              <h3 className="text-white font-medium mb-1 group-hover:text-[#9D4EDD] transition-colors">
+                Contact Form
+              </h3>
+              <span className="bg-gray-700 group-hover:bg-gray-600 text-white text-sm py-1 px-4 rounded-md transition-colors mt-1">
+                Send Message
+              </span>
             </Link>
           </div>
         </div>

@@ -20,7 +20,7 @@ export const footerSections: FooterSection[] = [
     links: [
       { label: "Profile", href: "https://portal.jobsinapp.de/login" },
       { label: "Home", href: "/" },
-      { label: "Job", href: "/jobs" },
+      { label: "Jobs", href: "/jobs" },
       {
         label: "For Employer",
         href: "https://portal.jobsinapp.de/login",
