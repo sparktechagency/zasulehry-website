@@ -20,7 +20,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         location: item.author?.address || "N/A",
         jobType: item.jobType || "Full Time",
         salary: item.salaryAmount
-          ? `$${item.salaryAmount}/${item.salaryType || "Month"}`
+          ? `€${item.salaryAmount}/${item.salaryType || "Month"}`
           : "Negotiable",
         postedDate: item.createdAt
           ? new Date(item.createdAt).toLocaleDateString("en-GB", {
