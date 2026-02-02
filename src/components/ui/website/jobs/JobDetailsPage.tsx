@@ -49,7 +49,11 @@ const JobDetailsPage = ({ id, initialData }: JobDetailsPageProps) => {
           <div className="md:col-span-1">
             <div className="rounded-lg overflow-hidden h-48 md:h-full">
               <Image
-                src={jobDetails.image}
+                src={
+                  jobDetails.image?.startsWith("http")
+                    ? jobDetails.image
+                    : `${process.env.NEXT_PUBLIC_IMAGE_URL}${jobDetails.image}`
+                }
                 alt={jobDetails.company}
                 width={400}
                 height={200}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import GoogleTranslate from "@/components/ui/GoogleTranslate";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -43,6 +44,7 @@ export default function RootLayout({
             {children}
             <Toaster position="top-center" reverseOrder={false} />
           </main>
+          <GoogleTranslate />
         </div>
       </body>
     </html>
