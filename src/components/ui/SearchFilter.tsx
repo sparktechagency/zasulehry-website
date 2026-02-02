@@ -24,6 +24,7 @@ type SearchFilterProps = {
   initialSearchValue?: string;
   placeholder?: string;
   className?: string;
+  isLoading?: boolean;
 };
 
 // Re-export FilterData for consumers
@@ -38,6 +39,7 @@ const SearchFilter = ({
   initialSearchValue = "",
   placeholder = "Search Location/Job",
   className = "",
+  isLoading,
 }: SearchFilterProps) => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
@@ -140,6 +142,7 @@ const SearchFilter = ({
         }}
         onReset={onReset}
         initialCategories={initialCategories}
+        isLoading={isLoading}
       />
     </div>
   );

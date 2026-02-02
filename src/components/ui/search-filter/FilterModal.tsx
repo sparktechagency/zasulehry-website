@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { FaTimes } from "react-icons/fa";
+import { LuLoader } from "react-icons/lu";
 import { gradientClasses } from "@/styles/gradients";
 import { FilterData } from "./types";
 import FilterDropdown from "./FilterDropdown";
@@ -11,6 +12,7 @@ interface FilterModalProps {
   onConfirm: (data: FilterData) => void;
   onReset?: () => void;
   initialCategories: any[];
+  isLoading?: boolean;
 }
 
 const FilterModal = ({
@@ -19,11 +21,12 @@ const FilterModal = ({
   onConfirm,
   onReset,
   initialCategories,
+  isLoading,
 }: FilterModalProps) => {
   const [salaryType, setSalaryType] = useState<"Hour" | "Month" | "Year">(
     "Month",
   );
-  const [salaryValue, setSalaryValue] = useState(30);
+  const [salaryValue, setSalaryValue] = useState(5000);
   const [distanceValue, setDistanceValue] = useState(5);
 
   // Dropdown states
@@ -87,7 +90,7 @@ const FilterModal = ({
     setSelectedFullTime("Full Time");
     setSelectedExperience("With Experience");
     setSalaryType("Month");
-    setSalaryValue(30);
+    setSalaryValue(5000);
     setDistanceValue(5);
     setTouchedFields(new Set());
     if (onReset) {
@@ -208,6 +211,16 @@ const FilterModal = ({
                   onClick={() => {
                     setSalaryType(type);
                     markFieldAsTouched("salaryType");
+
+                    // Set halfway value based on new type
+                    let mid = 5000;
+                    if (type === "Hour") {
+                      mid = 50;
+                    } else if (type === "Year") {
+                      mid = 100000;
+                    }
+
+                    setSalaryValue(mid);
                   }}
                 >
                   {type === "Month"
@@ -220,19 +233,33 @@ const FilterModal = ({
             </div>
           </div>
 
-          <FilterSlider
-            label=""
-            value={salaryValue}
-            min={10}
-            max={100000}
-            onChange={(val) => {
-              setSalaryValue(val);
-              markFieldAsTouched("salaryValue");
-            }}
-            valueLabel={`$${salaryValue.toLocaleString()}`}
-            leftLabel="$10"
-            rightLabel="$100,000"
-          />
+          {(() => {
+            let min = 1;
+            let max = 10000;
+            if (salaryType === "Hour") {
+              min = 1;
+              max = 100;
+            } else if (salaryType === "Year") {
+              min = 1000;
+              max = 200000;
+            }
+
+            return (
+              <FilterSlider
+                label=""
+                value={salaryValue}
+                min={min}
+                max={max}
+                onChange={(val) => {
+                  setSalaryValue(val);
+                  markFieldAsTouched("salaryValue");
+                }}
+                valueLabel={`$${salaryValue.toLocaleString()}`}
+                leftLabel={`$${min.toLocaleString()}`}
+                rightLabel={`$${max.toLocaleString()}`}
+              />
+            );
+          })()}
         </div>
 
         {/* Distance Section */}
@@ -254,18 +281,27 @@ const FilterModal = ({
         <div className="flex gap-4">
           <button
             onClick={handleReset}
-            className="flex-1 py-3 rounded-lg text-white font-medium border border-white/20 hover:bg-white/5 transition-colors"
+            disabled={isLoading}
+            className="flex-1 py-3 rounded-lg text-white font-medium border border-white/20 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             Reset
           </button>
           <button
             onClick={handleConfirm}
+            disabled={isLoading}
             style={{
               boxShadow: "0 0 10px 0 #B1F1FF inset",
             }}
-            className={`${gradientClasses.primaryBg} flex-1 py-3 rounded-lg text-white font-medium hover:opacity-90 transition-opacity`}
+            className={`${gradientClasses.primaryBg} flex-1 py-3 rounded-lg text-white font-medium hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity flex items-center justify-center gap-2`}
           >
-            Confirm
+            {isLoading ? (
+              <>
+                <LuLoader className="animate-spin" size={20} />
+                Loading...
+              </>
+            ) : (
+              "Confirm"
+            )}
           </button>
         </div>
       </div>

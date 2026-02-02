@@ -17,6 +17,7 @@ export interface JobDetail {
   salary: string;
   postedDate: string;
   image: string;
+  aboutCompany: string;
   description: string;
   responsibilities: string[];
   qualifications: string[];
@@ -109,6 +110,14 @@ const JobDetailsPage = ({ id, initialData }: JobDetailsPageProps) => {
               Apply Now
             </button>
           </div>
+        </div>
+
+        {/* About Company */}
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold mb-4">About Company</h3>
+          <p className="text-gray-300 leading-relaxed">
+            {jobDetails.aboutCompany}
+          </p>
         </div>
 
         {/* Job Description */}

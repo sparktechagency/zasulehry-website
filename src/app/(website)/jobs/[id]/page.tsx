@@ -30,10 +30,12 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
             })
           : "N/A",
         image: item.author?.image,
+        aboutCompany: item.aboutCompany || "No description available.",
         description: item.description || "No description available.",
         responsibilities: item.responsibilities || [],
         qualifications: item.qualifications || [],
       };
+      // console.log("OG ITEM => ", item);
     }
   } catch (error) {
     console.error("Error fetching job details:", error);

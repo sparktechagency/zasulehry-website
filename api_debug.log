@@ -110,3 +110,39 @@ Result: {
 Received FormData Keys: ["name","email","phone","location","message"]
 
 Received FormData Keys: ["name","email","phone","location","message","image"]
+
+Received FormData Keys: ["name","email","phone","location","message","image"]
+
+--- 2026-02-02T10:07:41.842Z ---
+URL: https://api.jobsinapp.de/api/v1/supports/create
+Result: {
+  "success": false,
+  "message": "Validation Error",
+  "errorMessages": [
+    {
+      "path": "phone",
+      "message": "Phone must be at least 10 characters"
+    }
+  ],
+  "stack": "ZodError: [\n  {\n    \"code\": \"too_small\",\n    \"minimum\": 10,\n    \"type\": \"string\",\n    \"inclusive\": true,\n    \"exact\": false,\n    \"message\": \"Phone must be at least 10 characters\",\n    \"path\": [\n      \"body\",\n      \"phone\"\n    ]\n  }\n]\n    at get error (/var/www/jobsin/server/node_modules/zod/v3/types.cjs:45:31)\n    at ZodObject.parseAsync (/var/www/jobsin/server/node_modules/zod/v3/types.cjs:183:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+
+Received FormData Keys: ["name","email","phone","location","message","image"]
+
+--- 2026-02-02T10:13:40.324Z ---
+URL: https://api.jobsinapp.de/api/v1/supports/create
+Result: {
+  "success": false,
+  "message": "Validation Error",
+  "errorMessages": [
+    {
+      "path": "phone",
+      "message": "Phone must be at least 10 characters"
+    }
+  ],
+  "stack": "ZodError: [\n  {\n    \"code\": \"too_small\",\n    \"minimum\": 10,\n    \"type\": \"string\",\n    \"inclusive\": true,\n    \"exact\": false,\n    \"message\": \"Phone must be at least 10 characters\",\n    \"path\": [\n      \"body\",\n      \"phone\"\n    ]\n  }\n]\n    at get error (/var/www/jobsin/server/node_modules/zod/v3/types.cjs:45:31)\n    at ZodObject.parseAsync (/var/www/jobsin/server/node_modules/zod/v3/types.cjs:183:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+
+Received FormData Keys: ["name","email","phone","location","message","image"]
+
+Received FormData Keys: ["name","email","phone","location","message"]

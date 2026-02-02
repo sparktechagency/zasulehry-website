@@ -20,7 +20,7 @@ export async function createSupportAction(formData: FormData) {
     const logPath = path.join(process.cwd(), "api_debug.log");
     fs.appendFileSync(
       logPath,
-      `\nReceived FormData Keys: ${JSON.stringify(allKeys)}\n`
+      `\nReceived FormData Keys: ${JSON.stringify(allKeys)}\n`,
     );
 
     const name = formData.get("name");
@@ -60,7 +60,7 @@ export async function createSupportAction(formData: FormData) {
       const logContent = `\n--- ${new Date().toISOString()} ---\nURL: ${url}\nResult: ${JSON.stringify(
         result,
         null,
-        2
+        2,
       )}\n`;
       fs.appendFileSync(logPath, logContent);
 
@@ -68,12 +68,16 @@ export async function createSupportAction(formData: FormData) {
       // Try to extract specific validation messages if they exist in standard formats
       let errorMessage = result.message || "Failed to send support request.";
 
-      if (result.error && typeof result.error === "string") {
+      if (result.errorMessages && Array.isArray(result.errorMessages)) {
+        errorMessage = result.errorMessages
+          .map((err: any) => err.message)
+          .join(", ");
+      } else if (result.error && typeof result.error === "string") {
         errorMessage = result.error;
       } else if (result.errors && typeof result.errors === "object") {
         // Handle field-specific errors if available (e.g., { phone: ["Invalid format"] })
         const errorDetails = Object.values(result.errors).flat().join(", ");
-        if (errorDetails) errorMessage = `${errorMessage}: ${errorDetails}`;
+        if (errorDetails) errorMessage = errorDetails;
       }
 
       return {

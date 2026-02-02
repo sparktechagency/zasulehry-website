@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Container from "../../Container";
 import JobCard from "../../JobCard";
 import SearchFilter, { FilterData } from "../../SearchFilter";
 import GoogleMapWithAutocomplete from "../../GoogleMapWithAutocomplete";
+import { LuLoader } from "react-icons/lu";
 
 // Job data structure interface
 export interface Job {
@@ -85,6 +86,7 @@ const JobsMainPage = ({
 }: JobsMainPageProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
 
   // Clear query params on page reload (but not on navigation from home)
   useEffect(() => {
@@ -95,7 +97,9 @@ const JobsMainPage = ({
       sessionStorage.removeItem("navigatedToJobs");
     } else if (searchParams.toString()) {
       // This is a reload, clear all params
-      router.replace("/jobs", { scroll: false });
+      startTransition(() => {
+        router.replace("/jobs", { scroll: false });
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -123,7 +127,9 @@ const JobsMainPage = ({
       params.set("page", "1");
     }
 
-    router.push(`/jobs?${params.toString()}`, { scroll: false });
+    startTransition(() => {
+      router.push(`/jobs?${params.toString()}`, { scroll: false });
+    });
   };
 
   const handleFilter = (filterData: FilterData) => {
@@ -172,7 +178,19 @@ const JobsMainPage = ({
   };
 
   return (
-    <div>
+    <div className="relative">
+      {/* Global Loading Spinner */}
+      {isPending && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-9999 flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4">
+            <LuLoader className="text-teal-500 animate-spin" size={60} />
+            <p className="text-white text-xl font-medium tracking-wide">
+              Filtering Jobs...
+            </p>
+          </div>
+        </div>
+      )}
+
       <Container>
         <div className="my-10">
           <GoogleMapWithAutocomplete
@@ -210,6 +228,7 @@ const JobsMainPage = ({
             initialSearchValue={searchParams.get("placeName") || ""}
             placeholder="Search Location"
             className="max-w-full mx-auto"
+            isLoading={isPending}
           />
         </div>
 
