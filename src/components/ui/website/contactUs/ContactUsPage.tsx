@@ -91,7 +91,7 @@ const ContactUsPage = ({
             {/* Contact Information */}
             <div className="md:col-span-4 bg-[#FFFFFF0D] border border-[#FFFFFF1A] p-8 rounded-lg">
               <div className="space-y-6">
-                <div className="flex items-center gap-3">
+                {/* <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +120,7 @@ const ContactUsPage = ({
                   ) : (
                     <span className="text-white">-</span>
                   )}
-                </div>
+                </div> */}
 
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">

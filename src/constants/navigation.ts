@@ -1,7 +1,7 @@
 import { NavItem, SocialLink, FooterSection } from "@/types";
 
 export const mainNavigation: NavItem[] = [
-  { label: "Home", href: "/" },
+  { label: "Home Page", href: "/" },
   { label: "Jobs", href: "/jobs" },
   { label: "For Employer", href: "https://portal.jobsinapp.de/login" },
   { label: "Contact Us", href: "/contact-us" },
@@ -19,7 +19,7 @@ export const footerSections: FooterSection[] = [
     title: "Quick Links",
     links: [
       { label: "Profile", href: "https://portal.jobsinapp.de/login" },
-      { label: "Home", href: "/" },
+      { label: "Home Page", href: "/" },
       { label: "Jobs", href: "/jobs" },
       {
         label: "For Employer",

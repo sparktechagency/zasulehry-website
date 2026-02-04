@@ -9,13 +9,13 @@ import {
   FaCalendarAlt,
   FaWhatsapp,
   FaUserTie,
-  FaCalculator,
   FaComments,
   FaUsers,
 } from "react-icons/fa";
 import { gradientClasses } from "@/styles/gradients";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { FaCodeCompare } from "react-icons/fa6";
 
 const WhatCanYouDo = () => {
   const features = [
@@ -60,8 +60,8 @@ const WhatCanYouDo = () => {
       text: "Create and Manage Shift Plans for your Employees",
     },
     {
-      icon: <FaCalculator className="text-pink-400" />,
-      text: "Calculate The Salary",
+      icon: <FaCodeCompare className="text-pink-400" />,
+      text: "AI Salary Comparison",
     },
     {
       icon: <FaComments className="text-teal-400" />,

@@ -15,7 +15,8 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
       const item = response.data;
       jobData = {
         id: item._id,
-        title: item.subCategory || item.category || "Untitled Job",
+        title: item.subCategory || "Untitled Job",
+        sector: item.category || "N/A",
         company: item.author?.name || "Sparktech Agency",
         location: item.author?.address || "N/A",
         jobType: item.jobType || "Full Time",
@@ -35,7 +36,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         responsibilities: item.responsibilities || [],
         qualifications: item.qualifications || [],
       };
-      // console.log("OG ITEM => ", item);
+      console.log("OG ITEM => ", item);
     }
   } catch (error) {
     console.error("Error fetching job details:", error);

@@ -254,9 +254,9 @@ const FilterModal = ({
                   setSalaryValue(val);
                   markFieldAsTouched("salaryValue");
                 }}
-                valueLabel={`$${salaryValue.toLocaleString()}`}
-                leftLabel={`$${min.toLocaleString()}`}
-                rightLabel={`$${max.toLocaleString()}`}
+                valueLabel={`€${salaryValue.toLocaleString()}`}
+                leftLabel={`€${min.toLocaleString()}`}
+                rightLabel={`€${max.toLocaleString()}`}
               />
             );
           })()}
@@ -267,14 +267,14 @@ const FilterModal = ({
           label="Distance"
           value={distanceValue}
           min={1}
-          max={100}
+          max={500}
           onChange={(val) => {
             setDistanceValue(val);
             markFieldAsTouched("distanceValue");
           }}
           valueLabel={`${distanceValue} km`}
           leftLabel="1 km"
-          rightLabel="100 km"
+          rightLabel="500 km"
         />
 
         {/* Action Buttons */}

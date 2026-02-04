@@ -12,14 +12,14 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Zasulehry - Digital Solutions & Web Development",
+  title: "Jobsin - Digital Solutions & Web Development",
   description:
     "We create exceptional digital experiences that help businesses grow and succeed in the modern world. Professional web development, design, and digital solutions.",
   keywords:
     "web development, digital solutions, UI/UX design, modern websites, business growth",
   authors: [{ name: "Mahmud Hasan Sabbir" }],
   openGraph: {
-    title: "Zasulehry - Digital Solutions & Web Development",
+    title: "Jobsin - Digital Solutions & Web Development",
     description:
       "We create exceptional digital experiences that help businesses grow and succeed in the modern world.",
     type: "website",
