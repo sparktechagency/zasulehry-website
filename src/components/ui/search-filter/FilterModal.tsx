@@ -256,7 +256,7 @@ const FilterModal = ({
                 }}
                 valueLabel={`€${salaryValue.toLocaleString()}`}
                 leftLabel={`€${min.toLocaleString()}`}
-                rightLabel={`€${max.toLocaleString()}`}
+                rightLabel={`Above €${max.toLocaleString()}`}
               />
             );
           })()}
