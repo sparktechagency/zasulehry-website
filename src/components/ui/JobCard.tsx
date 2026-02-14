@@ -7,7 +7,8 @@ export interface JobCardProps {
   id: number | string;
   company: string;
   location: string;
-  position: string;
+  title: string;
+  sector: string;
   salary: string;
   type: string;
   postedDays: number;
@@ -19,7 +20,8 @@ const JobCard: FC<JobCardProps> = ({
   id,
   company,
   location,
-  position,
+  title,
+  sector,
   salary,
   type,
   postedDays,
@@ -38,7 +40,7 @@ const JobCard: FC<JobCardProps> = ({
                 : `${process.env.NEXT_PUBLIC_IMAGE_URL}${image}`
               : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
           }
-          alt={`${company} - ${position}`}
+          alt={`${company} - ${title}`}
           fill
           className="object-cover p-2 rounded-t-lg"
         />
@@ -75,9 +77,14 @@ const JobCard: FC<JobCardProps> = ({
         </div>
 
         {/* Job Details */}
-        <h2 className="line-clamp-2 text-white text-lg font-semibold mb-3 text-start">
-          {position}
-        </h2>
+        <div>
+          <h2 className="line-clamp-2 text-white text-lg font-semibold mb-3 text-start">
+            {title}
+          </h2>
+          <h2 className="line-clamp-2 text-gray-400 text-sm font-semibold mb-3 text-start">
+            {sector}
+          </h2>
+        </div>
         <p className="text-white text-lg mb-4 text-start">{salary}</p>
 
         <div className="flex justify-between items-center mb-4">

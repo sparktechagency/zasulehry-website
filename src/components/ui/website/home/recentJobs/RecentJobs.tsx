@@ -17,8 +17,8 @@ import { useRouter } from "next/navigation";
 
 interface JobWithCoordinates {
   id: string | number;
-  title?: string;
-  position?: string;
+  title: string;
+  sector: string;
   coordinates?: [number, number] | null;
   [key: string]: any;
 }
@@ -139,7 +139,8 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
                   id={job.id}
                   company={job.company}
                   location={job.location}
-                  position={job.position || job.title || ""}
+                  title={job.title}
+                  sector={job.sector}
                   salary={job.salary}
                   type={job.type}
                   postedDays={job.postedDays}

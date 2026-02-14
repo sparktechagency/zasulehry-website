@@ -36,9 +36,8 @@ const FilterModal = ({
   const [selectedCategory, setSelectedCategory] = useState("Category");
   const [selectedSubCategory, setSelectedSubCategory] =
     useState("Sub Category");
-  const [selectedFullTime, setSelectedFullTime] = useState("Full Time");
-  const [selectedExperience, setSelectedExperience] =
-    useState("With Experience");
+  const [selectedFullTime, setSelectedFullTime] = useState("Job Type");
+  const [selectedExperience, setSelectedExperience] = useState("Experience");
 
   const [touchedFields, setTouchedFields] = useState<Set<keyof FilterData>>(
     new Set(),
@@ -87,8 +86,8 @@ const FilterModal = ({
   const handleReset = () => {
     setSelectedCategory("Category");
     setSelectedSubCategory("Sub Category");
-    setSelectedFullTime("Full Time");
-    setSelectedExperience("With Experience");
+    setSelectedFullTime("Job Type");
+    setSelectedExperience("Experience");
     setSalaryType("Month");
     setSalaryValue(5000);
     setDistanceValue(5);
@@ -163,7 +162,7 @@ const FilterModal = ({
 
         {/* Full Time Dropdown */}
         <FilterDropdown
-          label="Full Time"
+          label="Job Type"
           options={fullTimeOptions}
           selectedOption={selectedFullTime}
           isOpen={activeDropdown === "fullTime"}
@@ -179,7 +178,7 @@ const FilterModal = ({
 
         {/* Experience Dropdown */}
         <FilterDropdown
-          label="With Experience"
+          label="Experience"
           options={experienceOptions}
           selectedOption={selectedExperience}
           isOpen={activeDropdown === "experience"}

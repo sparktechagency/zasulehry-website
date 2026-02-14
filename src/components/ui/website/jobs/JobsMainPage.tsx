@@ -12,6 +12,7 @@ import { LuLoader } from "react-icons/lu";
 export interface Job {
   id: number | string;
   title: string;
+  sector: string;
   company: string;
   location: string;
   salary: string;
@@ -113,8 +114,8 @@ const JobsMainPage = ({
         value === "" ||
         value === "Category" ||
         value === "Sub Category" ||
-        value === "Full Time" ||
-        value === "With Experience"
+        value === "Job Type" ||
+        value === "Experience"
       ) {
         params.delete(key);
       } else {
@@ -249,7 +250,8 @@ const JobsMainPage = ({
                   id={job.id}
                   company={job.company}
                   location={job.location}
-                  position={job.title}
+                  title={job.title}
+                  sector={job.sector}
                   salary={job.salary}
                   type={job.jobType}
                   postedDays={job.postedDays}

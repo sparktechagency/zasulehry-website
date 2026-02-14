@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { footerSections, socialLinks } from "@/constants/navigation";
 import { gradientClasses } from "@/styles/gradients";
@@ -5,19 +7,27 @@ import Container from "@/components/ui/Container";
 import Image from "next/image";
 import logo from "@/assets/banner/logo.png";
 import { myFetch } from "@/utils/myFetch";
+import { useState, useEffect } from "react";
+import AppDownloadModal from "@/components/ui/AppDownloadModal";
 
-export default async function Footer() {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
-  let contactInfo = null;
+  const [contactInfo, setContactInfo] = useState<any>(null);
+  const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
 
-  try {
-    const response = await myFetch("/contact");
-    if (response && response.success && response.data) {
-      contactInfo = response.data;
-    }
-  } catch (error) {
-    console.error("Error fetching footer contact info:", error);
-  }
+  useEffect(() => {
+    const fetchContactInfo = async () => {
+      try {
+        const response = await myFetch("/contact");
+        if (response && response.success && response.data) {
+          setContactInfo(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching footer contact info:", error);
+      }
+    };
+    fetchContactInfo();
+  }, []);
 
   return (
     <footer className={`${gradientClasses.primaryBg} text-white`}>
@@ -50,12 +60,21 @@ export default async function Footer() {
               <ul className="space-y-3">
                 {section.links.map((link, index) => (
                   <li key={link.href + index}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-200 hover:text-white transition-colors duration-200 text-sm"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.label === "AI Salary Comparison" ? (
+                      <button
+                        onClick={() => setIsApplyModalOpen(true)}
+                        className="text-gray-200 cursor-pointer hover:text-white transition-colors duration-200 text-sm text-left"
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-gray-200 hover:text-white transition-colors duration-200 text-sm"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -161,6 +180,10 @@ export default async function Footer() {
           </div>
         </div>
       </Container>
+      <AppDownloadModal
+        isOpen={isApplyModalOpen}
+        onClose={() => setIsApplyModalOpen(false)}
+      />
     </footer>
   );
 }

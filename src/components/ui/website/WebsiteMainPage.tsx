@@ -40,7 +40,8 @@ const WebsiteMainPage = async ({ contactInfo }: { contactInfo?: any }) => {
 
         return {
           id: item._id,
-          position: item.subCategory || item.category || "Untitled Job",
+          title: item.subCategory || "Untitled Job",
+          sector: item.category || "N/A",
           company: item.author?.name || "Sparktech Agency",
           location: item.author?.address || "N/A",
           salary: item.salaryAmount

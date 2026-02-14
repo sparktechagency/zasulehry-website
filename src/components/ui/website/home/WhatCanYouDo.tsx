@@ -37,7 +37,7 @@ const WhatCanYouDo = () => {
     },
     {
       icon: <FaRobot className="text-pink-400" />,
-      text: "Advance Technology",
+      text: "Advanced Technology",
     },
     {
       icon: <FaCalendarAlt className="text-teal-400" />,
@@ -61,7 +61,7 @@ const WhatCanYouDo = () => {
     },
     {
       icon: <FaCodeCompare className="text-pink-400" />,
-      text: "AI Salary Comparison",
+      text: "AI Powered Salary Comparison",
     },
     {
       icon: <FaComments className="text-teal-400" />,

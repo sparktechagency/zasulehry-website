@@ -67,7 +67,8 @@ const page = async ({
 
         return {
           id: item._id,
-          title: item.subCategory || item.category || "Untitled Job",
+          title: item.subCategory,
+          sector: item.category,
           company: item.author?.name || "Sparktech Agency",
           location: item.author?.address || "N/A",
           salary: item.salaryAmount
