@@ -18,7 +18,7 @@ export const footerSections: FooterSection[] = [
   {
     title: "Quick Links",
     links: [
-      { label: "Profile", href: "https://portal.jobsinapp.de/login" },
+      { label: "Profile", href: "https://portal.jobsinapp.de/profile" },
       { label: "Home Page", href: "/" },
       { label: "Jobs", href: "/jobs" },
       {
@@ -30,18 +30,18 @@ export const footerSections: FooterSection[] = [
   {
     title: "Quick Links",
     links: [
-      { label: "Job Posting", href: "https://portal.jobsinapp.de/login" },
+      { label: "Job Posting", href: "https://portal.jobsinapp.de/post-job" },
       {
         label: "Subscription Plan",
-        href: "https://portal.jobsinapp.de/login",
+        href: "https://portal.jobsinapp.de/subscription-plan",
       },
       {
-        label: "AI Salary Comparison",
-        href: "https://portal.jobsinapp.de/login",
+        label: "Salary Comparison",
+        href: "https://portal.jobsinapp.de/salary-comparison",
       },
       {
         label: "Download Center",
-        href: "https://portal.jobsinapp.de/login",
+        href: "https://portal.jobsinapp.de/download-center",
       },
     ],
   },

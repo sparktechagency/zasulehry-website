@@ -95,7 +95,6 @@ const FilterModal = ({
     if (onReset) {
       onReset();
     }
-    onClose();
   };
 
   if (!isOpen) return null;

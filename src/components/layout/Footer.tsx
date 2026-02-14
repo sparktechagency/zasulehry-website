@@ -60,7 +60,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {section.links.map((link, index) => (
                   <li key={link.href + index}>
-                    {link.label === "AI Salary Comparison" ? (
+                    {link.label === "Salary Comparison" ? (
                       <button
                         onClick={() => setIsApplyModalOpen(true)}
                         className="text-gray-200 cursor-pointer hover:text-white transition-colors duration-200 text-sm text-left"

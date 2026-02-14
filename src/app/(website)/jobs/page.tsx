@@ -72,7 +72,7 @@ const page = async ({
           company: item.author?.name || "Sparktech Agency",
           location: item.author?.address || "N/A",
           salary: item.salaryAmount
-            ? `€${item.salaryAmount}/${item.salaryType || "Month"}`
+            ? `€${item.salaryAmount}/${item.salaryType}ly`
             : "Negotiable",
           jobType: item.jobType || "Full Time",
           postedDays: postedDays,
