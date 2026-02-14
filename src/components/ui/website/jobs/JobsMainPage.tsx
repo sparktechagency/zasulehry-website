@@ -237,7 +237,6 @@ const JobsMainPage = ({
           <h1 className="text-2xl font-semibold text-white">
             Recently Posted Jobs
           </h1>
-          <p className="text-white cursor-pointer">See All</p>
         </div>
 
         <div>

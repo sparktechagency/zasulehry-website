@@ -14,6 +14,7 @@ import GoogleMapWithAutocomplete from "@/components/ui/GoogleMapWithAutocomplete
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { gradientClasses } from "@/styles/gradients";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface JobWithCoordinates {
   id: string | number;
@@ -103,7 +104,9 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
           <h1 className="text-2xl font-semibold text-white">
             Recently Posted Jobs
           </h1>
-          <p className="text-white cursor-pointer">See All</p>
+          <Link href="/jobs">
+            <p className="text-white cursor-pointer">See All</p>
+          </Link>
         </div>
 
         <div className="relative">
