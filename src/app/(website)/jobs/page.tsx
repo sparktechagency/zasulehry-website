@@ -12,6 +12,7 @@ const page = async ({
   let pagination = { totalPage: 1, currentPage: 1 };
   let categories = [];
   const params = await searchParams;
+  // console.log("ORIGINAL SEARCH PARAMS ==>>", params);
 
   // Use the host for images (assumed to be the same as API but without the /api/v1 suffix)
   const apiBaseUrl =
@@ -31,8 +32,7 @@ const page = async ({
       query.set("category", params.category as string);
     if (params.subCategory && params.subCategory !== "Sub Category")
       query.set("subCategory", params.subCategory as string);
-    if (params.jobType && params.jobType !== "Full Time")
-      query.set("jobType", params.jobType as string);
+    if (params.jobType) query.set("jobType", params.jobType as string);
     if (params.experience) query.set("experience", params.experience as string);
     if (params.salaryType) query.set("salaryType", params.salaryType as string);
     if (params.salaryAmount)
@@ -47,6 +47,7 @@ const page = async ({
 
     const queryString = query.toString();
     const endpoint = `/jobs/public${queryString ? `?${queryString}` : ""}`;
+    // console.log("BACKEND ENDPOINT ==>>", endpoint);
 
     const response = await myFetch(endpoint);
 

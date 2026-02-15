@@ -252,7 +252,7 @@ const FilterModal = ({
                   setSalaryValue(val);
                   markFieldAsTouched("salaryValue");
                 }}
-                valueLabel={`€${salaryValue.toLocaleString()}`}
+                valueLabel={`Above €${salaryValue.toLocaleString()}`}
                 leftLabel={`€${min.toLocaleString()}`}
                 rightLabel={`Above €${max.toLocaleString()}`}
               />
