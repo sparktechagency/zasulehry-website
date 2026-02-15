@@ -35,6 +35,17 @@ export default function Navbar() {
 
   const handleLanguageChange = (lang: (typeof languages)[0]) => {
     setCurrentLang(lang);
+
+    // Set cookie immediately as a fallback for high reliability
+    const domain = window.location.hostname.split(".").slice(-2).join(".");
+    const date = new Date();
+    date.setFullYear(date.getFullYear() + 1);
+    const expires = date.toUTCString();
+    document.cookie = `googtrans=/en/${lang.code}; expires=${expires}; path=/; SameSite=Lax`;
+    if (domain.includes(".")) {
+      document.cookie = `googtrans=/en/${lang.code}; expires=${expires}; path=/; domain=.${domain}; SameSite=Lax`;
+    }
+
     if (window.__applyTranslate) {
       window.__applyTranslate(lang.code);
     }

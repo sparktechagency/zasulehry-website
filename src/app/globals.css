@@ -254,3 +254,15 @@ body.translated-ltr {
 body.translated-rtl {
   top: 0 !important;
 }
+/* Prevent Google Translate from adding highlights on hover */
+font {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}

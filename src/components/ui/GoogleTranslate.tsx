@@ -88,12 +88,13 @@ export default function GoogleTranslate() {
 
     // Define the apply function
     window.__applyTranslate = (targetLang: string) => {
+      console.log(`[Google Translate] Switching to: ${targetLang}`);
+
       const setCookie = (lang: string) => {
         const domain = window.location.hostname.split(".").slice(-2).join(".");
         const date = new Date();
         date.setFullYear(date.getFullYear() + 1);
         const expires = date.toUTCString();
-        // Set for both exact domain and base domain
         document.cookie = `googtrans=/en/${lang}; expires=${expires}; path=/; SameSite=Lax`;
         if (domain.includes(".")) {
           document.cookie = `googtrans=/en/${lang}; expires=${expires}; path=/; domain=.${domain}; SameSite=Lax`;
@@ -108,6 +109,9 @@ export default function GoogleTranslate() {
         ) as HTMLSelectElement | null;
         if (combo) {
           if (combo.value !== targetLang) {
+            console.log(
+              "[Google Translate] Setting value and triggering change...",
+            );
             combo.value = targetLang;
             combo.dispatchEvent(new Event("change", { bubbles: true }));
           }
@@ -116,18 +120,25 @@ export default function GoogleTranslate() {
         return false;
       };
 
-      if (!tryChange()) {
-        let attempts = 0;
-        const interval = setInterval(() => {
-          attempts++;
-          if (tryChange() || attempts > 20) {
-            clearInterval(interval);
-            if (attempts > 20) {
-              window.location.reload();
-            }
+      // Persistent retry: Keep trying for 2 seconds even if combo is found
+      // This helps if the widget is slow to respond or absorbs the first few events
+      let attempts = 0;
+      const interval = setInterval(() => {
+        attempts++;
+        const found = tryChange();
+
+        // Stop if we found it and have tried a few times post-discovery,
+        // or if we've reached 20 attempts (~6 seconds)
+        if ((found && attempts > 5) || attempts > 20) {
+          clearInterval(interval);
+          if (attempts > 20 && !found) {
+            console.warn(
+              "[Google Translate] Failed to find widget, reloading...",
+            );
+            window.location.reload();
           }
-        }, 300);
-      }
+        }
+      }, 300);
     };
 
     // Load the script
