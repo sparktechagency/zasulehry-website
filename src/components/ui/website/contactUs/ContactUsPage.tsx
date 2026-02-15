@@ -8,6 +8,9 @@ import ContactBanner from "./ContactBanner";
 import { createSupportAction } from "@/actions/support";
 import toast from "react-hot-toast";
 
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
 interface ContactInfo {
   email: string;
   phone: string;
@@ -227,15 +230,49 @@ const ContactUsPage = ({
                     <label htmlFor="phone" className="block text-white mb-2">
                       Contact Number
                     </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
+                    <PhoneInput
+                      country={"de"}
                       value={formData.phone}
-                      onChange={handleChange}
+                      onChange={(phone) =>
+                        setFormData((prev) => ({ ...prev, phone }))
+                      }
                       placeholder="Enter Your Contact Number"
-                      className="w-full border border-white rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      inputStyle={{
+                        width: "100%",
+                        height: "50px",
+                        backgroundColor: "transparent",
+                        color: "white",
+                        border: "1px solid white",
+                        borderRadius: "4px",
+                        fontSize: "16px",
+                      }}
+                      buttonStyle={{
+                        backgroundColor: "transparent",
+                        border: "1px solid white",
+                        borderRadius: "4px 0 0 4px",
+                      }}
+                      dropdownStyle={{
+                        backgroundColor: "#1e293b",
+                        color: "white",
+                      }}
+                      containerClass="phone-input-container"
                     />
+                    <style jsx global>{`
+                      .phone-input-container .form-control:focus {
+                        box-shadow: 0 0 0 2px #14b8a6 !important;
+                        border-color: #14b8a6 !important;
+                      }
+                      .phone-input-container .selected-flag:hover,
+                      .phone-input-container .selected-flag:focus {
+                        background-color: rgba(255, 255, 255, 0.1) !important;
+                      }
+                      .phone-input-container .country-list .country:hover {
+                        background-color: rgba(20, 184, 166, 0.2) !important;
+                      }
+                      .phone-input-container .country-list .country.highlight {
+                        background-color: rgba(20, 184, 166, 0.4) !important;
+                      }
+                    `}</style>
                   </div>
                   <div>
                     <label htmlFor="location" className="block text-white mb-2">

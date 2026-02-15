@@ -197,7 +197,7 @@ const StartFree = () => {
               </p>
             </div>
             <div className="flex justify-center mt-6">
-              <Link href="https://portal.jobsinapp.de/contact-support">
+              <Link href="/contact-us">
                 <button
                   style={{
                     boxShadow: "0 0 10px 0 #B1F1FF inset",
