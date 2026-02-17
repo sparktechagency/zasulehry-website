@@ -258,8 +258,8 @@ export default function Navbar() {
               <Button href="https://portal.jobsinapp.de/login" variant="glass">
                 Login
               </Button>
-              <Button href="https://portal.jobsinapp.de/signup" variant="glass">
-                Sign Up
+              <Button href="https://portal.jobsinapp.de/method" variant="glass">
+                Register
               </Button>
             </div>
           </div>

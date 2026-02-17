@@ -93,7 +93,7 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
                 Phone
               </h3>
               <span className="text-gray-300 text-sm group-hover:text-white transition-colors">
-                {contactInfo?.whatsApp}
+                {contactInfo?.phone}
               </span>
             </a>
           </div>
