@@ -1,7 +1,22 @@
 import TermsAndConditions from "@/components/ui/website/TermsAndConditions";
 import { gradientClasses } from "@/styles/gradients";
 
-const page = () => {
+import { myFetch } from "@/utils/myFetch";
+
+const page = async () => {
+  let content = "";
+  let lastUpdated = "";
+
+  try {
+    const response = await myFetch("/disclaimers/terms-and-conditions");
+    if (response && response.success && response.data) {
+      content = response.data.content;
+      lastUpdated = response.data.updatedAt;
+    }
+  } catch (error) {
+    console.error("Error fetching terms and conditions:", error);
+  }
+
   return (
     <div>
       <div className={` ${gradientClasses.primaryBg} py-5 text-center`}>
@@ -9,7 +24,7 @@ const page = () => {
           Terms and Conditions
         </h1>
       </div>
-      <TermsAndConditions />
+      <TermsAndConditions content={content} lastUpdated={lastUpdated} />
     </div>
   );
 };

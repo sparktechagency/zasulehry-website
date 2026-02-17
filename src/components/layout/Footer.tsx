@@ -89,15 +89,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center text-gray-200 text-sm">
                 <PhoneIcon />
-                <span className="ml-2">
-                  {contactInfo?.phone || "+8802563565652"}
-                </span>
+                <span className="ml-2">{contactInfo?.whatsApp || "-"}</span>
               </li>
               <li className="flex items-center text-gray-200 text-sm">
                 <EmailIcon />
-                <span className="ml-2">
-                  {contactInfo?.email || "JobsinApp.Com"}
-                </span>
+                <span className="ml-2">{contactInfo?.email || "-"}</span>
               </li>
               {/* <li className="flex items-center text-gray-200 text-sm">
                 <ContactIcon />

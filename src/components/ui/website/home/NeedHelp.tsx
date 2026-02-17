@@ -81,7 +81,7 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
             }`}
           >
             <a
-              href={`https://wa.me/${(contactInfo?.phone || "+1 234 567 890").replace(/\D/g, "")}`}
+              // href={`https://wa.me/${(contactInfo?.phone || "+1 234 567 890").replace(/\D/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center group cursor-pointer"
@@ -93,7 +93,7 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
                 Phone
               </h3>
               <span className="text-gray-300 text-sm group-hover:text-white transition-colors">
-                {contactInfo?.phone || "+1 234 567 890"}
+                {contactInfo?.whatsApp}
               </span>
             </a>
           </div>

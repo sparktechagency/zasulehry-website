@@ -23,7 +23,7 @@ export const footerSections: FooterSection[] = [
       { label: "Jobs", href: "/jobs" },
       {
         label: "For Employer",
-        href: "https://portal.jobsinapp.de/login",
+        href: "https://portal.jobsinapp.de/my-jobs",
       },
     ],
   },
