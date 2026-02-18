@@ -57,10 +57,11 @@ const JobDetailsPage = ({ id, initialData }: JobDetailsPageProps) => {
               onClick={() => setIsImagePopupOpen(true)}
             >
               <Image
-                src={ jobDetails.image ?
-                  jobDetails.image?.startsWith("http")
-                    ? jobDetails.image
-                    : `${process.env.NEXT_PUBLIC_IMAGE_URL}${jobDetails.image}`
+                src={
+                  jobDetails.image
+                    ? jobDetails.image?.startsWith("http")
+                      ? jobDetails.image
+                      : `${process.env.NEXT_PUBLIC_IMAGE_URL}${jobDetails.image}`
                     : "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
                 }
                 alt={jobDetails.company}
@@ -77,7 +78,7 @@ const JobDetailsPage = ({ id, initialData }: JobDetailsPageProps) => {
           </div>
 
           <div className="md:col-span-2">
-            <h1 className="text-2xl md:text-3xl font-bold mb-2">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2" translate="no">
               {jobDetails.company}
             </h1>
 
@@ -86,7 +87,9 @@ const JobDetailsPage = ({ id, initialData }: JobDetailsPageProps) => {
               <span>{jobDetails.location}</span>
             </div>
 
-            <h2 className="text-sm font-semibold text-gray-400 mb-3">{jobDetails.sector}</h2>
+            <h2 className="text-sm font-semibold text-gray-400 mb-3">
+              {jobDetails.sector}
+            </h2>
             <h2 className="text-xl font-semibold mb-3">{jobDetails.title}</h2>
 
             <div className="bg-[#263747] inline-block px-3 py-1 rounded-md mb-4">
