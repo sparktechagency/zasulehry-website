@@ -42,7 +42,7 @@ const page = async ({
     if (params.lat && params.lng) {
       query.set("lat", params.lat as string);
       query.set("lng", params.lng as string);
-      query.set("radius", "50"); // Default radius of 50km when location is provided
+      query.set("radius", (params.distance as string) || "50");
     }
 
     const queryString = query.toString();
