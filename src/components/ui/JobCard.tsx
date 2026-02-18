@@ -69,10 +69,15 @@ const JobCard: FC<JobCardProps> = ({
             )}
           </div>
           <div>
-            <h3 className="line-clamp-1 text-white font-medium text-lg">
+            <h3
+              className="line-clamp-1 text-white font-medium text-lg notranslate"
+              translate="no"
+            >
               {company}
             </h3>
-            <p className="line-clamp-1 text-gray-400 text-sm">{location}</p>
+            <p className="line-clamp-1 text-gray-400 text-sm" translate="no">
+              {location}
+            </p>
           </div>
         </div>
 
