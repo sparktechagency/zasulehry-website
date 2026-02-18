@@ -237,6 +237,8 @@ const ContactUsPage = ({
                       onChange={(phone) =>
                         setFormData((prev) => ({ ...prev, phone }))
                       }
+                      enableSearch
+                      searchPlaceholder="Search country..."
                       placeholder="Enter Your Contact Number"
                       inputStyle={{
                         width: "100%",
@@ -256,6 +258,13 @@ const ContactUsPage = ({
                         backgroundColor: "#1e293b",
                         color: "white",
                       }}
+                      searchStyle={{
+                        backgroundColor: "#1e293b",
+                        color: "white",
+                        border: "1px solid rgba(255,255,255,0.2)",
+                        borderRadius: "4px",
+                        padding: "8px",
+                      }}
                       containerClass="phone-input-container"
                     />
                     <style jsx global>{`
@@ -267,11 +276,66 @@ const ContactUsPage = ({
                       .phone-input-container .selected-flag:focus {
                         background-color: rgba(255, 255, 255, 0.1) !important;
                       }
+                      .phone-input-container .country-list {
+                        background-color: #1e293b !important;
+                        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                        border-radius: 6px !important;
+                      }
+                      .phone-input-container .country-list .country {
+                        color: white !important;
+                      }
+                      .phone-input-container .country-list .country .dial-code {
+                        color: #94a3b8 !important;
+                      }
                       .phone-input-container .country-list .country:hover {
                         background-color: rgba(20, 184, 166, 0.2) !important;
                       }
                       .phone-input-container .country-list .country.highlight {
                         background-color: rgba(20, 184, 166, 0.4) !important;
+                      }
+                      .phone-input-container .country-list .search {
+                        background-color: #1e293b !important;
+                        padding: 10px !important;
+                        position: sticky !important;
+                        top: 0 !important;
+                        z-index: 1 !important;
+                      }
+                      .phone-input-container .country-list .search-box {
+                        background-color: #0f172a !important;
+                        color: white !important;
+                        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                        border-radius: 4px !important;
+                        padding: 8px 10px !important;
+                        width: 100% !important;
+                        box-sizing: border-box !important;
+                      }
+                      .phone-input-container
+                        .country-list
+                        .search-box::placeholder {
+                        color: #64748b !important;
+                      }
+                      .phone-input-container .country-list .no-entries-message {
+                        color: #94a3b8 !important;
+                      }
+                      .phone-input-container .country-list .divider {
+                        border-bottom-color: rgba(
+                          255,
+                          255,
+                          255,
+                          0.1
+                        ) !important;
+                      }
+                      .phone-input-container .country-list::-webkit-scrollbar {
+                        width: 6px;
+                      }
+                      .phone-input-container
+                        .country-list::-webkit-scrollbar-track {
+                        background: #1e293b;
+                      }
+                      .phone-input-container
+                        .country-list::-webkit-scrollbar-thumb {
+                        background: #475569;
+                        border-radius: 3px;
                       }
                     `}</style>
                   </div>

@@ -7,7 +7,7 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import JobCard from "@/components/ui/JobCard";
 import SearchFilter, { FilterData } from "@/components/ui/SearchFilter";
 import GoogleMapWithAutocomplete from "@/components/ui/GoogleMapWithAutocomplete";
@@ -114,12 +114,13 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
             }}
-            slidesPerView={1}
-            spaceBetween={5}
+            slidesPerView={1.15}
+            spaceBetween={10}
             pagination={{
               clickable: true,
+              el: ".recent-jobs-pagination",
             }}
-            modules={[Navigation]}
+            modules={[Navigation, Pagination]}
             className="mySwiper"
             breakpoints={{
               640: {
@@ -153,13 +154,13 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
             ))}
           </Swiper>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - hidden on mobile, visible on md+ */}
           <button
             onClick={() => swiperRef.current?.slidePrev()}
             style={{
               boxShadow: "0 0 10px 0 #B1F1FF inset",
             }}
-            className={`${gradientClasses.buttonBg} absolute left-5 md:left-1 cursor-pointer top-1/2 -translate-y-1/2 -ml-5 w-10 h-10 rounded-full text-white flex items-center justify-center shadow-lg z-10 transition-colors`}
+            className={`${gradientClasses.buttonBg} absolute left-1 cursor-pointer top-1/2 -translate-y-1/2 -ml-5 w-10 h-10 rounded-full text-white hidden md:flex items-center justify-center shadow-lg z-10 transition-colors`}
             aria-label="Previous slide"
           >
             <FaChevronLeft />
@@ -170,11 +171,14 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
             style={{
               boxShadow: "0 0 10px 0 #B1F1FF inset",
             }}
-            className={`${gradientClasses.buttonBg} absolute cursor-pointer md:right-1 right-5 top-1/2 -translate-y-1/2 -mr-5 w-10 h-10 rounded-full text-white flex items-center justify-center shadow-lg z-10 transition-colors`}
+            className={`${gradientClasses.buttonBg} absolute cursor-pointer right-1 top-1/2 -translate-y-1/2 -mr-5 w-10 h-10 rounded-full text-white hidden md:flex items-center justify-center shadow-lg z-10 transition-colors`}
             aria-label="Next slide"
           >
             <FaChevronRight />
           </button>
+
+          {/* Pagination dots - visible on mobile only */}
+          <div className="recent-jobs-pagination flex justify-center mt-4 md:hidden"></div>
         </div>
       </Container>
     </div>

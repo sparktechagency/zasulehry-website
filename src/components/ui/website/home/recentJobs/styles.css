@@ -42,3 +42,20 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+/* Pagination dots */
+.recent-jobs-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  margin: 0 4px !important;
+}
+
+.recent-jobs-pagination .swiper-pagination-bullet-active {
+  background: #14b8a6;
+  width: 24px;
+  border-radius: 4px;
+}
