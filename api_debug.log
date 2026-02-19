@@ -146,3 +146,11 @@ Result: {
 Received FormData Keys: ["name","email","phone","location","message","image"]
 
 Received FormData Keys: ["name","email","phone","location","message"]
+
+Received FormData Keys: ["name","email","phone","location","message","image"]
+
+--- 2026-02-19T07:04:50.702Z ---
+URL: https://api.jobsinapp.de/api/v1/supports/create
+Result: {
+  "message": "Only .jpeg, .png, .jpg file supported"
+}

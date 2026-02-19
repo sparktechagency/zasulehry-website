@@ -395,9 +395,13 @@ const ContactUsPage = ({
                     <p className="text-sm text-center text-gray-400">
                       Upload Attachment
                     </p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      Supported formats: JPG, JPEG, PNG, PDF
+                    </p>
                     <input
                       type="file"
                       id="attachment"
+                      accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf"
                       onChange={handleFileChange}
                       className="hidden"
                     />
