@@ -29,7 +29,7 @@ const ContactUsPage = ({
     name: "",
     email: "",
     phone: "",
-    location: "",
+    address: "",
     message: "",
   });
   const [file, setFile] = useState<File | null>(null);
@@ -57,7 +57,7 @@ const ContactUsPage = ({
     data.append("name", formData.name);
     data.append("email", formData.email);
     data.append("phone", formData.phone);
-    data.append("location", formData.location);
+    data.append("address", formData.address);
     data.append("message", formData.message);
     if (file) {
       data.append("image", file);
@@ -73,7 +73,7 @@ const ContactUsPage = ({
           name: "",
           email: "",
           phone: "",
-          location: "",
+          address: "",
           message: "",
         });
         setFile(null);
@@ -345,11 +345,11 @@ const ContactUsPage = ({
                     </label>
                     <input
                       type="text"
-                      id="location"
-                      name="location"
-                      value={formData.location}
+                      id="address"
+                      name="address"
+                      value={formData.address}
                       onChange={handleChange}
-                      placeholder="Enter Your Location"
+                      placeholder="Enter Your Address"
                       className="w-full border border-white rounded p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
