@@ -154,3 +154,13 @@ URL: https://api.jobsinapp.de/api/v1/supports/create
 Result: {
   "message": "Only .jpeg, .png, .jpg file supported"
 }
+
+Received FormData Keys: ["name","email","phone","location","message","image"]
+
+--- 2026-02-19T08:05:51.311Z ---
+URL: https://api.jobsinapp.de/api/v1/supports/create
+Result: {
+  "message": "Only .jpeg, .png, .jpg file supported"
+}
+
+Received FormData Keys: ["name","email","phone","location","message","image"]

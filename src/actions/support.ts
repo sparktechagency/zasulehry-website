@@ -30,6 +30,21 @@ export async function createSupportAction(formData: FormData) {
     const message = formData.get("message");
     const image = formData.get("image");
 
+    // console.log("===== CONTACT FORM DATA BEING SENT TO BACKEND =====");
+    // console.log("Name:", name);
+    // console.log("Email:", email);
+    // console.log("Phone (with country code):", phone);
+    // console.log("Location:", location);
+    // console.log("Message:", message);
+    // console.log(
+    //   "Image/File:",
+    //   image
+    //     ? `${(image as File).name} (${(image as File).type}, ${(image as File).size} bytes)`
+    //     : "No file attached",
+    // );
+    // console.log("API URL:", url);
+    // console.log("====================================================");
+
     const finalFormData = new FormData();
     if (name) finalFormData.append("name", name);
     if (email) finalFormData.append("email", email);
