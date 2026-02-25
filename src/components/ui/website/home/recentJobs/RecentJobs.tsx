@@ -50,6 +50,8 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
     if (filterData.salaryType) params.set("salaryType", filterData.salaryType);
     if (filterData.salaryValue)
       params.set("salaryAmount", filterData.salaryValue.toString());
+    if (filterData.distanceValue)
+      params.set("distance", filterData.distanceValue.toString());
 
     router.push(`/jobs?${params.toString()}`);
   };

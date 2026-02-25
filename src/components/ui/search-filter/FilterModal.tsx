@@ -27,7 +27,7 @@ const FilterModal = ({
     "Month",
   );
   const [salaryValue, setSalaryValue] = useState(5000);
-  const [distanceValue, setDistanceValue] = useState(5);
+  const [distanceValue, setDistanceValue] = useState(50);
 
   // Dropdown states
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -90,7 +90,7 @@ const FilterModal = ({
     setSelectedExperience("Experience");
     setSalaryType("Month");
     setSalaryValue(5000);
-    setDistanceValue(5);
+    setDistanceValue(50);
     setTouchedFields(new Set());
     if (onReset) {
       onReset();

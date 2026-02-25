@@ -67,16 +67,16 @@ const Banner = () => {
             Recruitment With
             <br />
             <span className="text-[#FF69B4] md:text-5xl font-bold">
-              Advance Technology
+              Advanced Technology
             </span>
           </h1>
-          <p className="text-white/90 mb-8 max-w-lg text-base md:text-lg">
+          {/* <p className="text-white/90 mb-8 max-w-lg text-base md:text-lg">
             Our AI Doesn&apos;t Just Track Applicants — It
             <br />
             Intelligently Matches The Right Talent To Your
             <br />
             Roles.
-          </p>
+          </p> */}
           <div className="flex flex-wrap gap-4">
             <Button
               href="https://portal.jobsinapp.de/hire-employees"
@@ -100,7 +100,7 @@ const Banner = () => {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            Download Our Mobile App
+            Download Mobile App
           </h1>
           <div
             ref={imageRef}

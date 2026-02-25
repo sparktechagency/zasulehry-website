@@ -64,14 +64,11 @@ const ModernWarkforce = () => {
             THE MODERN WORKFORCE
           </h2>
           <p className="text-xl text-white mb-4">
-            Advance Hiring That Understands Talent.
+            Advanced Hiring That Understands Talent.
           </p>
           <p className="text-gray-300 max-w-4xl mx-auto">
             Our Platform Isn&apos;t Just Another ATS — It Uses Advanced
-            Technology To Match You With The Right Candidates,
-            <br />
-            Analyze Applications Intelligently, And Streamline Your Hiring
-            Process From Start To Finish.
+            Technology To Match You With The Right Candidates.
           </p>
         </div>
 
@@ -98,7 +95,7 @@ const ModernWarkforce = () => {
               Smarter Matching
             </h3>
             <p className="text-gray-300">
-              AI Analyzes Skills, Experience, And Fit To Highlight The
+              Advanced Analyzes Skills, Experience, And Fit To Highlight The
               Candidates Who Truly Meet Your Needs.
             </p>
           </div>
