@@ -65,7 +65,7 @@ const WhatCanYouDo = () => {
     },
     {
       icon: <FaComments className="text-teal-400" />,
-      text: "Subscribe For JobsinApp To Use A Lot Of Services Including Candidate Matching",
+      text: "Live Chat Between Employer and Job Seeker on JobsinApp Mobile App",
     },
   ];
 
@@ -151,7 +151,7 @@ const WhatCanYouDo = () => {
               }}
               className={`${gradientClasses.primaryBg} px-8 cursor-pointer py-3 rounded-md hover:opacity-90 transition-all inline-block`}
             >
-              Start Posting Now
+              Start Now
             </button>
           </Link>
         </div>

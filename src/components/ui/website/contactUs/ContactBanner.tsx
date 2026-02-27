@@ -7,12 +7,12 @@ const ContactBanner = () => {
       <Container>
         <div className="text-center mb-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Let&apos;s Connect And Collaborate
+            Let&apos;s Connect
           </h1>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+          {/* <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Reach Out To Our Team For Inquiries, Support, Or Partnership
             Opportunities. We&apos;re Here To Help
-          </p>
+          </p> */}
         </div>
       </Container>
     </div>

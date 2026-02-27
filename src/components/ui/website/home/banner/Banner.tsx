@@ -137,7 +137,7 @@ const Banner = () => {
                   height={24}
                 />
                 <div>
-                  <p className="text-black text-sm">get the app on</p>
+                  <p className="text-black text-sm">Download on</p>
                   <p className="text-[#2A7D7D] text-md">Google Play</p>
                 </div>
               </div>

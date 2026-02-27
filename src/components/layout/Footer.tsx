@@ -9,11 +9,13 @@ import logo from "@/assets/banner/logo.png";
 import { myFetch } from "@/utils/myFetch";
 import { useState, useEffect } from "react";
 import AppDownloadModal from "@/components/ui/AppDownloadModal";
+import EmailChoiceModal from "../ui/website/EmailChoiceModal";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [contactInfo, setContactInfo] = useState<any>(null);
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchContactInfo = async () => {
@@ -93,7 +95,12 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-gray-200 text-sm">
                 <EmailIcon />
-                <span className="ml-2">{contactInfo?.email || "-"}</span>
+                <button
+                  onClick={() => setIsEmailModalOpen(true)}
+                  className="ml-2 hover:text-white transition-colors cursor-pointer text-left"
+                >
+                  {contactInfo?.email || "-"}
+                </button>
               </li>
               {/* <li className="flex items-center text-gray-200 text-sm">
                 <ContactIcon />
@@ -129,7 +136,7 @@ export default function Footer() {
               >
                 <GooglePlayIcon />
                 <div className="ml-3">
-                  <div className="text-xs text-gray-800">Get it on</div>
+                  <div className="text-xs text-gray-800">Download on</div>
                   <div className="text-sm font-semibold">Google Play</div>
                 </div>
               </Link>
@@ -139,8 +146,8 @@ export default function Footer() {
               >
                 <AppleStoreIcon />
                 <div className="ml-3">
-                  <div className="text-xs text-gray-800">Get it on</div>
-                  <div className="text-sm font-semibold">Apple Store</div>
+                  <div className="text-xs text-gray-800">Download on</div>
+                  <div className="text-sm font-semibold">App Store</div>
                 </div>
               </Link>
             </div>
@@ -179,6 +186,11 @@ export default function Footer() {
       <AppDownloadModal
         isOpen={isApplyModalOpen}
         onClose={() => setIsApplyModalOpen(false)}
+      />
+      <EmailChoiceModal
+        isOpen={isEmailModalOpen}
+        onClose={() => setIsEmailModalOpen(false)}
+        email={contactInfo?.email || "info@jobsinapp.de"}
       />
     </footer>
   );

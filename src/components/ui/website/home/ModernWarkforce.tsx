@@ -122,7 +122,7 @@ const ModernWarkforce = () => {
               Intelligent Analysis
             </h3>
             <p className="text-gray-300">
-              Automatically Evaluate Applications With AI-Powered Insights And
+              Automatically Evaluate Applications With Ad-Powered Insights And
               Recommendations.
             </p>
           </div>

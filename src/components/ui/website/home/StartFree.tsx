@@ -61,7 +61,7 @@ const StartFree = () => {
           style={{ transitionDelay: "100ms" }}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-            Start Free, Grow As You Hire. Find
+            Start Free. Find
             <br className="hidden sm:block" />
             Plans That Grow With You.
           </h2>
@@ -145,7 +145,7 @@ const StartFree = () => {
                 You need our support
               </h3>
               <p className="text-gray-300 text-sm">
-                to find a perfect match for your posting.
+                to find a perfect candidate for your posting.
               </p>
             </div>
             <div className="flex justify-center mt-6">

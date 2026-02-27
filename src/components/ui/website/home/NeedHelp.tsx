@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaPhone, FaEnvelope, FaCommentDots } from "react-icons/fa";
 import Link from "next/link";
+import EmailChoiceModal from "../EmailChoiceModal";
 
 interface ContactInfo {
   phone?: string;
@@ -15,6 +16,7 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
   const [itemsVisible, setItemsVisible] = useState<[boolean, boolean, boolean]>(
     [false, false, false],
   );
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
 
   const headerRef = useRef<HTMLHeadingElement | null>(null);
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -110,11 +112,9 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            <a
-              href={`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=info@jobsinapp.de`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center group cursor-pointer"
+            <button
+              onClick={() => setIsEmailModalOpen(true)}
+              className="flex flex-col items-center group cursor-pointer w-full"
             >
               <div className="bg-[#16A249] p-4 rounded-full mb-3 group-hover:bg-[#12813a] group-hover:scale-110 transition-all duration-300">
                 <FaEnvelope className="text-white text-xl" />
@@ -125,7 +125,7 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
               <span className="text-gray-300 text-sm group-hover:text-white transition-colors">
                 {contactInfo?.email || "info@jobsinapp.de"}
               </span>
-            </a>
+            </button>
           </div>
 
           {/* Contact Form */}
@@ -157,6 +157,11 @@ const NeedHelp = ({ contactInfo }: { contactInfo?: ContactInfo }) => {
           </div>
         </div>
       </div>
+      <EmailChoiceModal
+        isOpen={isEmailModalOpen}
+        onClose={() => setIsEmailModalOpen(false)}
+        email={contactInfo?.email || "info@jobsinapp.de"}
+      />
     </section>
   );
 };

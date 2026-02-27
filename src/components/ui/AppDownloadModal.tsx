@@ -55,7 +55,7 @@ const AppDownloadModal: FC<AppDownloadModalProps> = ({ isOpen, onClose }) => {
               </svg>
               <div className="text-left">
                 <div className="text-[10px] uppercase font-bold text-gray-500 -mb-1">
-                  Get it on
+                  Download on
                 </div>
                 <div className="text-lg font-bold">Google Play</div>
               </div>
@@ -75,7 +75,7 @@ const AppDownloadModal: FC<AppDownloadModalProps> = ({ isOpen, onClose }) => {
               </svg>
               <div className="text-left">
                 <div className="text-[10px] uppercase font-bold text-gray-500 -mb-1">
-                  Download on the
+                  Download on
                 </div>
                 <div className="text-lg font-bold">App Store</div>
               </div>

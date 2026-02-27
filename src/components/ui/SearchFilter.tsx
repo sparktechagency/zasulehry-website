@@ -89,9 +89,6 @@ const SearchFilter = ({
           <Autocomplete
             onLoad={onAutocompleteLoad}
             onPlaceChanged={onPlaceChanged}
-            options={{
-              types: ["(cities)"],
-            }}
           >
             <input
               type="text"

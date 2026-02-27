@@ -22,7 +22,7 @@ const AboutUsBanner = () => {
               JobsinApp Makes The Process Fast, Transparent, And User-Friendly
             </p>
             <Link
-              href="/contact"
+              href="/contact-us"
               className={`${gradientClasses.buttonBg} text-white font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-md transition duration-300 inline-block`}
             >
               Contact Now

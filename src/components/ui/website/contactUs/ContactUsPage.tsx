@@ -6,6 +6,7 @@ import { gradientClasses } from "@/styles/gradients";
 import ContactBanner from "./ContactBanner";
 import Link from "next/link";
 import { FaTimes, FaArrowLeft } from "react-icons/fa";
+import EmailChoiceModal from "../EmailChoiceModal";
 
 import { createSupportAction } from "@/actions/support";
 import toast from "react-hot-toast";
@@ -35,6 +36,7 @@ const ContactUsPage = ({
   const [file, setFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isAppModalOpen, setIsAppModalOpen] = useState(false);
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -146,14 +148,12 @@ const ContactUsPage = ({
                     </svg>
                   </div>
                   {contactInfo?.email ? (
-                    <a
-                      href={`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${contactInfo.email}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-teal-400 transition-colors"
+                    <button
+                      onClick={() => setIsEmailModalOpen(true)}
+                      className="text-white hover:text-teal-400 transition-colors cursor-pointer"
                     >
                       {contactInfo.email}
-                    </a>
+                    </button>
                   ) : (
                     <span className="text-white">-</span>
                   )}
@@ -477,7 +477,7 @@ const ContactUsPage = ({
                   </svg>
                   <div className="text-left">
                     <div className="text-[10px] uppercase font-bold text-gray-500 -mb-1">
-                      Get it on
+                      Download on
                     </div>
                     <div className="text-lg font-bold">Google Play</div>
                   </div>
@@ -497,7 +497,7 @@ const ContactUsPage = ({
                   </svg>
                   <div className="text-left">
                     <div className="text-[10px] uppercase font-bold text-gray-500 -mb-1">
-                      Download on the
+                      Download on
                     </div>
                     <div className="text-lg font-bold">App Store</div>
                   </div>
@@ -507,6 +507,11 @@ const ContactUsPage = ({
           </div>
         </div>
       )}
+      <EmailChoiceModal
+        isOpen={isEmailModalOpen}
+        onClose={() => setIsEmailModalOpen(false)}
+        email={contactInfo?.email || ""}
+      />
     </div>
   );
 };

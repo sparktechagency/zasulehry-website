@@ -8,7 +8,7 @@ const WhyChooseUs = () => {
       id: 1,
       title: "Effortless Hiring, Every Time, Very Easy.",
       description:
-        "We Use Advance Technology To Find A Perfect Match. We Offer Free Services And Free Job Posting For Everyone. Post Jobs, Manage Applications, And Connect With Top Talent — All In One Simple, Intuitive Platform. No More Juggling Multiple Tools.",
+        "We Use Advance Technology To Find A Perfect Candidate. We Offer Free Services And Free Job Posting For Everyone. Post Jobs, Manage Applications, And Connect With Top Talent — All In One Simple, Intuitive Platform. No More Juggling Multiple Tools.",
     },
     {
       id: 2,
@@ -40,7 +40,7 @@ const WhyChooseUs = () => {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [headerInView, setHeaderInView] = useState(false);
   const [itemsInView, setItemsInView] = useState<boolean[]>(
-    Array(features.length).fill(false)
+    Array(features.length).fill(false),
   );
 
   useEffect(() => {
