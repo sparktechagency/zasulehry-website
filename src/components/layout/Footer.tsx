@@ -92,6 +92,7 @@ export default function Footer() {
               <li className="flex items-center text-gray-200 text-sm">
                 <PhoneIcon />
                 <span className="ml-2">{contactInfo?.phone || "-"}</span>
+                {/* <span className="ml-2">{contactInfo?.phone || "-"}</span> */}
               </li>
               <li className="flex items-center text-gray-200 text-sm">
                 <EmailIcon />
