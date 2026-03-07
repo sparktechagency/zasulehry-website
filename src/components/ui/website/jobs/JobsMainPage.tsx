@@ -37,7 +37,39 @@ const Pagination = ({
   totalPages: number;
   onPageChange: (page: number) => void;
 }) => {
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const getVisiblePages = () => {
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+
+    if (currentPage <= 4) {
+      return [1, 2, 3, 4, 5, "...", totalPages];
+    }
+
+    if (currentPage >= totalPages - 3) {
+      return [
+        1,
+        "...",
+        totalPages - 4,
+        totalPages - 3,
+        totalPages - 2,
+        totalPages - 1,
+        totalPages,
+      ];
+    }
+
+    return [
+      1,
+      "...",
+      currentPage - 1,
+      currentPage,
+      currentPage + 1,
+      "...",
+      totalPages,
+    ];
+  };
+
+  const visiblePages = getVisiblePages();
 
   return (
     <div className="flex items-center justify-center mt-10 mb-5 space-x-1">
@@ -49,19 +81,32 @@ const Pagination = ({
         &lt;
       </button>
 
-      {pages.map((page) => (
-        <button
-          key={page}
-          onClick={() => onPageChange(page)}
-          className={`flex items-center justify-center w-8 h-8 rounded-full ${
-            currentPage === page
-              ? "bg-teal-500 text-white"
-              : "border border-gray-700 text-gray-400 hover:border-teal-500 hover:text-teal-500"
-          }`}
-        >
-          {page}
-        </button>
-      ))}
+      {visiblePages.map((page, index) => {
+        if (page === "...") {
+          return (
+            <span
+              key={`ellipsis-${index}`}
+              className="flex items-end justify-center px-1 text-gray-400"
+            >
+              ...
+            </span>
+          );
+        }
+
+        return (
+          <button
+            key={index}
+            onClick={() => onPageChange(page as number)}
+            className={`flex items-center justify-center w-8 h-8 rounded-full ${
+              currentPage === page
+                ? "bg-teal-500 text-white"
+                : "border border-gray-700 text-gray-400 hover:border-teal-500 hover:text-teal-500"
+            }`}
+          >
+            {page}
+          </button>
+        );
+      })}
 
       <button
         onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
