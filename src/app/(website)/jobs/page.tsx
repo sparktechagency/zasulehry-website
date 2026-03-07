@@ -46,7 +46,7 @@ const page = async ({
     }
 
     const queryString = query.toString();
-    const endpoint = `/jobs/public${queryString ? `?${queryString}` : ""}`;
+    const endpoint = `/jobs/public${queryString ? `?${queryString}` : ""}&isHiringRequest=false`;
     // console.log("BACKEND ENDPOINT ==>>", endpoint);
 
     const response = await myFetch(endpoint);
