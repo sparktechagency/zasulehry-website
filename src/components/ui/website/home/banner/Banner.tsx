@@ -82,7 +82,7 @@ const Banner = () => {
               href="https://portal.jobsinapp.de/hire-employees"
               variant="glass"
             >
-              Start Hiring Now
+              Start Hiring
             </Button>
             <Button href="/jobs" variant="glass">
               Find Jobs
