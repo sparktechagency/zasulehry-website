@@ -141,6 +141,18 @@ export default function GoogleTranslate() {
       }, 300);
     };
 
+    // Ensure default language cookie is set to German before script loads
+    if (!document.cookie.includes("googtrans=")) {
+      const domain = window.location.hostname.split(".").slice(-2).join(".");
+      const date = new Date();
+      date.setFullYear(date.getFullYear() + 1);
+      const expires = date.toUTCString();
+      document.cookie = `googtrans=/en/de; expires=${expires}; path=/; SameSite=Lax`;
+      if (domain.includes(".")) {
+        document.cookie = `googtrans=/en/de; expires=${expires}; path=/; domain=.${domain}; SameSite=Lax`;
+      }
+    }
+
     // Load the script
     const script = document.createElement("script");
     script.id = "google-translate-script";
