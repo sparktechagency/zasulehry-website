@@ -12,8 +12,8 @@ import Button from "../ui/Button";
 import { FaEarthAsia, FaChevronDown } from "react-icons/fa6";
 
 const languages = [
-  { name: "English", code: "en", country: "gb" },
   { name: "German", code: "de", country: "de" },
+  { name: "English", code: "en", country: "gb" },
   { name: "French", code: "fr", country: "fr" },
   { name: "Dutch", code: "nl", country: "nl" },
   { name: "Romania", code: "ro", country: "ro" },
