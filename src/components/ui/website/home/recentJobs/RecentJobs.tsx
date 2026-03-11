@@ -82,6 +82,8 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
       coordinates: job.coordinates as [number, number],
     }));
 
+  // console.log("initialJobs", initialJobs);
+
   return (
     <div className="bg-[#2C3E50] py-10">
       <Container>
@@ -139,7 +141,7 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
               },
             }}
           >
-            {initialJobs.map((job) => (
+            {initialJobs?.map((job) => (
               <SwiperSlide key={job.id} className="h-auto">
                 <JobCard
                   id={job.id}
@@ -151,6 +153,7 @@ const RecentJobs = ({ initialJobs = [], categories = [] }: RecentJobsProps) => {
                   type={job.type}
                   postedDays={job.postedDays}
                   image={job.image}
+                  isPrioritized={job.isPrioritized}
                 />
               </SwiperSlide>
             ))}

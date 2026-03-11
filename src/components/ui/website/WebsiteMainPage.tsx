@@ -53,6 +53,7 @@ const WebsiteMainPage = async ({ contactInfo }: { contactInfo?: any }) => {
           postedDays: postedDays,
           coordinates: item?.location?.coordinates || null,
           image: item.author?.image,
+          isPrioritized: item.isPrioritized,
         };
       });
     }

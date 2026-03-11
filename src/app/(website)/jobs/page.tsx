@@ -79,6 +79,7 @@ const page = async ({
           postedDays: postedDays,
           coordinates: item?.location?.coordinates || null,
           image: item.author?.image,
+          isPrioritized: item.isPrioritized,
         };
       });
 

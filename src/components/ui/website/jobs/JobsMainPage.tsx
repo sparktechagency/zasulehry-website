@@ -20,6 +20,7 @@ export interface Job {
   postedDays: number;
   coordinates: [number, number] | null; // [lng, lat] from API
   image: string;
+  isPrioritized: boolean;
 }
 
 interface PaginationData {
@@ -287,8 +288,8 @@ const JobsMainPage = ({
         <div>
           {/* Job Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 mx-auto max-w-xs sm:max-w-none">
-            {initialJobs.length > 0 ? (
-              initialJobs.map((job) => (
+            {initialJobs?.length > 0 ? (
+              initialJobs?.map((job) => (
                 <JobCard
                   key={job.id}
                   id={job.id}
@@ -300,6 +301,7 @@ const JobsMainPage = ({
                   type={job.jobType}
                   postedDays={job.postedDays}
                   image={job.image}
+                  isPrioritized={job.isPrioritized}
                 />
               ))
             ) : (
