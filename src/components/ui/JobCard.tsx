@@ -13,6 +13,7 @@ export interface JobCardProps {
   type: string;
   postedDays: number;
   image?: string;
+  isPrioritized?: boolean;
   onClick?: () => void;
 }
 
@@ -26,6 +27,7 @@ const JobCard: FC<JobCardProps> = ({
   type,
   postedDays,
   image,
+  isPrioritized,
   onClick,
 }) => {
   return (
@@ -96,7 +98,13 @@ const JobCard: FC<JobCardProps> = ({
           <span className="bg-[#FFFFFF0D] border text-white border-[#FFFFFF1A] text-sm px-3 py-1 rounded">
             {type}
           </span>
-          <span className="text-gray-400 text-sm">{postedDays} Days Ago</span>
+          {isPrioritized ? (
+            <span className="text-[#81d8fd] bg-[#52c2f1]/10 border border-[#52c2f1]/20 px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
+              ★ Priority
+            </span>
+          ) : (
+            <span className="text-gray-400 text-sm">{postedDays} Days Ago</span>
+          )}
         </div>
       </div>
 
