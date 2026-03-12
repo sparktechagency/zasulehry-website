@@ -15,28 +15,28 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
       const item = response.data;
       jobData = {
         id: item._id,
-        title: item.subCategory || "Untitled Job",
-        sector: item.category || "N/A",
-        company: item.author?.name || "Sparktech Agency",
-        location: item.author?.address || "N/A",
-        jobType: item.jobType || "Full Time",
-        salary: item.salaryAmount
-          ? `€${item.salaryAmount}/${item.salaryType}ly`
+        title: item?.subCategory || "Untitled Job",
+        sector: item?.category || "N/A",
+        company: item?.author?.name || "Sparktech Agency",
+        location: item?.address || "N/A",
+        jobType: item?.jobType || "Full Time",
+        salary: item?.salaryAmount
+          ? `€${item?.salaryAmount}/${item?.salaryType}ly`
           : "Negotiable",
-        postedDate: item.createdAt
-          ? new Date(item.createdAt).toLocaleDateString("en-GB", {
+        postedDate: item?.createdAt
+          ? new Date(item?.createdAt).toLocaleDateString("en-GB", {
               day: "2-digit",
               month: "short",
               year: "numeric",
             })
           : "N/A",
-        image: item.author?.image,
-        aboutCompany: item.aboutCompany || "No description available.",
-        description: item.description || "No description available.",
-        responsibilities: item.responsibilities || [],
-        qualifications: item.qualifications || [],
+        image: item?.author?.image,
+        aboutCompany: item?.aboutCompany || "No description available.",
+        description: item?.description || "No description available.",
+        responsibilities: item?.responsibilities || [],
+        qualifications: item?.qualifications || [],
       };
-      console.log("OG ITEM => ", item);
+      // console.log("OG ITEM => ", item);
     }
   } catch (error) {
     console.error("Error fetching job details:", error);
