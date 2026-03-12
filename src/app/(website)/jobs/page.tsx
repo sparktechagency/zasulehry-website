@@ -68,18 +68,18 @@ const page = async ({
 
         return {
           id: item._id,
-          title: item.subCategory,
-          sector: item.category,
-          company: item.author?.name || "Sparktech Agency",
-          location: item.author?.address || "N/A",
-          salary: item.salaryAmount
-            ? `€${item.salaryAmount}/${item.salaryType}ly`
+          title: item?.subCategory,
+          sector: item?.category,
+          company: item?.author?.name || "Sparktech Agency",
+          location: item?.address || "N/A",
+          salary: item?.salaryAmount
+            ? `€${item?.salaryAmount}/${item?.salaryType}ly`
             : "Negotiable",
-          jobType: item.jobType || "Full Time",
+          jobType: item?.jobType || "Full Time",
           postedDays: postedDays,
           coordinates: item?.location?.coordinates || null,
-          image: item.author?.image,
-          isPrioritized: item.isPrioritized,
+          image: item?.author?.image,
+          isPrioritized: item?.isPrioritized,
         };
       });
 
